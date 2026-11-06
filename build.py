@@ -13,8 +13,30 @@ css = css.replace(':root{', ':host{', 1)
 css = css.replace('body{margin:0;background:#fdfdf5;font-family:Montserrat,system-ui,sans-serif}',
                   ':host{display:block;margin:0;font-family:Montserrat,system-ui,sans-serif}', 1)
 
+# --- layout fixes for wide screens: line the header and menu up with the page content column ---
+css += """
+#site .menu{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:rgba(3,20,26,.94)!important}
+#site{--G:calc((100vw - min(100vw,1440px))/2 + 5vw)}
+@media (min-width:1441px){
+#site .nav{padding-left:var(--G)!important;padding-right:var(--G)!important}
+#site .menu:is(.kxa,.kxb,.kxc,.kxd,.kua) .kwl{left:var(--G)!important}
+#site .menu:is(.kxa,.kxb,.kxc,.kxd,.kua) .kwp{right:var(--G)!important}
+#site .menu:is(.kxc,.kua) .ft{left:var(--G)!important}
+}
+#site .menu .kzh1{background-color:#000;background-repeat:no-repeat!important;background-size:auto 108%!important;background-position:78% 20%!important}
+"""
+
 scripts = re.findall(r'<script>(.*?)</script>', src, re.S)
 main = [s for s in scripts if 'function init()' in s][0]
+# --- menu preview cards: real pictures for About and Say hello instead of plain gradients ---
+_imgs = json.load(open('assets/imgs.json'))
+main = main.replace('var IMG={', 'var IMG={ab:%s,pt:%s,' % (json.dumps(_imgs['hero']), json.dumps(_imgs['portrait'])), 1)
+_old = "'linear-gradient(135deg,#e6e0ff,#7a6af0)','url('+IMG.t+')'"
+assert _old in main, 'PATCH MISS: PVB about'
+main = main.replace(_old, "'url('+IMG.pt+')','url('+IMG.t+')'", 1)
+_old = ",'linear-gradient(135deg,#ffc929,#ebefa0)'][i]}"
+assert _old in main, 'PATCH MISS: PVB hello'
+main = main.replace(_old, ",'linear-gradient(135deg,#0f5f66,#7ff3e4 48%,#e6e0ff)'][i]}", 1)
 patch = [s for s in scripts if 'function patch()' in s][0]
 svg = re.search(r'<svg width="0" height="0" style="position:absolute" aria-hidden="true">.*?</svg>', src, re.S).group(0)
 
