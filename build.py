@@ -51,6 +51,16 @@ css += """
 #site .hero .hr{flex-direction:row;justify-content:space-between;align-items:flex-end;width:100%;background:none!important;border:0!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;padding:0!important}
 #site .hero .hr .lead{max-width:560px;font-size:22px;line-height:1.55}
 }
+
+/* natural aurora behind the home hero */
+#site .hero{isolation:isolate}
+#site .hero .lead{text-shadow:0 2px 18px rgba(3,20,26,.9),0 0 6px rgba(3,20,26,.7)}
+#site .aur{opacity:.78;position:absolute;left:50%;top:12%;width:100vw;max-width:1800px;transform:translateX(-50%);z-index:-1;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+#site .aur svg{display:block;width:100%;height:auto;aspect-ratio:1440/560;animation:aurmv 14s ease-in-out infinite}
+#site .aur .aug{position:absolute;left:0;right:0;top:48%;height:70%;background:radial-gradient(ellipse 50% 50% at 50% 30%,rgba(127,243,228,.22),rgba(127,243,228,0) 70%)}
+@keyframes aurmv{0%,100%{transform:translateX(-1.2%);opacity:.85}50%{transform:translateX(1.2%);opacity:1}}
+@media (prefers-reduced-motion:reduce){#site .aur svg{animation:none}}
+:host(.lite) .aur svg{animation:none;filter:none}
 /* lite mode: software rendering / no graphics acceleration */
 :host(.lite) *{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 :host(.lite) .mcv,:host(.lite) .scue,:host(.lite) .bgfx::before,:host(.lite) .bgfx::after{display:none!important}
@@ -115,6 +125,12 @@ def must(old, new, count=1, text=None):
         sys.exit('PATCH MISS: ' + old[:80])
     main = t.replace(old, new) if count == 0 else t.replace(old, new, count)
 
+AUR_JS = r'''
+function aurHtml(){var sd=0,R=function(){sd=(sd*1664525+1013904223)>>>0;return sd/4294967296};
+function cur(base,amp,ph,hm,c0,c1,step,seed,op){sd=seed;var o='',x=-20;while(x<1460){var yb=base+amp*Math.sin(x/240+ph)+amp*.45*Math.sin(x/97+ph*2),env=.5+.5*Math.sin(x/310+ph*1.7)*Math.sin(x/130+ph),h=hm*Math.max(.3,env)*(.6+.4*R()),w=3+R()*6,ln=(R()*12-6)+(x-720)/720*-12,c=R()<.75?c0:c1,op2=Math.min(1,op*(.45+.55*R()));o+='<path d="M'+x.toFixed(0)+' '+yb.toFixed(0)+'L'+(x+ln).toFixed(0)+' '+(yb-h).toFixed(0)+'L'+(x+ln+w*.6).toFixed(0)+' '+(yb-h).toFixed(0)+'L'+(x+w).toFixed(0)+' '+yb.toFixed(0)+'Z" fill="url(#'+c+')" opacity="'+op2.toFixed(2)+'"/>';x+=step*(.6+.8*R())}return o}
+var a1=cur(450,38,.5,400,'gT','gL',4.5,3,.95),a2=cur(490,30,2.1,330,'gL','gT',5.5,11,.75),a3=cur(410,26,4,270,'gG','gT',6.5,5,.6),p=[];for(var x=-20;x<=1460;x+=20)p.push(x+' '+(450+38*Math.sin(x/240+.5)+17*Math.sin(x/97+1)).toFixed(0));
+return '<div class="aur" aria-hidden="true"><i class="aug"></i><svg viewBox="0 0 1440 560" preserveAspectRatio="none"><defs><linearGradient id="gT" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#b8ffe6" stop-opacity=".95"/><stop offset=".25" stop-color="#4fe8b8" stop-opacity=".6"/><stop offset=".65" stop-color="#2fb7c8" stop-opacity=".22"/><stop offset="1" stop-color="#3a6fd8" stop-opacity="0"/></linearGradient><linearGradient id="gL" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ffc6f0" stop-opacity=".85"/><stop offset=".3" stop-color="#b58cff" stop-opacity=".5"/><stop offset="1" stop-color="#6a5cff" stop-opacity="0"/></linearGradient><linearGradient id="gG" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#e8ffb0" stop-opacity=".8"/><stop offset=".3" stop-color="#7ff3c4" stop-opacity=".5"/><stop offset="1" stop-color="#2fb7c8" stop-opacity="0"/></linearGradient><filter id="b1" x="-5%" y="-20%" width="110%" height="140%"><feGaussianBlur stdDeviation="3 6"/></filter><filter id="b2" x="-5%" y="-30%" width="110%" height="160%"><feGaussianBlur stdDeviation="22 30"/></filter><filter id="b3" x="-5%" y="-100%" width="110%" height="300%"><feGaussianBlur stdDeviation="8"/></filter></defs><g filter="url(#b2)" opacity=".9">'+a2+a1+'</g><g filter="url(#b1)">'+a2+'</g><g filter="url(#b1)">'+a3+'</g><g filter="url(#b1)">'+a1+'</g><path d="M'+p.join('L')+'" fill="none" stroke="#c8fff0" stroke-opacity=".5" stroke-width="12" filter="url(#b3)"/></svg></div>'}
+'''
 # --- run inside the shadow root instead of the document ---
 main = main.replace('document.getElementById(', 'NSR.getElementById(')
 main = main.replace("document.querySelector('.pv-bar')", "NSR.querySelector('.pv-bar')")
@@ -144,6 +160,9 @@ new_go = r"""function go(x,el){
 }
 """
 main = main[:go_start] + new_go + main[go_end:]
+must("function bgfx(c){","function bgfx(c){")
+main = AUR_JS + main
+must("<section class=\"hero\" data-l=\"Hero\"><div class=\"hh\">'","<section class=\"hero\" data-l=\"Hero\">'+aurHtml()+'<div class=\"hh\">'")
 must("go(g.dataset.go);return}", "go(g.dataset.go,g);return}")
 must("go(its[ix].getAttribute('data-go'))", "go(its[ix].getAttribute('data-go'),its[ix])")
 must("Item", "Item", 0) if False else None
