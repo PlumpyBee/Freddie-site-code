@@ -15,7 +15,19 @@ css = css.replace('body{margin:0;background:#fdfdf5;font-family:Montserrat,syste
 
 # --- layout fixes for wide screens: line the header and menu up with the page content column ---
 css += """
-#site .menu{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:rgba(3,20,26,.94)!important}
+#site .menu{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:#03141a!important}
+#site.mo>main,#site.mo>.scue{visibility:hidden;transition:visibility 0s linear .9s}
+#site .menu .kzh{--kr:14!important;-webkit-mask-image:none!important;mask-image:none!important;background-repeat:no-repeat;background-color:#03141a}
+#site .menu .kzh0,#site .menu .kzh3,#site .menu .kzh4{background-size:contain!important;background-position:center!important}
+#site .menu .uug,#site .menu .kxgh{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:linear-gradient(135deg,rgba(10,40,52,.92),rgba(5,24,32,.96))!important;border:1px solid rgba(127,243,228,.3)!important;animation:none!important}
+#site .menu .uug .kgl,#site .menu .kwgl{display:none!important}
+#site .menu .uug .kwt{text-shadow:none!important}
+/* lite mode: software rendering / no graphics acceleration */
+:host(.lite) *{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+:host(.lite) .mcv,:host(.lite) .scue,:host(.lite) .bgfx::before,:host(.lite) .bgfx::after{display:none!important}
+:host(.lite) .mbtn,:host(.lite) .mbtn *,:host(.lite) .kzh,:host(.lite) .kwf,:host(.lite) .tk,:host(.lite) .mq{animation:none!important}
+:host(.lite) .x-g,:host(.lite) .x-stp,:host(.lite) .x-cat,:host(.lite) .x-tile,:host(.lite) .qs,:host(.lite) .tl-card{background:rgba(8,34,44,.88)!important;box-shadow:none!important}
+:host(.lite) *{text-shadow:none!important;filter:none!important}
 #site{--G:calc((100vw - min(100vw,1440px))/2 + 5vw)}
 @media (min-width:1441px){
 #site .nav{padding-left:var(--G)!important;padding-right:var(--G)!important}
@@ -52,6 +64,12 @@ main = main.replace(_old, "'url('+IMG.pt+')','url('+IMG.t+')'", 1)
 _old = ",'linear-gradient(135deg,#ffc929,#ebefa0)'][i]}"
 assert _old in main, 'PATCH MISS: PVB hello'
 main = main.replace(_old, ",'linear-gradient(135deg,#0f5f66,#7ff3e4 48%,#e6e0ff)'][i]}", 1)
+_B='https://s3.amazonaws.com/webflow-prod-assets/65bcd665e34d787b54fdda73/'
+_pics={'h':_B+'6ad5f64b1b6de57eb41ad39f_heromashup2-p-1080.png','t':_B+'6ad3735e08484eaec7f80c11_Screenshot%202023-03-22%20at%2016.57%202-p-1600.png','a':_B+'6adf7a067ac627eac5e39e01_alta-flora-hero-3-p-1080.png','b':_B+'6adf79e0eb7f85baae64703c_balance-hero-p-1080.png'}
+for _k,_u in _pics.items():
+    _o="'url('+IMG.%s+')'"%_k
+    assert _o in main,'PATCH MISS pic '+_k
+    main=main.replace(_o,"'url(%s)'"%_u,1)
 patch = [s for s in scripts if 'function patch()' in s][0]
 svg = re.search(r'<svg width="0" height="0" style="position:absolute" aria-hidden="true">.*?</svg>', src, re.S).group(0)
 
@@ -104,6 +122,7 @@ main = main.replace("if(!/closed/.test(location.search))setTimeout(openMenu,700)
 if "__NA_PAGE" not in main:
     sys.exit('PATCH MISS: start state')
 
+must('i<70','i<(NSR.host.classList.contains("lite")?18:70)')
 # the preview bar is hidden, drop its toast on links
 main = main.replace("toast('Case study pages aren’t part of this preview')", "")
 
@@ -136,6 +155,9 @@ out.append(r"""
 function mount(){
  var host=document.createElement('div');host.id='na-host';
  var NSR=host.attachShadow({mode:'open'});
+ try{var gc=document.createElement('canvas'),gl=gc.getContext('webgl')||gc.getContext('experimental-webgl'),lite=!gl;
+  if(gl){var ex=gl.getExtension('WEBGL_debug_renderer_info');var rn=ex?gl.getParameter(ex.UNMASKED_RENDERER_WEBGL):'';if(/swiftshader|llvmpipe|software|basic render|microsoft basic/i.test(rn))lite=true}
+  if(lite||/[?&]lite=1/.test(location.search))host.classList.add('lite')}catch(e){}
  NSR.innerHTML='<style>'+CSS+'</style>'+SVG+'<div class="pv-bar" id="pvb"></div><div class="pv-cap" id="hhc"></div><div id="site"></div><div class="pv-toast" id="pvt"></div>';
  document.body.insertBefore(host,document.body.firstChild);
  document.documentElement.classList.remove('na-pre');
