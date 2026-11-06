@@ -31,6 +31,26 @@ css += """
 #site .hxp{display:none!important}
 #site .te-img img{transform:rotate(-2deg) scale(1.25)!important;transform-origin:50% 50%;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55))}
 @media (min-width:1100px){#site .te-hero{grid-template-columns:1fr 1fr!important}#site .te-img{overflow:visible}#site .te-img img{width:185%!important;max-width:none!important;margin-left:-40%;transform:rotate(-2deg)!important}}
+/* desktop: real nav bar instead of the Menu button, big statement hero (option A) */
+@media (min-width:1100px){
+#site .mbtn{display:none!important}
+#site[data-nv] .nv,#site .nv{display:flex!important;background:none!important;border:0!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;padding:0!important;gap:34px;align-items:center;box-shadow:none!important}
+#site .nvi{display:none!important}
+#site .nv a{padding:8px 0!important;font:600 12px var(--fb)!important;letter-spacing:.16em;text-transform:uppercase;border-radius:0!important;background:none!important;color:#fefdf6!important;transition:color .25s}
+#site .nv li.on a,#site .nv a:hover{color:#7ff3e4!important;background:none!important}
+#site .nv li[data-pp="mail"] a{padding:12px 22px!important;border:1px solid rgba(127,243,228,.55);border-radius:999px!important;background:rgba(8,34,44,.55)!important}
+#site .nv li[data-pp="mail"] a:hover{background:#7ff3e4!important;color:#03141a!important}
+#site .logo{border:0!important;background:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;padding:0!important;font:500 24px var(--fd)!important;box-shadow:none!important}
+#site .hero{display:flex!important;flex-direction:column;justify-content:space-between;align-items:stretch;gap:40px;min-height:calc(100vh - var(--barh) - 90px)}
+#site .hero .hh{gap:22px}
+#site .hero h1.dk{font-size:min(15.2vw,29vh,218px);font-weight:300;line-height:.9;letter-spacing:-.01em}
+#site .hero h1 .ln{display:inline!important}
+#site .hero h1 .ln:first-child{display:block!important}
+#site .hero h1.dk{white-space:nowrap}
+#site .hero h1 .ln:nth-child(3){margin-left:.24em}
+#site .hero .hr{flex-direction:row;justify-content:space-between;align-items:flex-end;width:100%;background:none!important;border:0!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;padding:0!important}
+#site .hero .hr .lead{max-width:560px;font-size:22px;line-height:1.55}
+}
 /* lite mode: software rendering / no graphics acceleration */
 :host(.lite) *{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 :host(.lite) .mcv,:host(.lite) .scue,:host(.lite) .bgfx::before,:host(.lite) .bgfx::after{display:none!important}
@@ -140,6 +160,7 @@ if "__NA_PAGE" not in main:
 must('i<70','i<(NSR.host.classList.contains("lite")?18:70)')
 must('function hexburst(e){','function hexburst(e){return;')
 main=main.replace('<img src="\'+IMG.h+\'" alt=""','<img src="'+_pics['h'].replace('-p-1080','-p-1600')+'" alt=""')
+must("var L=[['Home','home'],['About','about'],['Teaching','teach']]","var L=[['Home','home'],['About','about'],['Teaching','teach'],['Alta Flora','alta'],['Balance','balance'],['Say hello','mail']]")
 # the preview bar is hidden, drop its toast on links
 main = main.replace("toast('Case study pages aren’t part of this preview')", "")
 
