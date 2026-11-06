@@ -125,6 +125,26 @@ css += """
 #site .ab-hero .stand{display:none!important}
 #site .ab-hero{grid-template-columns:minmax(0,1fr)!important}
 #site .ab-hero .ab-t{max-width:760px}
+/* About hero options 4/5/6 (?hero=) with continuous aurora */
+#site .ab-hero{overflow:visible!important;position:relative;min-height:clamp(560px,60vw,840px)}
+#site .ab-hero .ab-t{max-width:640px}
+#site .abfx{position:absolute;left:0;right:0;top:-60px;bottom:-170px;z-index:-1;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 16%,#000 52%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 16%,#000 52%,transparent 100%)}
+#site .abfx svg{position:absolute;overflow:visible}
+#site .abv4 svg{left:0;top:34%;width:100%;height:66%}
+#site .abv5 svg{right:0;top:0;width:44%;height:100%}
+#site .abv6 svg{left:22%;top:22%;width:78%;height:60%}
+#site .abgh{position:absolute;left:3vw;bottom:-2%;z-index:-1;pointer-events:none;font:500 min(21vw,310px)/.8 var(--fd);text-transform:uppercase;padding-bottom:.16em;background:linear-gradient(180deg,#fff 20%,#7ff3e4 70%,rgba(127,243,228,.2));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 3vw rgba(127,243,228,.35))}
+#site .ab-hero[data-ah="6"] .ab-t{margin-left:auto;width:min(560px,52%)}
+#site .ab-hero[data-ah="6"] .hey{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+#site .abamb{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 9%,#000 92%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 9%,#000 92%,transparent 100%)}
+#site .abamb i{position:absolute;display:block;border-radius:50%;mix-blend-mode:screen;animation:b3pf 24s ease-in-out infinite}
+#site .abamb i.g{background:radial-gradient(ellipse 36% 32% at 50% 62%,rgba(70,255,170,.55),rgba(70,255,170,0)),radial-gradient(ellipse 46% 46% at 52% 50%,rgba(40,230,255,.42),rgba(40,230,255,0))}
+#site .abamb i.v{background:radial-gradient(ellipse 36% 32% at 50% 62%,rgba(150,110,255,.5),rgba(150,110,255,0)),radial-gradient(ellipse 46% 46% at 52% 50%,rgba(40,230,255,.32),rgba(40,230,255,0))}
+#site .abamb i.h{background:radial-gradient(ellipse 36% 32% at 50% 62%,rgba(235,239,110,.45),rgba(235,239,110,0)),radial-gradient(ellipse 46% 46% at 52% 50%,rgba(120,255,150,.3),rgba(120,255,150,0))}
+@media(max-width:900px){#site .ab-hero{min-height:0}#site .ab-hero[data-ah="6"] .ab-t{width:100%;margin-left:0}#site .ab-hero[data-ah="6"]{padding-bottom:36vw!important}#site .abv5 svg{width:70%;opacity:.7}#site .abv4 svg{top:46%;height:54%}#site .abv6 svg{left:0;width:100%;top:40%;height:52%}#site .abgh{font-size:34vw;left:4vw}}
+:host(.lite) .abamb i{animation:none}:host(.lite) .abfx svg{opacity:.55}
+@media (prefers-reduced-motion:reduce){#site .abamb i{animation:none}}
+
 @media (max-width:1099px){
 #site{--u:.12vw}
 .scue{display:none!important}
@@ -220,6 +240,17 @@ return '<div class="hpl" aria-hidden="true">'+pk+'</div><div class="aur" aria-hi
 
 function aurPuffs(){var sd=7,R=function(){sd=(sd*1664525+1013904223)>>>0;return sd/4294967296},P=[['70,255,170','40,200,255'],['40,230,255','150,110,255'],['120,255,150','40,230,230'],['150,110,255','255,90,200'],['230,255,110','70,255,170'],['255,90,200','150,110,255'],['40,230,255','70,255,170'],['70,255,170','150,110,255']],o='';for(var i=0;i<10;i++){var p=P[i%8],w=34+R()*24,h=36+R()*22,x=(i/10)*100-14+R()*10,y=6+R()*40,tx=Math.round((R()-.5)*220),ty=Math.round((R()-.5)*70),rt=((R()-.5)*16).toFixed(1),du=(14+R()*16).toFixed(1),dl=(R()*20).toFixed(1),a=(.5+R()*.2).toFixed(2),st='left:'+x.toFixed(1)+'%;top:'+y.toFixed(1)+'%;width:'+w.toFixed(1)+'%;height:'+h.toFixed(1)+'%;--tx:'+tx+'px;--ty:'+ty+'px;--rt:'+rt+'deg;animation-duration:'+du+'s;animation-delay:-'+dl+'s';o+='<i class="pf" style="'+st+';background:radial-gradient(ellipse 34% 30% at 50% 66%,rgba('+p[0]+','+a+'),rgba('+p[0]+',0) 100%),radial-gradient(ellipse 46% 46% at 52% 50%,rgba('+p[1]+','+(a*.8).toFixed(2)+'),rgba('+p[1]+',0) 100%),radial-gradient(closest-side at 50% 60%,rgba('+p[0]+','+(a*.45).toFixed(2)+'),rgba('+p[1]+','+(a*.2).toFixed(2)+') 60%,rgba('+p[1]+',0) 100%)"></i>'}return o}
 function aurB3(){return '<div class="hfx" aria-hidden="true"><i class="sk"></i>'+aurPuffs()+'<i class="gw"></i><i class="bd"></i><i class="ms ms1"></i><i class="ms ms2"></i></div>'}
+
+function abV(){var m=/[?&]hero=(\d)/.exec(location.search);return m&&/^[456]$/.test(m[1])?m[1]:'6'}
+function abRib(uid,or,layers){var W=or==='h'?1000:400,H=or==='h'?400:1000,o='<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none" aria-hidden="true"><defs>',i,j;
+for(i=0;i<layers.length;i++){var L=layers[i];o+='<linearGradient id="'+uid+'g'+i+'" x1="0" y1="0" x2="'+(or==='h'?1:0)+'" y2="'+(or==='h'?0:1)+'">';for(j=0;j<L.c.length;j++)o+='<stop offset="'+(j/(L.c.length-1)).toFixed(2)+'" stop-color="'+L.c[j]+'"/>';o+='</linearGradient><filter id="'+uid+'f'+i+'" filterUnits="userSpaceOnUse" x="-300" y="-300" width="1600" height="1600"><feGaussianBlur stdDeviation="'+L.b+'"/></filter>'}
+o+='</defs>';
+function P(t,ph){var n=5,pts=[],k,d,A=or==='h'?W:H,Bs=or==='h'?H:W;for(k=0;k<n;k++)pts.push([A*k/(n-1),Bs*.5+Bs*.32*Math.sin(k*1.5+t+ph)]);function pt(a,v){return or==='h'?[a,v]:[v,a]}var q=pt(pts[0][0],pts[0][1]);d='M'+Math.round(q[0])+' '+Math.round(q[1]);for(k=1;k<n;k++){var x0=pts[k-1][0],v0=pts[k-1][1],x1=pts[k][0],v1=pts[k][1],m=(x0+x1)/2,c1=pt(m,v0),c2=pt(m,v1),e=pt(x1,v1);d+=' C'+[c1[0],c1[1],c2[0],c2[1],e[0],e[1]].map(Math.round).join(' ')}return d}
+for(i=0;i<layers.length;i++){var L2=layers[i],vals=[0,2.1,4.2,6.3].map(function(t){return P(t,L2.p)}).join(';');o+='<path d="'+P(0,L2.p)+'" fill="none" stroke="url(#'+uid+'g'+i+')" stroke-width="'+L2.w+'" stroke-linecap="round" filter="url(#'+uid+'f'+i+')"><animate attributeName="d" dur="'+(14+i*3)+'s" repeatCount="indefinite" calcMode="spline" keyTimes="0;.33;.66;1" keySplines=".45 0 .55 1;.45 0 .55 1;.45 0 .55 1" values="'+vals+'"/></path>'}
+return o+'</svg>'}
+var AB1=[{w:150,b:26,p:0,c:['rgba(70,255,170,0)','rgba(70,255,170,.55)','rgba(40,230,255,.55)','rgba(150,110,255,.55)','rgba(150,110,255,0)']},{w:46,b:10,p:1.3,c:['rgba(120,255,200,0)','rgba(190,255,235,.7)','rgba(120,230,255,.7)','rgba(200,170,255,.6)','rgba(200,170,255,0)']}],AB2=[{w:150,b:26,p:2,c:['rgba(150,110,255,0)','rgba(150,110,255,.5)','rgba(255,90,200,.4)','rgba(40,230,255,.5)','rgba(40,230,255,0)']},{w:46,b:10,p:3.2,c:['rgba(200,170,255,0)','rgba(230,210,255,.6)','rgba(255,170,230,.55)','rgba(150,240,255,.65)','rgba(150,240,255,0)']}];
+function abFx(){var v=abV();return '<div class="abfx abv'+v+'" aria-hidden="true">'+(v==='5'?abRib('ab','v',AB2):abRib('ab','h',AB1))+'</div>'+(v==='6'?'<div class="abgh" aria-hidden="true">Hey</div>':'')}
+function abAmb(){var P=[['g',-14,12,74,50,.34],['v',48,22,70,50,.28],['g',-18,40,74,56,.26],['v',50,58,72,56,.24],['g',-12,76,74,56,.22],['h',50,90,64,50,.2]],o='<div class="abamb" aria-hidden="true">',i;for(i=0;i<P.length;i++)o+='<i class="'+P[i][0]+'" style="left:'+P[i][1]+'vw;top:'+P[i][2]+'%;width:'+P[i][3]+'vw;height:'+P[i][4]+'vw;opacity:'+P[i][5]+';animation-delay:-'+(i*3.7).toFixed(1)+'s;--tx:'+((i%2?-1:1)*60)+'px;--ty:-40px;--rt:6deg"></i>';return o+'</div>'}
 function aurHtml(){return (/[?&]fx=rays/.test(location.search))?aurRays():aurB3()}
 
 '''
@@ -255,6 +286,7 @@ main = main[:go_start] + new_go + main[go_end:]
 must("function bgfx(c){","function bgfx(c){")
 main = AUR_JS + main
 must("<section class=\"hero\" data-l=\"Hero\"><div class=\"hh\">'","<section class=\"hero\" data-l=\"Hero\">'+aurHtml()+'<div class=\"hh\">'")
+must('<div class="pg" data-pg="about"><section class="sec ab-hero" data-l="Intro">',"""<div class="pg" data-pg="about">'+abAmb()+'<section class="sec ab-hero" data-l="Intro" data-ah="'+abV()+'">'+abFx()+'""",0)
 # --- original plankton: more of them, in swarms, drawn gently to the mouse trail ---
 must("(.16+.1*Math.sin(ts/1200+p.ph)+p.b*.6)","(.24+.12*Math.sin(ts/1200+p.ph)+p.b*.6)")
 must("n:80","n:(NSR.host.classList.contains('lite')?60:170)",0)
@@ -341,3 +373,4 @@ import os
 os.makedirs('dist', exist_ok=True)
 open('dist/na.js', 'w', encoding='utf-8').write(''.join(out))
 print('dist/na.js', len(''.join(out)))
+
