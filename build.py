@@ -29,6 +29,7 @@ css += """
 #site .wi-c3 p{color:#fefdf6}
 #site .x-bento .big img{transform:none!important;object-position:50% 22%!important}
 #site .hxp{display:none!important}
+#site .te-img img{transform:rotate(-2deg) scale(1.25)!important;transform-origin:50% 50%;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55))}
 /* lite mode: software rendering / no graphics acceleration */
 :host(.lite) *{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 :host(.lite) .mcv,:host(.lite) .scue,:host(.lite) .bgfx::before,:host(.lite) .bgfx::after{display:none!important}
@@ -137,6 +138,7 @@ if "__NA_PAGE" not in main:
 
 must('i<70','i<(NSR.host.classList.contains("lite")?18:70)')
 must('function hexburst(e){','function hexburst(e){return;')
+main=main.replace('<img src="\'+IMG.h+\'" alt=""','<img src="'+_pics['h'].replace('-p-1080','-p-1600')+'" alt=""')
 # the preview bar is hidden, drop its toast on links
 main = main.replace("toast('Case study pages aren’t part of this preview')", "")
 
