@@ -121,6 +121,10 @@ css += """
 @keyframes b3sh{0%,100%{opacity:.35;transform:scaleX(.92)}50%{opacity:.7;transform:scaleX(1.04)}}
 :host(.lite) .hfx .pr,:host(.lite) .hfx .pf,:host(.lite) .hfx .ms{animation:none;filter:none;will-change:auto}
 @media (prefers-reduced-motion:reduce){#site .hfx i{animation:none!important}}
+/* About: photo removed for now */
+#site .ab-hero .stand{display:none!important}
+#site .ab-hero{grid-template-columns:minmax(0,1fr)!important}
+#site .ab-hero .ab-t{max-width:760px}
 @media (max-width:1099px){
 #site{--u:.12vw}
 .scue{display:none!important}
