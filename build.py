@@ -41,7 +41,7 @@ css += """
 #site .nv li[data-pp="mail"] a{padding:12px 22px!important;border:1px solid rgba(127,243,228,.55);border-radius:999px!important;background:rgba(8,34,44,.55)!important}
 #site .nv li[data-pp="mail"] a:hover{background:#7ff3e4!important;color:#03141a!important}
 #site .logo{border:0!important;background:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;padding:0!important;font:500 24px var(--fd)!important;box-shadow:none!important}
-#site .hero{display:flex!important;flex-direction:column;justify-content:space-between;align-items:stretch;gap:40px;min-height:calc(100vh - var(--barh) - 90px)}
+#site .hero{display:flex!important;flex-direction:column;justify-content:flex-start;align-items:stretch;gap:clamp(40px,5vw,72px);min-height:0!important;padding-bottom:clamp(64px,7vw,110px)}
 #site .hero .hh{gap:22px}
 #site .hero h1.dk{font-size:min(15.2vw,29vh,218px);font-weight:300;line-height:.9;letter-spacing:-.01em}
 #site .hero h1 .ln{display:inline!important}
