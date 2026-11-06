@@ -23,6 +23,21 @@ css += """
 #site .menu:is(.kxa,.kxb,.kxc,.kxd,.kua) .kwp{right:var(--G)!important}
 #site .menu:is(.kxc,.kua) .ft{left:var(--G)!important}
 }
+/* unified glass for every card (matches the menu glass and the header pill) */
+#site .x-g,#site .x-stp,#site .x-stp:nth-child(n),#site .x-cat,#site .x-tile{background:rgba(8,34,44,.55)!important;border:1px solid rgba(150,240,255,.22)!important;-webkit-backdrop-filter:blur(22px) saturate(1.3);backdrop-filter:blur(22px) saturate(1.3);border-radius:18px;box-shadow:0 0 40px rgba(127,243,228,.12),inset 0 1px 0 rgba(255,255,255,.08)!important}
+#site .x-stp{padding:32px}
+#site .x-cat{padding:28px 32px}
+#site .x-cat li{display:flex;align-items:center}
+#site .x-cat li+li::before{content:"";width:6px;height:6px;border-radius:50%;background:#7ff3e4;opacity:.7;margin-right:24px;flex:none}
+#site .x-cat h4{color:#7ff3e4}
+#site .x-stp:not(:last-child)::after{color:#7ff3e4}
+#site .x-stp svg,#site .x-stp:nth-child(n) svg{stroke:#7ff3e4}
+#site .x-loop{color:#7ff3e4;border-color:rgba(127,243,228,.4)}
+#site .x-loop i{background:rgba(127,243,228,.3)}
+#site .st b,#site .st>div:nth-child(n) b,#site .tw .ent .nm span,#site .tw .ent:nth-child(n) .nm span{background-image:linear-gradient(transparent 62%,rgba(110,230,255,.28) 62%)!important}
+#site .qs{background:rgba(8,34,44,.55)!important;border:1px solid rgba(150,240,255,.22)!important;border-radius:32px!important;-webkit-backdrop-filter:blur(22px) saturate(1.3);backdrop-filter:blur(22px) saturate(1.3);box-shadow:0 0 40px rgba(127,243,228,.12),inset 0 1px 0 rgba(255,255,255,.08)}
+#site .qs blockquote::before{color:#7ff3e4}
+#site .tl-card{background:rgba(8,34,44,.55)!important;border:1px solid rgba(150,240,255,.22)!important;border-radius:18px!important;padding:32px!important;-webkit-backdrop-filter:blur(22px) saturate(1.3);backdrop-filter:blur(22px) saturate(1.3);box-shadow:0 0 40px rgba(127,243,228,.12),inset 0 1px 0 rgba(255,255,255,.08)!important}
 #site .menu .kzh1{background-color:#000;background-repeat:no-repeat!important;background-size:auto 108%!important;background-position:78% 20%!important}
 """
 
