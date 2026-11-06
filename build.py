@@ -55,17 +55,17 @@ css += """
 /* natural aurora behind the home hero */
 #site .hero{isolation:isolate}
 #site .hero .lead{text-shadow:0 2px 18px rgba(3,20,26,.9),0 0 6px rgba(3,20,26,.7)}
-#site .aur{opacity:.78;position:absolute;left:50%;top:12%;width:100vw;max-width:1800px;transform:translateX(-50%);z-index:-1;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
-#site .aur svg{display:block;width:100%;height:auto;aspect-ratio:1440/560;animation:aurmv 14s ease-in-out infinite}
+#site .aur{position:absolute;left:0;right:0;top:12%;width:100%;z-index:-1;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+#site .aur svg{display:block;width:100%;height:calc(var(--u,1px)*560);animation:aurmv 14s ease-in-out infinite}
 #site .aur .aug{position:absolute;left:0;right:0;top:48%;height:70%;background:radial-gradient(ellipse 50% 50% at 50% 30%,rgba(127,243,228,.22),rgba(127,243,228,0) 70%)}
-@keyframes aurmv{0%,100%{transform:translateX(-1.2%);opacity:.85}50%{transform:translateX(1.2%);opacity:1}}
+@keyframes aurmv{0%,100%{opacity:.82}50%{opacity:1}}
 @media (prefers-reduced-motion:reduce){#site .aur svg{animation:none}}
 :host(.lite) .aur svg{animation:none;filter:none}
 
 /* ===== Home hero: exactly the approved B5 layout (desktop) ===== */
 @media (min-width:1100px){
 #site{--u:min(calc(100vw/1440),calc(100vh/900),1.35px)}
-#site .nav{position:sticky!important;top:16px!important;width:fit-content;margin:16px auto 0;padding:12px 14px 12px 30px!important;gap:34px!important;border-radius:999px;border:1px solid rgba(150,240,255,.26);background:rgba(8,34,44,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 0 40px rgba(127,243,228,.14),inset 0 1px 0 rgba(255,255,255,.08)}
+#site header.nav{position:sticky!important;top:16px!important;width:max-content!important;max-width:calc(100% - 32px);align-self:center;margin:16px auto 0;padding-top:12px!important;padding-bottom:12px!important;padding-left:30px!important;padding-right:14px!important;gap:34px!important;border-radius:999px;border:1px solid rgba(150,240,255,.26);background:rgba(8,34,44,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 0 40px rgba(127,243,228,.14),inset 0 1px 0 rgba(255,255,255,.08)}
 #site .nav::before{display:none!important}
 #site .logo{font:500 22px var(--fd)!important;letter-spacing:.02em}
 #site .nv li[data-pp="mail"] a{background:#7ff3e4!important;color:#03141a!important;border:0!important}
@@ -82,7 +82,7 @@ css += """
 #site .hero .hr{flex-direction:column;align-items:center;justify-content:flex-end;width:100%}
 #site .hero .hr .lead{max-width:600px;font-size:19px;line-height:1.55;text-align:center;margin:0}
 #site .hero .hr .lk{display:none!important}
-#site .aur{top:calc(56% - min(100vw,1800px)*.319)}
+#site .aur{top:calc(56% - var(--u)*460)}
 }
 /* lite mode: software rendering / no graphics acceleration */
 :host(.lite) *{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
