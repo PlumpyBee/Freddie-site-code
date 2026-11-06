@@ -65,11 +65,6 @@ css += """
 /* ===== Home hero: exactly the approved B5 layout (desktop) ===== */
 @media (min-width:1100px){
 #site{--u:min(calc(100vw/1440),calc(100vh/900),1.35px)}
-#site header.nav{position:sticky!important;top:16px!important;width:max-content!important;max-width:calc(100% - 32px);align-self:center;margin:16px auto 0;padding-top:12px!important;padding-bottom:12px!important;padding-left:30px!important;padding-right:14px!important;gap:34px!important;border-radius:999px;border:1px solid rgba(150,240,255,.26);background:rgba(8,34,44,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 0 40px rgba(127,243,228,.14),inset 0 1px 0 rgba(255,255,255,.08)}
-#site .nav::before{display:none!important}
-#site .logo{font:500 22px var(--fd)!important;letter-spacing:.02em}
-#site .nv li[data-pp="mail"] a{background:#7ff3e4!important;color:#03141a!important;border:0!important}
-#site .nv li[data-pp="mail"] a:hover{background:#fff!important}
 #site .hero{max-width:none;min-height:calc(100vh - 90px)!important;justify-content:space-between;align-items:center;text-align:center;gap:0;padding:calc(var(--u)*44) 5vw calc(var(--u)*130)}
 #site .hero .hh{align-items:center;gap:calc(var(--u)*22)}
 #site .hero h1.dk{font-size:inherit;line-height:1;letter-spacing:0;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;margin:0}
@@ -83,6 +78,18 @@ css += """
 #site .hero .hr .lead{max-width:600px;font-size:19px;line-height:1.55;text-align:center;margin:0}
 #site .hero .hr .lk{display:none!important}
 #site .aur{top:calc(56% - var(--u)*460)}
+}
+
+#site .hpl{position:absolute;inset:0;z-index:-1;pointer-events:none}
+#site .hpl i{position:absolute;border-radius:50%;animation:hpld 6s ease-in-out infinite}
+@keyframes hpld{0%,100%{transform:translate(0,0);opacity:.4}50%{transform:translate(var(--dx),-22px);opacity:1}}
+@media (prefers-reduced-motion:reduce){#site .hpl i{animation:none;opacity:.8}}
+:host(.lite) .hpl i{animation:none!important;opacity:.85}:host(.lite) .hpl i:nth-child(n+26){display:none}
+@media (min-width:1100px){
+#site .hero .hh{position:relative}
+#site .hero .hh::before{content:'';position:absolute;left:-8%;right:-8%;top:-6%;bottom:-4%;z-index:-1;background:radial-gradient(ellipse 52% 52% at 50% 52%,rgba(3,20,26,.62),rgba(3,20,26,.28) 55%,rgba(3,20,26,0) 78%);pointer-events:none}
+#site .hero h1 .ln:nth-child(1),#site .hero h1 .ln:nth-child(3){filter:drop-shadow(0 0 calc(var(--u)*18) rgba(3,20,26,.9))}
+#site .hero h1 .ln .hl{filter:drop-shadow(0 0 calc(var(--u)*26) rgba(3,20,26,.75)) drop-shadow(0 0 calc(var(--u)*46) rgba(127,243,228,.3))!important}
 }
 /* lite mode: software rendering / no graphics acceleration */
 :host(.lite) *{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
@@ -152,7 +159,8 @@ AUR_JS = r'''
 function aurHtml(){var sd=0,R=function(){sd=(sd*1664525+1013904223)>>>0;return sd/4294967296};
 function cur(base,amp,ph,hm,c0,c1,step,seed,op){sd=seed;var o='',x=-20;while(x<1460){var yb=base+amp*Math.sin(x/240+ph)+amp*.45*Math.sin(x/97+ph*2),env=.5+.5*Math.sin(x/310+ph*1.7)*Math.sin(x/130+ph),h=hm*Math.max(.3,env)*(.6+.4*R()),w=3+R()*6,ln=(R()*12-6)+(x-720)/720*-12,c=R()<.75?c0:c1,op2=Math.min(1,op*(.45+.55*R()));o+='<path d="M'+x.toFixed(0)+' '+yb.toFixed(0)+'L'+(x+ln).toFixed(0)+' '+(yb-h).toFixed(0)+'L'+(x+ln+w*.6).toFixed(0)+' '+(yb-h).toFixed(0)+'L'+(x+w).toFixed(0)+' '+yb.toFixed(0)+'Z" fill="url(#'+c+')" opacity="'+op2.toFixed(2)+'"/>';x+=step*(.6+.8*R())}return o}
 var a1=cur(450,38,.5,400,'gT','gL',4.5,3,.95),a2=cur(490,30,2.1,330,'gL','gT',5.5,11,.75),a3=cur(410,26,4,270,'gG','gT',6.5,5,.6),p=[];for(var x=-20;x<=1460;x+=20)p.push(x+' '+(450+38*Math.sin(x/240+.5)+17*Math.sin(x/97+1)).toFixed(0));
-return '<div class="aur" aria-hidden="true"><i class="aug"></i><svg viewBox="0 0 1440 560" preserveAspectRatio="none"><defs><linearGradient id="gT" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#b8ffe6" stop-opacity=".95"/><stop offset=".25" stop-color="#4fe8b8" stop-opacity=".6"/><stop offset=".65" stop-color="#2fb7c8" stop-opacity=".22"/><stop offset="1" stop-color="#3a6fd8" stop-opacity="0"/></linearGradient><linearGradient id="gL" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ffc6f0" stop-opacity=".85"/><stop offset=".3" stop-color="#b58cff" stop-opacity=".5"/><stop offset="1" stop-color="#6a5cff" stop-opacity="0"/></linearGradient><linearGradient id="gG" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#e8ffb0" stop-opacity=".8"/><stop offset=".3" stop-color="#7ff3c4" stop-opacity=".5"/><stop offset="1" stop-color="#2fb7c8" stop-opacity="0"/></linearGradient><filter id="b1" x="-5%" y="-20%" width="110%" height="140%"><feGaussianBlur stdDeviation="3 6"/></filter><filter id="b2" x="-5%" y="-30%" width="110%" height="160%"><feGaussianBlur stdDeviation="22 30"/></filter><filter id="b3" x="-5%" y="-100%" width="110%" height="300%"><feGaussianBlur stdDeviation="8"/></filter></defs><g filter="url(#b2)" opacity=".9">'+a2+a1+'</g><g filter="url(#b1)">'+a2+'</g><g filter="url(#b1)">'+a3+'</g><g filter="url(#b1)">'+a1+'</g><path d="M'+p.join('L')+'" fill="none" stroke="#c8fff0" stroke-opacity=".5" stroke-width="12" filter="url(#b3)"/></svg></div>'}
+var pk='';sd=77;var pc=['#7ff3e4','#7ff3e4','#9dfff0','#b7a8ff','#ebefa0','#6fd8ff'];for(var i=0;i<90;i++){var r=6+Math.round(R()*8),pcol=pc[Math.floor(R()*6)];pk+='<i style="left:'+(2+R()*96).toFixed(1)+'%;top:'+(34+R()*58).toFixed(1)+'%;width:'+r+'px;height:'+r+'px;background:'+pcol+';box-shadow:0 0 '+r*5+'px '+Math.ceil(r/1.5)+'px '+pcol+';--dx:'+Math.round((R()-.5)*60)+'px;animation-duration:'+(4+R()*6).toFixed(1)+'s;animation-delay:-'+(R()*8).toFixed(1)+'s"></i>'}
+return '<div class="hpl" aria-hidden="true">'+pk+'</div><div class="aur" aria-hidden="true"><i class="aug"></i><svg viewBox="0 0 1440 560" preserveAspectRatio="none"><defs><linearGradient id="gT" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#b8ffe6" stop-opacity=".95"/><stop offset=".25" stop-color="#4fe8b8" stop-opacity=".6"/><stop offset=".65" stop-color="#2fb7c8" stop-opacity=".22"/><stop offset="1" stop-color="#3a6fd8" stop-opacity="0"/></linearGradient><linearGradient id="gL" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ffc6f0" stop-opacity=".85"/><stop offset=".3" stop-color="#b58cff" stop-opacity=".5"/><stop offset="1" stop-color="#6a5cff" stop-opacity="0"/></linearGradient><linearGradient id="gG" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#e8ffb0" stop-opacity=".8"/><stop offset=".3" stop-color="#7ff3c4" stop-opacity=".5"/><stop offset="1" stop-color="#2fb7c8" stop-opacity="0"/></linearGradient><filter id="b1" x="-5%" y="-20%" width="110%" height="140%"><feGaussianBlur stdDeviation="3 6"/></filter><filter id="b2" x="-5%" y="-30%" width="110%" height="160%"><feGaussianBlur stdDeviation="22 30"/></filter><filter id="b3" x="-5%" y="-100%" width="110%" height="300%"><feGaussianBlur stdDeviation="8"/></filter></defs><g filter="url(#b2)" opacity=".55">'+a2+a1+'</g><g>'+a2+'</g><g>'+a3+'</g><g>'+a1+'</g><path d="M'+p.join('L')+'" fill="none" stroke="#c8fff0" stroke-opacity=".5" stroke-width="12" filter="url(#b3)"/></svg></div>'}
 '''
 # --- run inside the shadow root instead of the document ---
 main = main.replace('document.getElementById(', 'NSR.getElementById(')
