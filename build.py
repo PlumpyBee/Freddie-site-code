@@ -86,7 +86,8 @@ css += """
 @media (prefers-reduced-motion:reduce){#site .hpl i{animation:none;opacity:.8}}
 :host(.lite) .hpl i{animation:none!important;opacity:.85}:host(.lite) .hpl i:nth-child(n+26){display:none}
 @media (min-width:1100px){
-#site .hero .hh{position:relative}
+#site .hero .hh,#site .hero .hr{position:relative}
+#site .hero .hr::before{content:'';position:absolute;left:50%;top:50%;width:min(760px,90%);height:230%;transform:translate(-50%,-50%);z-index:-1;background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(3,20,26,.85),rgba(3,20,26,.5) 60%,rgba(3,20,26,0) 100%);pointer-events:none}
 #site .hero .hh::before{content:'';position:absolute;left:-8%;right:-8%;top:-6%;bottom:-4%;z-index:-1;background:radial-gradient(ellipse 52% 52% at 50% 52%,rgba(3,20,26,.62),rgba(3,20,26,.28) 55%,rgba(3,20,26,0) 78%);pointer-events:none}
 #site .hero h1 .ln:nth-child(1),#site .hero h1 .ln:nth-child(3){filter:drop-shadow(0 0 calc(var(--u)*18) rgba(3,20,26,.9))}
 #site .hero h1 .ln .hl{filter:drop-shadow(0 0 calc(var(--u)*26) rgba(3,20,26,.75)) drop-shadow(0 0 calc(var(--u)*46) rgba(127,243,228,.3))!important}
