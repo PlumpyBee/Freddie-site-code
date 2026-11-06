@@ -123,6 +123,7 @@ css += """
 @media (prefers-reduced-motion:reduce){#site .hfx i{animation:none!important}}
 @media (max-width:1099px){
 #site{--u:.12vw}
+.scue{display:none!important}
 #site .hero{text-align:center;align-items:center}
 #site .hero .hh{align-items:center;gap:calc(var(--u)*22)}
 #site .hero h1.dk{font-size:inherit;line-height:1;letter-spacing:0;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;margin:0}
