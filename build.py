@@ -28,6 +28,7 @@ css += """
 #site .wi-c p{font:500 16px/1.6 var(--fb)!important;max-width:34ch!important;margin-top:16px!important}
 #site .wi-c3 p{color:#fefdf6}
 #site .x-bento .big img{transform:none!important;object-position:50% 22%!important}
+#site .hxp{display:none!important}
 /* lite mode: software rendering / no graphics acceleration */
 :host(.lite) *{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 :host(.lite) .mcv,:host(.lite) .scue,:host(.lite) .bgfx::before,:host(.lite) .bgfx::after{display:none!important}
@@ -135,6 +136,7 @@ if "__NA_PAGE" not in main:
     sys.exit('PATCH MISS: start state')
 
 must('i<70','i<(NSR.host.classList.contains("lite")?18:70)')
+must('function hexburst(e){','function hexburst(e){return;')
 # the preview bar is hidden, drop its toast on links
 main = main.replace("toast('Case study pages aren’t part of this preview')", "")
 
