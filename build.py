@@ -104,6 +104,31 @@ css += """
 #site .hero h1 .ln .hl{filter:drop-shadow(0 0 calc(var(--u)*26) rgba(3,20,26,.75)) drop-shadow(0 0 calc(var(--u)*46) rgba(127,243,228,.3))!important}
 }
 #site .bgfx{-webkit-mask-image:linear-gradient(#000 88%,transparent)!important;mask-image:linear-gradient(#000 88%,transparent)!important}
+
+/* B3 soft-glow horizon (alternative to the aurora rays; add ?fx=rays to the URL to compare) */
+#site .hfx{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden;-webkit-mask-image:linear-gradient(#000 84%,transparent 100%);mask-image:linear-gradient(#000 84%,transparent 100%)}
+#site .hfx i{position:absolute;display:block}
+#site .hfx .sk{inset:0;background:linear-gradient(180deg,rgba(2,16,26,0) 0%,rgba(4,32,42,.3) 45%,rgba(6,48,58,.45) 68%,rgba(10,74,80,.55) 84%,rgba(11,90,92,.6) 100%)}
+#site .hfx .bl{top:-6%;height:82%;filter:blur(calc(var(--u,1px)*46));animation:b3sw 16s ease-in-out infinite}
+#site .hfx .bl1{left:8%;width:26%;background:linear-gradient(180deg,rgba(127,243,228,0),rgba(127,243,228,.4) 60%,rgba(127,243,228,0))}
+#site .hfx .bl2{left:36%;width:32%;background:linear-gradient(180deg,rgba(230,224,255,0),rgba(160,140,255,.34) 58%,rgba(230,224,255,0));animation-duration:21s;animation-delay:-6s}
+#site .hfx .bl3{left:68%;width:25%;background:linear-gradient(180deg,rgba(235,239,160,0),rgba(235,239,160,.2) 60%,rgba(235,239,160,0));animation-duration:18s;animation-delay:-11s}
+#site .hfx .gw{left:50%;bottom:5%;width:132%;height:50%;margin-left:-66%;background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(127,243,228,.5),rgba(127,243,228,.16) 45%,rgba(127,243,228,0) 72%);filter:blur(26px)}
+#site .hfx .bd{left:0;width:100%;bottom:0;height:46%;background:linear-gradient(180deg,rgba(3,20,26,0) 0%,rgba(3,20,26,.4) 45%,rgba(3,20,26,.9) 100%)}
+#site .hfx .ms{border-radius:50%;background:rgba(200,255,250,.15);filter:blur(34px);height:12%;animation:b3ms 24s ease-in-out infinite}
+#site .hfx .ms1{left:-20%;width:62%;bottom:19%}
+#site .hfx .ms2{right:-16%;width:68%;bottom:15%;animation-duration:30s;animation-delay:-9s}
+#site .hfx .hz1{left:6%;right:6%;bottom:21.5%;height:16px;background:linear-gradient(90deg,rgba(127,243,228,0),rgba(127,243,228,.85) 50%,rgba(127,243,228,0));filter:blur(9px)}
+#site .hfx .hz2{left:10%;right:10%;bottom:22.3%;height:1px;background:linear-gradient(90deg,rgba(190,255,248,0),rgba(190,255,248,.95) 50%,rgba(190,255,248,0))}
+#site .hfx .sh{left:50%;border-radius:50%;background:radial-gradient(ellipse,rgba(190,255,248,.5),rgba(190,255,248,0) 70%);animation:b3sh 6s ease-in-out infinite}
+#site .hfx .sh1{bottom:17.5%;width:53%;height:10px;margin-left:-26.5%}
+#site .hfx .sh2{bottom:13%;width:39%;height:8px;margin-left:-19.5%;animation-delay:-2s;opacity:.7}
+#site .hfx .sh3{bottom:8.5%;width:26%;height:6px;margin-left:-13%;animation-delay:-4s;opacity:.5}
+@keyframes b3sw{0%,100%{transform:translateX(-40px) skewX(-8deg);opacity:.55}50%{transform:translateX(40px) skewX(6deg);opacity:.9}}
+@keyframes b3ms{0%,100%{transform:translateX(-60px);opacity:.5}50%{transform:translateX(60px);opacity:.9}}
+@keyframes b3sh{0%,100%{opacity:.35;transform:scaleX(.92)}50%{opacity:.7;transform:scaleX(1.04)}}
+:host(.lite) .hfx .bl,:host(.lite) .hfx .ms,:host(.lite) .hfx .sh{animation:none;filter:none}
+@media (prefers-reduced-motion:reduce){#site .hfx i{animation:none!important}}
 /* lite mode: software rendering / no graphics acceleration */
 :host(.lite) *{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 :host(.lite) .mcv,:host(.lite) .scue,:host(.lite) .bgfx::before,:host(.lite) .bgfx::after{display:none!important}
@@ -170,11 +195,15 @@ def must(old, new, count=1, text=None):
 
 AUR_JS = r'''
 
-function aurHtml(){var sd=0,R=function(){sd=(sd*1664525+1013904223)>>>0;return sd/4294967296};
+function aurRays(){var sd=0,R=function(){sd=(sd*1664525+1013904223)>>>0;return sd/4294967296};
 function cur(base,amp,ph,hm,c0,c1,step,seed,op){sd=seed;var o='',x=-20;while(x<1460){var yb=base+amp*Math.sin(x/240+ph)+amp*.45*Math.sin(x/97+ph*2),env=.5+.5*Math.sin(x/310+ph*1.7)*Math.sin(x/130+ph),h=hm*Math.max(.3,env)*(.6+.4*R()),w=3+R()*6,ln=(R()*12-6)+(x-720)/720*-12,c=R()<.75?c0:c1,op2=Math.min(1,op*(.45+.55*R()));o+='<path d="M'+x.toFixed(0)+' '+yb.toFixed(0)+'L'+(x+ln).toFixed(0)+' '+(yb-h).toFixed(0)+'L'+(x+ln+w*.6).toFixed(0)+' '+(yb-h).toFixed(0)+'L'+(x+w).toFixed(0)+' '+yb.toFixed(0)+'Z" fill="url(#'+c+')" opacity="'+op2.toFixed(2)+'"/>';x+=step*(.6+.8*R())}return o}
 var a1=cur(450,38,.5,400,'gT','gL',4.5,3,.95),a2=cur(490,30,2.1,330,'gL','gT',5.5,11,.75),a3=cur(410,26,4,270,'gG','gT',6.5,5,.6),p=[];for(var x=-20;x<=1460;x+=20)p.push(x+' '+(450+38*Math.sin(x/240+.5)+17*Math.sin(x/97+1)).toFixed(0));
 var pk='';
 return '<div class="hpl" aria-hidden="true">'+pk+'</div><div class="aur" aria-hidden="true"><i class="aug"></i><svg viewBox="0 0 1440 560" preserveAspectRatio="none"><defs><linearGradient id="gT" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#b8ffe6" stop-opacity=".95"/><stop offset=".25" stop-color="#4fe8b8" stop-opacity=".6"/><stop offset=".65" stop-color="#2fb7c8" stop-opacity=".22"/><stop offset="1" stop-color="#3a6fd8" stop-opacity="0"/></linearGradient><linearGradient id="gL" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ffc6f0" stop-opacity=".85"/><stop offset=".3" stop-color="#b58cff" stop-opacity=".5"/><stop offset="1" stop-color="#6a5cff" stop-opacity="0"/></linearGradient><linearGradient id="gG" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#e8ffb0" stop-opacity=".8"/><stop offset=".3" stop-color="#7ff3c4" stop-opacity=".5"/><stop offset="1" stop-color="#2fb7c8" stop-opacity="0"/></linearGradient><filter id="b1" x="-5%" y="-20%" width="110%" height="140%"><feGaussianBlur stdDeviation="1.8 3.6"/></filter><filter id="b2" x="-5%" y="-30%" width="110%" height="160%"><feGaussianBlur stdDeviation="22 30"/></filter><filter id="b3" x="-5%" y="-100%" width="110%" height="300%"><feGaussianBlur stdDeviation="8"/></filter></defs><g class="ac ac4"><g filter="url(#b2)" opacity=".55">'+a2+a1+'</g></g><g class="ac ac2"><g filter="url(#b1)">'+a2+'</g></g><g class="ac ac3"><g filter="url(#b1)">'+a3+'</g></g><g class="ac ac1"><g filter="url(#b1)">'+a1+'</g></g><path d="M'+p.join('L')+'" fill="none" stroke="#c8fff0" stroke-opacity=".5" stroke-width="12" filter="url(#b3)"/></svg></div>'}
+
+function aurB3(){return '<div class="hfx" aria-hidden="true"><i class="sk"></i><i class="bl bl1"></i><i class="bl bl2"></i><i class="bl bl3"></i><i class="gw"></i><i class="bd"></i><i class="ms ms1"></i><i class="ms ms2"></i><i class="hz1"></i><i class="hz2"></i><i class="sh sh1"></i><i class="sh sh2"></i><i class="sh sh3"></i></div>'}
+function aurHtml(){return (/[?&]fx=rays/.test(location.search))?aurRays():aurB3()}
+
 '''
 # --- run inside the shadow root instead of the document ---
 main = main.replace('document.getElementById(', 'NSR.getElementById(')
@@ -214,7 +243,7 @@ must("n:80","n:(NSR.host.classList.contains('lite')?60:170)",0)
 
 must("if(p.b>.06)glow(p.x,p.y,8+p.b*22,p.c,p.b*.4)","if(p.b>.06)glow(p.x,p.y,6+p.b*14,p.c,p.b*.28)")
 must("P.forEach(function(p){if(!p.or){","for(var i9=0;i9<P.length;i9++){var a9=P[i9];for(var j9=i9+1;j9<P.length;j9++){var b9=P[j9],ux=a9.x-b9.x,uy=a9.y-b9.y;if(ux<30&&ux>-30&&uy<30&&uy>-30){var ud=Math.hypot(ux,uy)||.5;if(ud<30){var uf=(30-ud)/30*.004;a9.vx+=ux/ud*uf;a9.vy+=uy/ud*uf;b9.vx-=ux/ud*uf;b9.vy-=uy/ud*uf}}}}\n  P.forEach(function(p){if(!p.or){")
-must("if(d<360){var w=Math.pow(1-d/360,1.5),nx=dx/d,ny=dy/d;p.vx+=(-ny*p.dir*.022*p.sp+nx*(p.or-d)*.00035)*w;p.vy+=(nx*p.dir*.022*p.sp+ny*(p.or-d)*.00035)*w;p.tb=w*.32}else p.tb=0;","p.tb=p.pb||0;p.pb=(p.pb||0)*.992;")
+must("if(d<360){var w=Math.pow(1-d/360,1.5),nx=dx/d,ny=dy/d;p.vx+=(-ny*p.dir*.022*p.sp+nx*(p.or-d)*.00035)*w;p.vy+=(nx*p.dir*.022*p.sp+ny*(p.or-d)*.00035)*w;p.tb=w*.32}else p.tb=0;","var hv=d<210?Math.pow(1-d/210,1.3):0;if(hv>0){p.vx+=dx/d*.016*hv;p.vy+=dy/d*.016*hv}p.tb=Math.max(p.pb||0,hv*.6);p.pb=(p.pb||0)*.992;")
 must("if(mode=='biolum')RP.push({x:mx,y:my,r:0,a:1});","if(mode=='biolum'){RP.push({x:mx,y:my,r:0,a:1});P.forEach(function(p){var dx=p.x-mx,dy=p.y-my,d=Math.hypot(dx,dy)||1;if(d<320){var f=Math.pow(1-d/320,1.2);p.vx+=dx/d*f*2.4;p.vy+=dy/d*f*2.4;p.pb=Math.max(p.pb||0,.25+f*.65)}})}")
 must("go(g.dataset.go);return}", "go(g.dataset.go,g);return}")
 must("go(its[ix].getAttribute('data-go'))", "go(its[ix].getAttribute('data-go'),its[ix])")
