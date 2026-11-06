@@ -73,7 +73,7 @@ css += """
 #site .hero h1 .ln:nth-child(2){font:500 calc(var(--u)*262)/.84 var(--fd);letter-spacing:-.01em}
 #site .hero h1 .ln:nth-child(3){font:300 calc(var(--u)*92)/1 var(--fd);letter-spacing:.34em;padding-left:.34em;margin-top:calc(var(--u)*6)!important}
 #site .hero h1 .ln .hl{display:inline-block;background:none!important;color:inherit!important;filter:drop-shadow(0 0 calc(var(--u)*46) rgba(127,243,228,.45))}
-#site .hero h1 .ln .hl .ch{background:linear-gradient(180deg,#fff 25%,#7ff3e4 100%);-webkit-background-clip:text;background-clip:text;color:transparent!important;-webkit-text-fill-color:transparent;text-shadow:none!important}
+#site .hero h1 .ln .hl .ch{background:linear-gradient(180deg,#fff 25%,#7ff3e4 100%);-webkit-background-clip:text;background-clip:text;color:transparent!important;-webkit-text-fill-color:transparent;text-shadow:none!important;display:inline-block;padding:.05em 0 .14em;margin:-.05em 0 -.14em}
 #site .hero .hr{flex-direction:column;align-items:center;justify-content:flex-end;width:100%}
 #site .hero .hr .lead{max-width:600px;font-size:19px;line-height:1.55;text-align:center;margin:0}
 #site .hero .hr .lk{display:none!important}
@@ -98,7 +98,6 @@ css += """
 :host(.lite) .hpl i{animation:none!important;opacity:.6}:host(.lite) .hpl i:nth-child(n+26){display:none}
 @media (min-width:1100px){
 #site .hero .hh,#site .hero .hr{position:relative}
-#site .hero .hr::before{content:'';position:absolute;left:50%;top:50%;width:min(760px,90%);height:230%;transform:translate(-50%,-50%);z-index:-1;background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(3,20,26,.85),rgba(3,20,26,.5) 60%,rgba(3,20,26,0) 100%);pointer-events:none}
 #site .hero .hh::before{content:'';position:absolute;left:-8%;right:-8%;top:-6%;bottom:-4%;z-index:-1;background:radial-gradient(ellipse 52% 52% at 50% 52%,rgba(3,20,26,.8),rgba(3,20,26,.4) 55%,rgba(3,20,26,0) 78%);pointer-events:none}
 #site .hero h1 .ln:nth-child(1),#site .hero h1 .ln:nth-child(3){filter:drop-shadow(0 0 calc(var(--u)*18) rgba(3,20,26,.9))}
 #site .hero h1 .ln .hl{filter:drop-shadow(0 0 calc(var(--u)*26) rgba(3,20,26,.75)) drop-shadow(0 0 calc(var(--u)*46) rgba(127,243,228,.3))!important}
@@ -122,6 +121,26 @@ css += """
 @keyframes b3sh{0%,100%{opacity:.35;transform:scaleX(.92)}50%{opacity:.7;transform:scaleX(1.04)}}
 :host(.lite) .hfx .pr,:host(.lite) .hfx .pf,:host(.lite) .hfx .ms{animation:none;filter:none;will-change:auto}
 @media (prefers-reduced-motion:reduce){#site .hfx i{animation:none!important}}
+@media (max-width:1099px){
+#site{--u:.12vw}
+#site .hero{text-align:center;align-items:center}
+#site .hero .hh{align-items:center;gap:calc(var(--u)*22)}
+#site .hero h1.dk{font-size:inherit;line-height:1;letter-spacing:0;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;margin:0}
+#site .hero h1 .ln{display:block!important;margin:0!important}
+#site .hero h1 .ln:nth-child(1){font:200 calc(var(--u)*112)/1 var(--fd);letter-spacing:.06em}
+#site .hero h1 .ln:nth-child(2){font:500 calc(var(--u)*262)/.84 var(--fd);letter-spacing:-.01em}
+#site .hero h1 .ln:nth-child(3){font:300 calc(var(--u)*92)/1 var(--fd);letter-spacing:.34em;padding-left:.34em;margin-top:calc(var(--u)*6)!important}
+#site .hero h1 .ln .hl{display:inline-block;background:none!important;color:inherit!important;filter:drop-shadow(0 0 calc(var(--u)*46) rgba(127,243,228,.45))}
+#site .hero h1 .ln .hl .ch{background:linear-gradient(180deg,#fff 25%,#7ff3e4 100%);-webkit-background-clip:text;background-clip:text;color:transparent!important;-webkit-text-fill-color:transparent;text-shadow:none!important;display:inline-block;padding:.05em 0 .14em;margin:-.05em 0 -.14em}
+#site .hero .hr .lead{text-align:center}
+#site .hero .hr{align-items:center;text-align:center}
+}
+@media (min-width:1100px){
+/* frosted glass intro card (all widths) */
+#site .hero .hr .lead{background:rgba(6,30,40,.42)!important;border:1px solid rgba(160,245,255,.22);-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);border-radius:20px;padding:22px 32px;box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 10px 40px rgba(3,20,26,.35);color:#fefdf6;text-shadow:0 1px 8px rgba(3,20,26,.5)}
+}
+
+
 /* lite mode: software rendering / no graphics acceleration */
 :host(.lite) *{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 :host(.lite) .mcv,:host(.lite) .scue,:host(.lite) .bgfx::before,:host(.lite) .bgfx::after{display:none!important}
