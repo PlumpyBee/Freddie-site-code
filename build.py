@@ -65,7 +65,7 @@ css += """
 /* ===== Home hero: exactly the approved B5 layout (desktop) ===== */
 @media (min-width:1100px){
 #site{--u:min(calc(100vw/1440),calc(100vh/900),1.35px)}
-#site .hero{max-width:none;min-height:calc(100vh - 90px)!important;justify-content:space-between;align-items:center;text-align:center;gap:0;padding:calc(var(--u)*44) 5vw calc(var(--u)*130)}
+#site .hero{max-width:none;min-height:calc(100vh - 90px)!important;justify-content:space-between;align-items:center;text-align:center;gap:0;padding:calc(var(--u)*44) 5vw calc(var(--u)*225)}
 #site .hero .hh{align-items:center;gap:calc(var(--u)*22)}
 #site .hero h1.dk{font-size:inherit;line-height:1;letter-spacing:0;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;margin:0}
 #site .hero h1 .ln{display:block!important;margin:0!important}
@@ -103,6 +103,7 @@ css += """
 #site .hero h1 .ln:nth-child(1),#site .hero h1 .ln:nth-child(3){filter:drop-shadow(0 0 calc(var(--u)*18) rgba(3,20,26,.9))}
 #site .hero h1 .ln .hl{filter:drop-shadow(0 0 calc(var(--u)*26) rgba(3,20,26,.75)) drop-shadow(0 0 calc(var(--u)*46) rgba(127,243,228,.3))!important}
 }
+#site .bgfx{-webkit-mask-image:linear-gradient(#000 88%,transparent)!important;mask-image:linear-gradient(#000 88%,transparent)!important}
 /* lite mode: software rendering / no graphics acceleration */
 :host(.lite) *{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 :host(.lite) .mcv,:host(.lite) .scue,:host(.lite) .bgfx::before,:host(.lite) .bgfx::after{display:none!important}
@@ -169,17 +170,10 @@ def must(old, new, count=1, text=None):
 
 AUR_JS = r'''
 
-(function(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;var raf=0,lx=-999,ly=-999;
-function run(){raf=0;var hero=NSR.querySelector('.hero');if(!hero)return;var hl=hero.querySelector('.hpl');if(!hl)return;var hr=hero.getBoundingClientRect(),is=hl.children;
-for(var k=0;k<is.length;k++){var e=is[k],bx=hr.left+parseFloat(e.style.left)/100*hr.width,by=hr.top+parseFloat(e.style.top)/100*hr.height,dx=bx-lx,dy=by-ly,d=Math.sqrt(dx*dx+dy*dy)||1;
-if(d<170){var f=1-d/170;e.style.setProperty('--f',f.toFixed(2));e.classList.add('hot')}else if(e.classList.contains('hot')){e.classList.remove('hot')}}}
-NSR.addEventListener('pointermove',function(ev){lx=ev.clientX;ly=ev.clientY;if(!raf)raf=requestAnimationFrame(run)},{passive:true});
-NSR.host.addEventListener('pointerleave',function(){lx=ly=-999;if(!raf)raf=requestAnimationFrame(run)})})();
 function aurHtml(){var sd=0,R=function(){sd=(sd*1664525+1013904223)>>>0;return sd/4294967296};
 function cur(base,amp,ph,hm,c0,c1,step,seed,op){sd=seed;var o='',x=-20;while(x<1460){var yb=base+amp*Math.sin(x/240+ph)+amp*.45*Math.sin(x/97+ph*2),env=.5+.5*Math.sin(x/310+ph*1.7)*Math.sin(x/130+ph),h=hm*Math.max(.3,env)*(.6+.4*R()),w=3+R()*6,ln=(R()*12-6)+(x-720)/720*-12,c=R()<.75?c0:c1,op2=Math.min(1,op*(.45+.55*R()));o+='<path d="M'+x.toFixed(0)+' '+yb.toFixed(0)+'L'+(x+ln).toFixed(0)+' '+(yb-h).toFixed(0)+'L'+(x+ln+w*.6).toFixed(0)+' '+(yb-h).toFixed(0)+'L'+(x+w).toFixed(0)+' '+yb.toFixed(0)+'Z" fill="url(#'+c+')" opacity="'+op2.toFixed(2)+'"/>';x+=step*(.6+.8*R())}return o}
 var a1=cur(450,38,.5,400,'gT','gL',4.5,3,.95),a2=cur(490,30,2.1,330,'gL','gT',5.5,11,.75),a3=cur(410,26,4,270,'gG','gT',6.5,5,.6),p=[];for(var x=-20;x<=1460;x+=20)p.push(x+' '+(450+38*Math.sin(x/240+.5)+17*Math.sin(x/97+1)).toFixed(0));
-var pk='';sd=77;var pc=['#7ff3e4','#7ff3e4','#9dfff0','#b7a8ff','#ebefa0','#6fd8ff'],sw=[];for(var q=0;q<9;q++){var lo=q%3!=2;sw.push({x:8+R()*84,y:lo?66+R()*28:6+R()*22,dx:Math.round((R()<.5?-1:1)*(80+R()*120)),dy:Math.round(-(20+R()*60)),d:(16+R()*12).toFixed(1),l:(R()*16).toFixed(1),c:pc[Math.floor(R()*6)],c2:pc[Math.floor(R()*6)]})}
-for(var i=0;i<135;i++){var w=sw[i%9],r=2+Math.round(R()*2),g=function(){return(R()+R()+R()-1.5)},px=Math.min(98,Math.max(1,w.x+g()*9)),py=Math.min(97,Math.max(2,w.y+g()*9)),col=R()<.7?w.c:w.c2;pk+='<i style="left:'+px.toFixed(1)+'%;top:'+py.toFixed(1)+'%;width:'+r+'px;height:'+r+'px;background:'+col+';--c:'+col+';box-shadow:0 0 '+r*2+'px '+col+';--dx:'+w.dx+'px;--dy:'+w.dy+'px;animation-duration:'+w.d+'s;animation-delay:-'+(parseFloat(w.l)+R()*1.2).toFixed(1)+'s"></i>'}
+var pk='';
 return '<div class="hpl" aria-hidden="true">'+pk+'</div><div class="aur" aria-hidden="true"><i class="aug"></i><svg viewBox="0 0 1440 560" preserveAspectRatio="none"><defs><linearGradient id="gT" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#b8ffe6" stop-opacity=".95"/><stop offset=".25" stop-color="#4fe8b8" stop-opacity=".6"/><stop offset=".65" stop-color="#2fb7c8" stop-opacity=".22"/><stop offset="1" stop-color="#3a6fd8" stop-opacity="0"/></linearGradient><linearGradient id="gL" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ffc6f0" stop-opacity=".85"/><stop offset=".3" stop-color="#b58cff" stop-opacity=".5"/><stop offset="1" stop-color="#6a5cff" stop-opacity="0"/></linearGradient><linearGradient id="gG" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#e8ffb0" stop-opacity=".8"/><stop offset=".3" stop-color="#7ff3c4" stop-opacity=".5"/><stop offset="1" stop-color="#2fb7c8" stop-opacity="0"/></linearGradient><filter id="b1" x="-5%" y="-20%" width="110%" height="140%"><feGaussianBlur stdDeviation="1.8 3.6"/></filter><filter id="b2" x="-5%" y="-30%" width="110%" height="160%"><feGaussianBlur stdDeviation="22 30"/></filter><filter id="b3" x="-5%" y="-100%" width="110%" height="300%"><feGaussianBlur stdDeviation="8"/></filter></defs><g class="ac ac4"><g filter="url(#b2)" opacity=".55">'+a2+a1+'</g></g><g class="ac ac2"><g filter="url(#b1)">'+a2+'</g></g><g class="ac ac3"><g filter="url(#b1)">'+a3+'</g></g><g class="ac ac1"><g filter="url(#b1)">'+a1+'</g></g><path d="M'+p.join('L')+'" fill="none" stroke="#c8fff0" stroke-opacity=".5" stroke-width="12" filter="url(#b3)"/></svg></div>'}
 '''
 # --- run inside the shadow root instead of the document ---
@@ -214,6 +208,14 @@ main = main[:go_start] + new_go + main[go_end:]
 must("function bgfx(c){","function bgfx(c){")
 main = AUR_JS + main
 must("<section class=\"hero\" data-l=\"Hero\"><div class=\"hh\">'","<section class=\"hero\" data-l=\"Hero\">'+aurHtml()+'<div class=\"hh\">'")
+# --- original plankton: more of them, in swarms, drawn gently to the mouse trail ---
+must("(.16+.1*Math.sin(ts/1200+p.ph)+p.b*.6)","(.24+.12*Math.sin(ts/1200+p.ph)+p.b*.6)")
+must("n:80","n:(NSR.host.classList.contains('lite')?60:230)",0)
+must("c:O2.pc[i%3]});","c:O2.pc[i%3]});var q9=P[P.length-1],g9=function(){return Math.random()+Math.random()+Math.random()-1.5};q9.sw=i%9;q9.ox=g9()*150;q9.oy=g9()*110;")
+must("P.forEach(function(p){if(!p.or){","var SW=[],k9;for(k9=0;k9<9;k9++)SW.push({x:W*(.5+.46*Math.sin(ts/(21000+k9*2300)+k9*1.9)),y:H*(.5+.42*Math.sin(ts/(26000+k9*1700)+k9*2.7))});var TR=P.tr||(P.tr=[]);if(sx>-50&&sy>-50&&sx<W+50){var lt9=TR[TR.length-1];if(!lt9||Math.hypot(sx-lt9.x,sy-lt9.y)>9){TR.push({x:sx,y:sy,t:ts});if(TR.length>30)TR.shift()}}while(TR.length&&ts-TR[0].t>2600)TR.shift();\n  P.forEach(function(p){if(!p.or){")
+must("var ang=flowAng(p.x,p.y,ts)*.5;p.vx+=Math.cos(ang)*.006;p.vy+=Math.sin(ang)*.006;","var ang=flowAng(p.x,p.y,ts)*.5,sc9=SW[p.sw||0];p.vx+=Math.cos(ang)*.0035+(sc9.x+(p.ox||0)-p.x)*.000045;p.vy+=Math.sin(ang)*.0035+(sc9.y+(p.oy||0)-p.y)*.000045;")
+must("if(d<360){var w=Math.pow(1-d/360,1.5),nx=dx/d,ny=dy/d;p.vx+=(-ny*p.dir*.022*p.sp+nx*(p.or-d)*.00035)*w;p.vy+=(nx*p.dir*.022*p.sp+ny*(p.or-d)*.00035)*w;p.tb=w*.32}else p.tb=0;","p.tb=0;for(var t9=0;t9<TR.length;t9++){var tp=TR[t9],ex=tp.x-p.x,ey=tp.y-p.y,ed=Math.hypot(ex,ey)||1;if(ed<260){var ag=1-(ts-tp.t)/2600,ww=Math.pow(1-ed/260,1.4)*ag;if(ww>0){p.vx+=ex/ed*.012*ww;p.vy+=ey/ed*.012*ww;if(ww*.85>p.tb)p.tb=ww*.85}}}")
+
 must("go(g.dataset.go);return}", "go(g.dataset.go,g);return}")
 must("go(its[ix].getAttribute('data-go'))", "go(its[ix].getAttribute('data-go'),its[ix])")
 must("Item", "Item", 0) if False else None
