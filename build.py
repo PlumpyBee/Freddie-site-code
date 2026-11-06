@@ -23,6 +23,11 @@ css += """
 #site .menu .uug,#site .menu .kxgh{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:linear-gradient(135deg,rgba(10,40,52,.92),rgba(5,24,32,.96))!important;border:1px solid rgba(127,243,228,.3)!important;animation:none!important}
 #site .menu .uug .kgl,#site .menu .kwgl{display:none!important}
 #site .menu .uug .kwt{text-shadow:none!important}
+#site .stand img{-webkit-mask-image:linear-gradient(90deg,transparent,#000 26%,#000 74%,transparent),linear-gradient(180deg,transparent,#000 14%,#000 55%,rgba(0,0,0,.55) 74%,transparent 96%)!important;mask-image:linear-gradient(90deg,transparent,#000 26%,#000 74%,transparent),linear-gradient(180deg,transparent,#000 14%,#000 55%,rgba(0,0,0,.55) 74%,transparent 96%)!important}
+#site .x-stp p{font:500 16px/1.6 var(--fb)!important;color:rgba(254,253,246,.92)!important;max-width:36ch!important}
+#site .wi-c p{font:500 16px/1.6 var(--fb)!important;max-width:34ch!important;margin-top:16px!important}
+#site .wi-c3 p{color:#fefdf6}
+#site .x-bento .big img{transform:none!important;object-position:50% 22%!important}
 /* lite mode: software rendering / no graphics acceleration */
 :host(.lite) *{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 :host(.lite) .mcv,:host(.lite) .scue,:host(.lite) .bgfx::before,:host(.lite) .bgfx::after{display:none!important}
@@ -56,6 +61,12 @@ css += """
 
 scripts = re.findall(r'<script>(.*?)</script>', src, re.S)
 main = [s for s in scripts if 'function init()' in s][0]
+_pr=[("'Explore the problem, talk to users and define what really matters.'","'I start by talking to people and digging into the problem, so I know what really needs solving before I design anything.'"),
+("'Turn insights into thoughtful ideas, wireframes and intuitive experiences.'","'I turn what I learn into wireframes and prototypes that are simple to use and easy to follow.'"),
+("'Test, learn and improve, always looking for ways to make things clearer, simpler and more accessible.'","'I test with real users, fix what is confusing, and keep improving until it is clear, simple and accessible.'")]
+for _a,_b in _pr:
+    assert _a in main,'PATCH MISS process'
+    main=main.replace(_a.strip("'"),_b.strip("'"))
 # --- menu preview cards: real pictures for About and Say hello instead of plain gradients ---
 _imgs = json.load(open('assets/imgs.json'))
 main = main.replace('var IMG={', 'var IMG={ab:%s,pt:%s,' % (json.dumps(_imgs['hero']), json.dumps(_imgs['portrait'])), 1)
@@ -131,6 +142,14 @@ main = main.replace("toast('Case study pages aren’t part of this preview')", "
 main += "\n;addEventListener('keydown',function(e){if(e.key==='Escape'&&S.mo)closeMenu()});addEventListener('popstate',function(){var m={'/':'home','/about-me':'about','/teaching-experience':'teach'}[location.pathname.replace(/\\/$/,'')||'/'];if(m&&m!==S.p){S.p=m;closeMenu();mark();rv();window.scrollTo(0,0)}});"
 
 patch = patch.replace('document.getElementById(', 'NSR.getElementById(')
+for _a,_b in _pr:
+    _a=_a.strip("'");_b=_b.strip("'")
+    assert _a in patch,'PATCH MISS process in patch'
+    patch=patch.replace(_a,_b)
+import re as _re
+_n=len(_re.findall(r'var BEE="data:image/jpeg;base64,[^"]*"', patch))
+assert _n==1,'PATCH MISS BEE photo'
+patch=_re.sub(r'var BEE="data:image/jpeg;base64,[^"]*"','var BEE="https://s3.amazonaws.com/webflow-prod-assets/65bcd665e34d787b54fdda73/6ad35c518c6b81db3436e306_229614763_534730867766597_9168841667037193452_n-p-1080.jpeg"',patch)
 
 IIFE_TOP = r"""
 (function(){
