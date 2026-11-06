@@ -210,15 +210,12 @@ main = AUR_JS + main
 must("<section class=\"hero\" data-l=\"Hero\"><div class=\"hh\">'","<section class=\"hero\" data-l=\"Hero\">'+aurHtml()+'<div class=\"hh\">'")
 # --- original plankton: more of them, in swarms, drawn gently to the mouse trail ---
 must("(.16+.1*Math.sin(ts/1200+p.ph)+p.b*.6)","(.24+.12*Math.sin(ts/1200+p.ph)+p.b*.6)")
-must("n:80","n:(NSR.host.classList.contains('lite')?60:230)",0)
-must("c:O2.pc[i%3]});","c:O2.pc[i%3]});var q9=P[P.length-1],g9=function(){return Math.random()+Math.random()+Math.random()-1.5};q9.sw=i%9;q9.ox=g9()*150;q9.oy=g9()*110;")
-must("P.forEach(function(p){if(!p.or){","var SW=[],k9;for(k9=0;k9<9;k9++)SW.push({x:W*(.5+.46*Math.sin(ts/(21000+k9*2300)+k9*1.9)),y:H*(.5+.42*Math.sin(ts/(26000+k9*1700)+k9*2.7))});var TR=P.tr||(P.tr=[]);if(sx>-50&&sy>-50&&sx<W+50){var lt9=TR[TR.length-1];if(!lt9||Math.hypot(sx-lt9.x,sy-lt9.y)>9){TR.push({x:sx,y:sy,t:ts});if(TR.length>30)TR.shift()}}while(TR.length&&ts-TR[0].t>2600)TR.shift();\n  P.forEach(function(p){if(!p.or){")
-must("var ang=flowAng(p.x,p.y,ts)*.5;p.vx+=Math.cos(ang)*.006;p.vy+=Math.sin(ang)*.006;","var ang=flowAng(p.x,p.y,ts)*.5,sc9=SW[p.sw||0];p.vx+=Math.cos(ang)*.0035+(sc9.x+(p.ox||0)-p.x)*.000045;p.vy+=Math.sin(ang)*.0035+(sc9.y+(p.oy||0)-p.y)*.000045;")
-must("if(d<360){var w=Math.pow(1-d/360,1.5),nx=dx/d,ny=dy/d;p.vx+=(-ny*p.dir*.022*p.sp+nx*(p.or-d)*.00035)*w;p.vy+=(nx*p.dir*.022*p.sp+ny*(p.or-d)*.00035)*w;p.tb=w*.32}else p.tb=0;","p.tb=0;var bd9=1e9,bt9=null;for(var t9=0;t9<TR.length;t9++){var tp=TR[t9],ed9=Math.hypot(tp.x-p.x,tp.y-p.y);if(ed9<bd9){bd9=ed9;bt9=tp}}if(bt9&&bd9<240&&bd9>34){var ag=Math.max(0,1-(ts-bt9.t)/2600),ww=Math.pow(1-bd9/240,1.5)*ag;p.vx+=(bt9.x-p.x)/bd9*.0022*ww;p.vy+=(bt9.y-p.y)/bd9*.0022*ww;p.tb=ww*.42}else if(bt9&&bd9<=34){p.vx-=(bt9.x-p.x)/bd9*.004;p.vy-=(bt9.y-p.y)/bd9*.004}")
+must("n:80","n:(NSR.host.classList.contains('lite')?60:170)",0)
 
 must("if(p.b>.06)glow(p.x,p.y,8+p.b*22,p.c,p.b*.4)","if(p.b>.06)glow(p.x,p.y,6+p.b*14,p.c,p.b*.28)")
-must("if(sp2>1.6){p.vx*=1.6/sp2;p.vy*=1.6/sp2}","if(sp2>.7){p.vx*=.7/sp2;p.vy*=.7/sp2}")
-must("while(TR.length&&ts-TR[0].t>2600)TR.shift();","while(TR.length&&ts-TR[0].t>2600)TR.shift();for(var i9=0;i9<P.length;i9++){var a9=P[i9];for(var j9=i9+1;j9<P.length;j9++){var b9=P[j9],ux=a9.x-b9.x,uy=a9.y-b9.y;if(ux<26&&ux>-26&&uy<26&&uy>-26){var ud=Math.hypot(ux,uy)||.5;if(ud<26){var uf=(26-ud)/26*.006;a9.vx+=ux/ud*uf;a9.vy+=uy/ud*uf;b9.vx-=ux/ud*uf;b9.vy-=uy/ud*uf}}}}")
+must("P.forEach(function(p){if(!p.or){","for(var i9=0;i9<P.length;i9++){var a9=P[i9];for(var j9=i9+1;j9<P.length;j9++){var b9=P[j9],ux=a9.x-b9.x,uy=a9.y-b9.y;if(ux<30&&ux>-30&&uy<30&&uy>-30){var ud=Math.hypot(ux,uy)||.5;if(ud<30){var uf=(30-ud)/30*.004;a9.vx+=ux/ud*uf;a9.vy+=uy/ud*uf;b9.vx-=ux/ud*uf;b9.vy-=uy/ud*uf}}}}\n  P.forEach(function(p){if(!p.or){")
+must("if(d<360){var w=Math.pow(1-d/360,1.5),nx=dx/d,ny=dy/d;p.vx+=(-ny*p.dir*.022*p.sp+nx*(p.or-d)*.00035)*w;p.vy+=(nx*p.dir*.022*p.sp+ny*(p.or-d)*.00035)*w;p.tb=w*.32}else p.tb=0;","p.tb=p.pb||0;p.pb=(p.pb||0)*.992;")
+must("if(mode=='biolum')RP.push({x:mx,y:my,r:0,a:1});","if(mode=='biolum'){RP.push({x:mx,y:my,r:0,a:1});P.forEach(function(p){var dx=p.x-mx,dy=p.y-my,d=Math.hypot(dx,dy)||1;if(d<320){var f=Math.pow(1-d/320,1.2);p.vx+=dx/d*f*2.4;p.vy+=dy/d*f*2.4;p.pb=Math.max(p.pb||0,.25+f*.65)}})}")
 must("go(g.dataset.go);return}", "go(g.dataset.go,g);return}")
 must("go(its[ix].getAttribute('data-go'))", "go(its[ix].getAttribute('data-go'),its[ix])")
 must("Item", "Item", 0) if False else None

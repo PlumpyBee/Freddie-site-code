@@ -76,8 +76,8 @@ function teach(c){
 }
 function foot(c){return '<footer class="ft" data-l="Footer"><div><span class="kk">Get in touch</span><a class="mail" data-go="mail">'+MAIL+'</a></div><div class="fl"><a data-go="mail">LinkedIn</a><a data-go="mail">Medium</a></div></footer>'}
 var CON=[
-{n:'Depth · Glass',th:'dark',m:'biolum',hm:'glow',mt:'kxc',xc:'ugl',nv:'min',sc:'line',o:{pc:['90,240,255','80,150,255','120,255,200'],n:(NSR.host.classList.contains('lite')?60:230)},lay:'rows',wk:'rows',cap:'<b>1 · Depth · Glass (improved).</b> Glass layers stacked behind the picture card with the chips slab in front. Now keyboard and screen-reader friendly, higher contrast, and <b>stacks into one scrolling column on phones</b>. <span class="hint">Open the Menu button, then hover or use Tab and arrow keys.</span>'},
-{n:'Prism · Big Split',th:'dark',m:'biolum',hm:'glow',mt:'kua',xc:'ubig',nv:'min',sc:'line',o:{pc:['90,240,255','80,150,255','120,255,200'],n:(NSR.host.classList.contains('lite')?60:230)},lay:'rows',wk:'rows',cap:'<b>2 · Prism · Big Split (improved).</b> A big prism panel with the outline number and chips slab. Same accessibility work, and <b>reflowed for phone and tablet</b>. <span class="hint">Open the Menu button, then hover or use Tab and arrow keys.</span>'}
+{n:'Depth · Glass',th:'dark',m:'biolum',hm:'glow',mt:'kxc',xc:'ugl',nv:'min',sc:'line',o:{pc:['90,240,255','80,150,255','120,255,200'],n:(NSR.host.classList.contains('lite')?60:170)},lay:'rows',wk:'rows',cap:'<b>1 · Depth · Glass (improved).</b> Glass layers stacked behind the picture card with the chips slab in front. Now keyboard and screen-reader friendly, higher contrast, and <b>stacks into one scrolling column on phones</b>. <span class="hint">Open the Menu button, then hover or use Tab and arrow keys.</span>'},
+{n:'Prism · Big Split',th:'dark',m:'biolum',hm:'glow',mt:'kua',xc:'ubig',nv:'min',sc:'line',o:{pc:['90,240,255','80,150,255','120,255,200'],n:(NSR.host.classList.contains('lite')?60:170)},lay:'rows',wk:'rows',cap:'<b>2 · Prism · Big Split (improved).</b> A big prism panel with the outline number and chips slab. Same accessibility work, and <b>reflowed for phone and tablet</b>. <span class="hint">Open the Menu button, then hover or use Tab and arrow keys.</span>'}
 ];
 function navHtml(c){
  var L=[['Home','home'],['About','about'],['Teaching','teach'],['Alta Flora','alta'],['Balance','balance'],['Say hello','mail']],x='';
@@ -320,7 +320,7 @@ function cvInit(){
    if(tt.pts.length>2)P.push(tt)}}
  if(mode=='aurora'||mode=='biolum'||mode=='galaxy'){P=[];var O2=CON[S.c-1].o||{};
   if(mode=='aurora'){for(i=0;i<90;i++)P.push({x:Math.random()*W,y:Math.random()*H*.6,s:1.2+Math.random()*1.4,b:Math.random()*6.28});P.pl=[];if(O2.spk)for(i=0;i<(NSR.host.classList.contains("lite")?18:70);i++)P.pl.push({x:Math.random()*W,y:H*(.55+Math.random()*.45),ph:Math.random()*6,c:['120,255,210','120,190,255'][i%2]})}
-  if(mode=='biolum')for(i=0;i<(O2.n||120);i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:0,vy:0,b:0,ph:Math.random()*6,s:Math.random()*1.4,c:O2.pc[i%3]});var q9=P[P.length-1],g9=function(){return Math.random()+Math.random()+Math.random()-1.5};q9.sw=i%9;q9.ox=g9()*150;q9.oy=g9()*110;
+  if(mode=='biolum')for(i=0;i<(O2.n||120);i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:0,vy:0,b:0,ph:Math.random()*6,s:Math.random()*1.4,c:O2.pc[i%3]});
   if(mode=='galaxy'){var mr=Math.min(W,H)*.6;for(i=0;i<(O2.n||1000);i++){var rr=Math.pow(Math.random(),.65)*mr+8,f=rr/mr;P.push({r:rr,a0:(i%2)*3.1416+rr*.011+(Math.random()-.5)*.55,j:(Math.random()-.5)*.1,fs:'rgba('+(f<.3?O2.gc[0]:f<.65?O2.gc[1]:O2.gc[2])+','+(.28+Math.random()*.45).toFixed(2)+')',s:Math.random()<.1?2.2:1.2,br:Math.random()<.06})}}}
  if(mode=='ff')for(i=0;i<64;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:0,vy:0,a:Math.random()*6.28,s:2+Math.random()*3,b:Math.random()*6.28,c:Math.random()<.2?'214,204,255':'235,239,160'});
  if(mode=='con')for(i=0;i<95;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,s:1+Math.random()*1.5,b:Math.random()*6.28});
@@ -346,7 +346,7 @@ function cvClick(e){
  if(mode=='rip'){for(var i=0;i<3;i++)RP.push({x:mx,y:my,r:2-i*14,a:.7})}
  if(mode=='dripple')RP.push({x:mx,y:my,r:0,a:1});
  if(mode=='fairy'){for(var q5=0;q5<40;q5++){var an=Math.random()*6.283,sp5=1+Math.random()*3.2;RP.push({x:mx,y:my,vx:Math.cos(an)*sp5,vy:Math.sin(an)*sp5,g:.03,l:0,m:60+Math.random()*50,s:4+Math.random()*7,c:['255,216,107','255,160,220','190,175,255','255,255,255'][q5%4],ph:Math.random()*6})}}
- if(mode=='biolum')RP.push({x:mx,y:my,r:0,a:1});
+ if(mode=='biolum'){RP.push({x:mx,y:my,r:0,a:1});P.forEach(function(p){var dx=p.x-mx,dy=p.y-my,d=Math.hypot(dx,dy)||1;if(d<320){var f=Math.pow(1-d/320,1.2);p.vx+=dx/d*f*2.4;p.vy+=dy/d*f*2.4;p.pb=Math.max(p.pb||0,.25+f*.65)}})}
  if(mode=='bees')P.forEach(function(b){b.vx+=(Math.random()-.5)*14;b.vy+=(Math.random()-.5)*14});
  if(mode=='weave')RP.push({x:mx,y:my,t:performance.now(),big:1});
  if(mode=='meteor'){RP.push(meteorNew(mx+520,my-340,1.3));RP.push({x:mx,y:my,ring:1,r:0,a:1})}
@@ -529,11 +529,11 @@ function cvTick(ts){
   RP.forEach(function(p){var f=p.l/p.m,a=Math.sin(f*3.1416)*(.6+.4*Math.sin(p.l*.4+p.ph)),r=p.s*(1-f*.4);glow(p.x,p.y,r*2.2,p.c,a*.35);star4(p.x,p.y,r,p.c,a)})}
  if(mode=='biolum'){var sx=spx,sy=spy-cvTop;RP=RP.filter(function(r){r.r+=2.4;r.a*=.975;return r.a>.04});
   RP.forEach(function(r){c2.strokeStyle='rgba('+CON[S.c-1].o.pc[0]+','+(r.a*.12).toFixed(3)+')';c2.lineWidth=1;c2.beginPath();c2.arc(r.x,r.y,r.r,0,6.283);c2.stroke()});
-  var SW=[],k9;for(k9=0;k9<9;k9++)SW.push({x:W*(.5+.46*Math.sin(ts/(21000+k9*2300)+k9*1.9)),y:H*(.5+.42*Math.sin(ts/(26000+k9*1700)+k9*2.7))});var TR=P.tr||(P.tr=[]);if(sx>-50&&sy>-50&&sx<W+50){var lt9=TR[TR.length-1];if(!lt9||Math.hypot(sx-lt9.x,sy-lt9.y)>9){TR.push({x:sx,y:sy,t:ts});if(TR.length>30)TR.shift()}}while(TR.length&&ts-TR[0].t>2600)TR.shift();for(var i9=0;i9<P.length;i9++){var a9=P[i9];for(var j9=i9+1;j9<P.length;j9++){var b9=P[j9],ux=a9.x-b9.x,uy=a9.y-b9.y;if(ux<26&&ux>-26&&uy<26&&uy>-26){var ud=Math.hypot(ux,uy)||.5;if(ud<26){var uf=(26-ud)/26*.006;a9.vx+=ux/ud*uf;a9.vy+=uy/ud*uf;b9.vx-=ux/ud*uf;b9.vy-=uy/ud*uf}}}}
+  for(var i9=0;i9<P.length;i9++){var a9=P[i9];for(var j9=i9+1;j9<P.length;j9++){var b9=P[j9],ux=a9.x-b9.x,uy=a9.y-b9.y;if(ux<30&&ux>-30&&uy<30&&uy>-30){var ud=Math.hypot(ux,uy)||.5;if(ud<30){var uf=(30-ud)/30*.004;a9.vx+=ux/ud*uf;a9.vy+=uy/ud*uf;b9.vx-=ux/ud*uf;b9.vy-=uy/ud*uf}}}}
   P.forEach(function(p){if(!p.or){p.or=70+Math.random()*230;p.dir=Math.random()<.5?-1:1;p.sp=.6+Math.random()*.8}
-   var ang=flowAng(p.x,p.y,ts)*.5,sc9=SW[p.sw||0];p.vx+=Math.cos(ang)*.0035+(sc9.x+(p.ox||0)-p.x)*.000045;p.vy+=Math.sin(ang)*.0035+(sc9.y+(p.oy||0)-p.y)*.000045;dx=p.x-sx;dy=p.y-sy;d=Math.hypot(dx,dy)||1;
-   p.tb=0;var bd9=1e9,bt9=null;for(var t9=0;t9<TR.length;t9++){var tp=TR[t9],ed9=Math.hypot(tp.x-p.x,tp.y-p.y);if(ed9<bd9){bd9=ed9;bt9=tp}}if(bt9&&bd9<240&&bd9>34){var ag=Math.max(0,1-(ts-bt9.t)/2600),ww=Math.pow(1-bd9/240,1.5)*ag;p.vx+=(bt9.x-p.x)/bd9*.0022*ww;p.vy+=(bt9.y-p.y)/bd9*.0022*ww;p.tb=ww*.42}else if(bt9&&bd9<=34){p.vx-=(bt9.x-p.x)/bd9*.004;p.vy-=(bt9.y-p.y)/bd9*.004}
-   p.vx*=.972;p.vy*=.972;var sp2=Math.hypot(p.vx,p.vy);if(sp2>.7){p.vx*=.7/sp2;p.vy*=.7/sp2}p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;p.b+=(p.tb-p.b)*.05;
+   var ang=flowAng(p.x,p.y,ts)*.5;p.vx+=Math.cos(ang)*.006;p.vy+=Math.sin(ang)*.006;dx=p.x-sx;dy=p.y-sy;d=Math.hypot(dx,dy)||1;
+   p.tb=p.pb||0;p.pb=(p.pb||0)*.992;
+   p.vx*=.972;p.vy*=.972;var sp2=Math.hypot(p.vx,p.vy);if(sp2>1.6){p.vx*=1.6/sp2;p.vy*=1.6/sp2}p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;p.b+=(p.tb-p.b)*.05;
    if(p.b>.06)glow(p.x,p.y,6+p.b*14,p.c,p.b*.28);c2.fillStyle='rgba('+p.c+','+(.24+.12*Math.sin(ts/1200+p.ph)+p.b*.6).toFixed(2)+')';c2.beginPath();c2.arc(p.x,p.y,1.1+p.s*.5+p.b*1.2,0,6.283);c2.fill()})}
  if(mode=='bees'){var tx0=mx,ty0=my;if(Math.hypot(px-P.px,py-P.py)>1.5){P.lm=ts;P.px=px;P.py=py}if(ts-P.lm>2600){tx0=W*(.55+.2*Math.sin(ts/3100));ty0=H*(.45+.2*Math.sin(ts/2300+1))}
   P.forEach(function(b){var R=30+b.rr,tx=tx0+Math.cos(ts/700*b.sp+b.ph)*R,ty=ty0+Math.sin(ts/900*b.sp+b.ph*1.3)*R*.7;b.px=b.x;b.py=b.y;b.vx+=(tx-b.x)*.004*b.k+(Math.random()-.5)*.25;b.vy+=(ty-b.y)*.004*b.k+(Math.random()-.5)*.25;b.vx*=.94;b.vy*=.94;b.x+=b.vx;b.y+=b.vy;
