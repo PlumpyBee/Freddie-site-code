@@ -17,7 +17,8 @@ css = css.replace('body{margin:0;background:#fdfdf5;font-family:Montserrat,syste
 css += """
 #site .menu{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:#03141a!important}
 #site.mo>main,#site.mo>.scue{visibility:hidden;transition:visibility 0s linear .9s}
-#site .menu .kzh{--kr:14!important;-webkit-mask-image:none!important;mask-image:none!important;background-repeat:no-repeat;background-color:#03141a}
+#site .menu .kzh{background-repeat:no-repeat;background-color:#03141a}
+#site .menu:not([data-a]) .kzh0,#site .menu[data-a="0"] .kzh0,#site .menu[data-a="1"] .kzh1,#site .menu[data-a="2"] .kzh2,#site .menu[data-a="3"] .kzh3,#site .menu[data-a="4"] .kzh4,#site .menu[data-a="5"] .kzh5{--kr:14!important;-webkit-mask-image:none!important;mask-image:none!important}
 #site .menu .kzh0,#site .menu .kzh3,#site .menu .kzh4{background-size:contain!important;background-position:center!important}
 #site .menu .uug,#site .menu .kxgh{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:linear-gradient(135deg,rgba(10,40,52,.92),rgba(5,24,32,.96))!important;border:1px solid rgba(127,243,228,.3)!important;animation:none!important}
 #site .menu .uug .kgl,#site .menu .kwgl{display:none!important}
