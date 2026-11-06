@@ -30,7 +30,7 @@ css += """
 #site .x-bento .big img{transform:none!important;object-position:50% 22%!important}
 #site .hxp{display:none!important}
 #site .te-img img{transform:rotate(-2deg) scale(1.25)!important;transform-origin:50% 50%;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55))}
-@media (min-width:900px){#site .te-img{overflow:visible}#site .te-img img{width:165%!important;max-width:none!important;margin-left:-32%;transform:rotate(-2deg)!important}}
+@media (min-width:1100px){#site .te-hero{grid-template-columns:1fr 1fr!important}#site .te-img{overflow:visible}#site .te-img img{width:150%!important;max-width:none!important;margin-left:-22%;transform:rotate(-2deg)!important}}
 /* lite mode: software rendering / no graphics acceleration */
 :host(.lite) *{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 :host(.lite) .mcv,:host(.lite) .scue,:host(.lite) .bgfx::before,:host(.lite) .bgfx::after{display:none!important}
