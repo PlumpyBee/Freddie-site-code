@@ -1153,7 +1153,7 @@ window.__pv={go:go,openMenu:openMenu,closeMenu:closeMenu,S:S};
 (function(NSR){
 
 (function(){
-var BEE="https://s3.amazonaws.com/webflow-prod-assets/65bcd665e34d787b54fdda73/6ad35c518c6b81db3436e306_229614763_534730867766597_9168841667037193452_n-p-1080.jpeg";
+var BEE="https://s3.amazonaws.com/webflow-prod-assets/65bcd665e34d787b54fdda73/6ad2055a3c648048bd0a675e_beekeeping.png";
 var site=NSR.getElementById("site");
 function patch(){
  var pg=site.querySelector('.pg[data-pg="about"]');if(!pg||pg.getAttribute("data-x"))return;

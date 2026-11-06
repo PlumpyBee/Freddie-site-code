@@ -149,7 +149,7 @@ for _a,_b in _pr:
 import re as _re
 _n=len(_re.findall(r'var BEE="data:image/jpeg;base64,[^"]*"', patch))
 assert _n==1,'PATCH MISS BEE photo'
-patch=_re.sub(r'var BEE="data:image/jpeg;base64,[^"]*"','var BEE="https://s3.amazonaws.com/webflow-prod-assets/65bcd665e34d787b54fdda73/6ad35c518c6b81db3436e306_229614763_534730867766597_9168841667037193452_n-p-1080.jpeg"',patch)
+patch=_re.sub(r'var BEE="data:image/jpeg;base64,[^"]*"','var BEE="https://s3.amazonaws.com/webflow-prod-assets/65bcd665e34d787b54fdda73/6ad2055a3c648048bd0a675e_beekeeping.png"',patch)
 
 IIFE_TOP = r"""
 (function(){
