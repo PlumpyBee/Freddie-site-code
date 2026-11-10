@@ -54,6 +54,10 @@ function extras(){
  if(hero&&!$('.pf-hx',hero)){var d=document.createElement('div');d.className='pf-hx';
   d.innerHTML='<a class="pf-cta1" data-go="work">See my work <i aria-hidden="true">↓</i></a>'
   +'<nav class="pf-dock" aria-label="Projects"><a data-go="teach" style="--c:#ebefa0"><b>01</b><span>UX Design Teaching</span></a><a data-go="alta" style="--c:#8fe8c0"><b>02</b><span>Alta Flora</span></a><a data-go="balance" style="--c:#c8b9ff"><b>03</b><span>Balance</span></a></nav>'
+  +'<nav class="pf-proj" aria-label="Projects"><a data-go="teach" style="--c:#ebefa0;--t:#0a332b"><i></i>Teaching</a><a data-go="alta" style="--c:#8fe8c0;--t:#12352b"><i></i>Alta Flora</a><a data-go="balance" style="--c:#c8b9ff;--t:#1d1a45"><i></i>Balance</a></nav>'
+  +'<a class="pf-scroll" data-go="work">Scroll<i aria-hidden="true"></i></a>'
+  +'<p class="pf-now" style="margin:0"><span><b aria-hidden="true"></b>Based in the UK</span><span>Working remote</span><span>London <em data-pfclk2>--:--</em></span></p>'
+  +'<div class="pf-tick" aria-label="UX research, UI design, Prototyping, Usability testing, Teaching UX, Beekeeping"><div aria-hidden="true">'+(function(){var w=[['UX research','#7ff3e4'],['UI design','#ebefa0'],['Prototyping','#8fe8c0'],['Usability testing','#ffb9a0'],['Teaching UX','#c8b9ff'],['Beekeeping','#ebefa0']],h=w.map(function(x){return '<span style="--c:'+x[1]+'">'+x[0]+'</span>'}).join('');return h+h})()+'</div></div>'
   +'<ul class="pf-facts"><li style="--c:#ebefa0"><b>4 years</b>teaching UX</li><li style="--c:#7ff3e4"><b>14+</b>cohorts taught</li><li style="--c:#c8b9ff"><b>8 years</b>keeping bees</li></ul>';
   hero.appendChild(d)}
  var work=$('#work');
@@ -72,10 +76,11 @@ function extras(){
 }
 window.__pfAfter=function(s,nsr){site=s;R=nsr;
  if(!R.getElementById('pfcss')){var st=document.createElement('style');st.id='pfcss';st.textContent=window.__pfCSS;R.appendChild(st)}
- site.classList.add('pfjs');setVer(VER,true);extras();observe();countUp();notes();compare();navH();
+ site.classList.add('pfjs');var HS='1';try{HS=localStorage.getItem('pfhs')||'1'}catch(e){}if(window.__pfLive)HS='1';site.setAttribute('data-hs',HS);setVer(VER,true);extras();observe();countUp();notes();compare();navH();
  site.addEventListener('click',function(e){var b=e.target.closest('.cs-rail button');if(!b)return;var pg=curPg(),t=$('[data-sec="'+b.dataset.to+'"]',pg);if(!t)return;
   var nh=parseFloat(site.style.getPropertyValue('--navh'))||66;window.scrollTo({top:t.getBoundingClientRect().top+scrollY-nh-70,behavior:RM?'auto':'smooth'})});
  setTimeout(function(){navH();rail()},300)};
+setInterval(function(){if(!site)return;var t='';try{t=new Date().toLocaleTimeString('en-GB',{timeZone:'Europe/London',hour:'2-digit',minute:'2-digit'})}catch(e){}[].forEach.call(site.querySelectorAll('[data-pfclk2]'),function(e){e.textContent=t})},1000);
 window.__pfMark=function(p){if(!site)return;requestAnimationFrame(function(){navH();rail()})};
 var WC={home:['#03141a','linear-gradient(180deg,#0b3a44,#03141a)'],about:['#0a332b','linear-gradient(180deg,#0f4a4a,#03141a)'],teach:['#ebefa0','linear-gradient(180deg,#ebefa0,#7ff3e4)'],alta:['#f7f2e6','linear-gradient(180deg,#8fe8c0,#ffb9a0)'],balance:['#1c1757','linear-gradient(180deg,#c8b9ff,#1c1757)']};
 window.__pfWipe=function(x,el,cb){var v=site?+site.getAttribute('data-ver'):0,w=site&&$('.pf-wipe');

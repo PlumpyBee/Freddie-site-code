@@ -1,5 +1,5 @@
 (function(){
-var MN='a';try{var m=localStorage.getItem('pfmn');if(m==='a'||m==='b')MN=m}catch(e){}
+var MN='a';try{var m=localStorage.getItem('pfmn');if(/^[a-e]$/.test(m||''))MN=m}catch(e){}
 if(window.__pfLive)MN='b';
 var ITEMS=[
  ['home','Home','Start here',['UX/UI designer','Portfolio','Based in UK'],'#7ff3e4'],
@@ -11,7 +11,7 @@ var ITEMS=[
 var W3={home:['#0b3a44','#fefdf6','rgba(127,243,228,.35)'],about:['#ffb9a0','#03141a'],teach:['#ebefa0','#0a332b'],alta:['#f7f2e6','#12352b','rgba(143,232,192,.8)'],balance:['#1c1757','#f4f1ff','rgba(200,185,255,.35)'],mail:['#7ff3e4','#03141a']};
 var NOTE={'1a':'Menu A: page links with a contact card (copy email, LinkedIn, Medium, London time).','1b':'Menu B: page links with a short “about me” in brief.',
  '2a':'Menu A: big centred links; the aurora behind them changes to each page’s colour as you hover.','2b':'Menu B: rows fill with the page colour and a ticker of tags runs across.',
- '3a':'Menu A: full-height colour bands, one per page; the one you hover grows.','3b':'Menu B: colour tiles in each page’s world colour.'};
+ '3a':'Menu A: full-height colour bands, one per page; the one you hover grows.','3b':'Menu B (live now): colour tiles in each page’s world colour.','3c':'Menu C: colour circles that grow in from a dot, like the How might we circles.','3d':'Menu D: the whole menu floods with each page’s colour as you hover its name.','3e':'Menu E: a bento grid, Home large, each tile in its world colour.'};
 var EMAIL='Freddie.Grzybowski@gmail.com',LI='https://www.linkedin.com/in/freddiegrzybowski/',MED='https://medium.com/@freddie.grzybowski';
 var site=null;
 function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
@@ -29,7 +29,10 @@ function build(){
  h+=foot('2a 2b');
  h+='<div class="p3a" data-mv="3a">'+links('pl3a',function(t,i){var w=W3[t[0]];return '<a '+go(t)+' style="--c:'+w[0]+';--t:'+w[1]+';--i:'+i+'"><i>0'+(i+1)+'</i><div class="nm"><span>'+t[1]+'</span><em>'+esc(t[2])+'</em></div><u aria-hidden="true">→</u></a>'})+'</div>';
  h+='<div class="p3b" data-mv="3b">'+links('pl3b',function(t,i){var w=W3[t[0]];return '<a '+go(t)+' style="--c:'+w[0]+';--t:'+w[1]+';--i:'+i+';--r:'+(i%2?'1.5deg':'-1.5deg')+(w[2]?';--b:'+w[2]:'')+'"><div class="tp"><i>0'+(i+1)+'</i><u aria-hidden="true">→</u></div><div><span>'+t[1]+'</span><em>'+esc(t[2])+'</em></div></a>'})+'</div>';
- h+=foot('3b');
+ h+='<div class="p3c" data-mv="3c">'+links('pl3c',function(t,i){var w=W3[t[0]];return '<a '+go(t)+' style="--c:'+w[0]+';--t:'+w[1]+';--i:'+i+'"><i>0'+(i+1)+'</i><span>'+t[1]+'</span></a>'})+'</div>';
+ h+='<div class="p3d" data-mv="3d">'+links('pl3d',function(t,i){var w=W3[t[0]];return '<a class="mz2" '+go(t)+' data-fl="'+w[0]+'" data-ft="'+w[1]+'" style="--i:'+i+'"><i>0'+(i+1)+'</i><span>'+t[1]+'</span><em>'+esc(t[2])+'</em></a>'})+'</div>';
+ h+='<div class="p3e" data-mv="3e">'+links('pl3e',function(t,i){var w=W3[t[0]];return '<a '+go(t)+' style="--c:'+w[0]+';--t:'+w[1]+';--i:'+i+(w[2]?';--b:'+w[2]:'')+'"><div class="tp"><i>0'+(i+1)+'</i><u aria-hidden="true">→</u></div><div><span>'+t[1]+'</span><em>'+esc(t[2])+'</em></div></a>'})+'</div>';
+ h+=foot('3b 3c 3d 3e');
  return h}
 function clock(){if(!site)return;var t='';try{t=new Date().toLocaleTimeString('en-GB',{timeZone:'Europe/London',hour:'2-digit',minute:'2-digit'})}catch(e){}
  [].forEach.call(site.querySelectorAll('[data-pfclk]'),function(e){e.textContent='London · '+t})}
@@ -48,6 +51,8 @@ var A=window.__pfAfter,M=window.__pfMark;
 window.__pfAfter=function(s,R){A&&A(s,R);site=s;
  var st=document.createElement('style');st.textContent=window.__pfMenuCSS;R.appendChild(st);
  var menu=s.querySelector('.menu');if(menu&&!menu.querySelector('.pf-mn')){var d=document.createElement('div');d.className='pf-mn';d.innerHTML=build();menu.appendChild(d);
+  function flood(e){var a=e.target.closest&&e.target.closest('.pl3d a');if(a){d.style.setProperty('--fl',a.getAttribute('data-fl'));d.style.setProperty('--ft',a.getAttribute('data-ft'));d.classList.add('fld')}}
+  d.addEventListener('pointerover',flood);d.addEventListener('focusin',flood);d.addEventListener('pointerleave',function(){d.classList.remove('fld')});
   function tint(e){var a=e.target.closest&&e.target.closest('.pl2a a');if(a)d.style.setProperty('--mc',a.style.getPropertyValue('--c'))}
   d.addEventListener('pointerover',tint);d.addEventListener('focusin',tint);
   d.addEventListener('keydown',function(e){var m=e.target.closest('[data-pfmail]');if(m&&(e.key==='Enter'||e.key===' ')){e.preventDefault();m.click()}});
@@ -61,4 +66,18 @@ window.__pfAfter=function(s,R){A&&A(s,R);site=s;
  s.setAttribute('data-mn',MN);mark();clock();setInterval(clock,20000);note();
  new MutationObserver(note).observe(s,{attributes:true,attributeFilter:['data-ver']})};
 window.__pfMark=function(p){M&&M(p);mark()};
+})();
+(function(){
+var HSN={'1':'Hero strip 1 (live now): 4 years teaching, 14+ cohorts, 8 years keeping bees.','2':'Hero strip 2: three colour chips that jump to each project, previewing its colour world.','3':'Hero strip 3: just “Scroll”, with a line that drips through the three project colours.','4':'Hero strip 4: based in the UK, working remote, and the live London time.','5':'Hero strip 5: a slow ticker of what you do: UX research, UI design, prototyping, testing, teaching, beekeeping.'};
+function S(){var h=document.getElementById('na-host');return h&&h.shadowRoot&&h.shadowRoot.querySelector('#site')}
+function sync(){var s=S();if(!s)return;var v=s.getAttribute('data-ver'),hs=s.getAttribute('data-hs')||'1',m=s.getAttribute('data-mn');document.body.classList.toggle('v3',v==='3');
+ [].forEach.call(document.querySelectorAll('.pfb [data-hs]'),function(b){b.setAttribute('aria-pressed',b.dataset.hs===hs)});
+ if(v!=='3'&&/[cde]/.test(m||'')){var b=document.querySelector('.pfb [data-mn="b"]');if(b){b.click()}}
+ var n=document.getElementById('pfhnote');if(n)n.textContent=v==='3'?HSN[hs]:''}
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.pfb button');if(!b)return;
+ if(b.dataset.hs){var s=S();if(s){s.setAttribute('data-hs',b.dataset.hs);try{localStorage.setItem('pfhs',b.dataset.hs)}catch(x){}
+  if(s.classList.contains('mo')){var mb=s.querySelector('.mbtn');if(mb)mb.click()}
+  if(s.getAttribute('data-p')!=='home'){var hm=s.querySelector('.nv [data-go=home]');if(hm)hm.click()}else window.scrollTo({top:0,behavior:'smooth'})}}
+ setTimeout(sync,30)});
+var t=setInterval(function(){var s=S();if(s&&s.classList.contains('pfjs')){clearInterval(t);sync();new MutationObserver(sync).observe(s,{attributes:true,attributeFilter:['data-ver','data-hs','data-mn']})}},200);
 })();
