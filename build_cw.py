@@ -36,7 +36,7 @@ def mk(c1,c2,c3,c4,gl=.2,extra='',hero=None):
     S="#site .st b,#site .st>div:nth-child(n) b,#site .tw .ent .nm span,#site .tw .ent:nth-child(n) .nm span"
     return ("""
 #site [data-pg=teach]>section{position:relative;isolation:isolate}
-#site [data-pg=teach]>section::before{content:"";position:absolute;inset:-14% -6%;z-index:-1;pointer-events:none;background:radial-gradient(38% 50% at var(--gx,85%) 45%,var(--gc),transparent 70%)}
+#site [data-pg=teach]>section::before{content:"";position:absolute;z-index:-1;pointer-events:none;width:min(72vw,940px);aspect-ratio:1;left:var(--gx,85%);top:50%;transform:translate(-50%,-50%);background:radial-gradient(closest-side,var(--gc),transparent)}
 """+secs+"""
 #site .te-hero h1 .hl,#site .te-hero h1 .hl *{background-image:none!important;background:none!important}
 """+L+S+"""{background-image:none!important}
