@@ -20,7 +20,7 @@ ALTA_FX='<div class="cs-fx" aria-hidden="true"><svg class="cs-line" viewBox="0 0
 BAL_FX='<div class="cs-fx" aria-hidden="true"><i class="cs-br q1"></i><i class="cs-br q2"></i><i class="cs-br q3"></i></div>'
 
 alta=f'''<div class="pg cs" data-pg="alta">
-<section class="cs-hero">{ALTA_FX}<p class="cs-eye">Case study · Healthtech · 3 week sprint</p><h1 class="cs-h1">Alta Flora</h1><p class="cs-intro">A three week design sprint for Alta Flora’s medical tracking app EVA. In this project I worked in a team of four UX Designers, myself, Scarlet Eadie, Jamie Curtis and Helena Saez.</p>{meta([('Role','UX Designer'),('Team','4 UX designers'),('Duration','3 weeks'),('Focus','Onboarding · Tracking · Data')])}<div class="cs-phones five">{phones}</div></section>
+<section class="cs-hero">{ALTA_FX}<p class="cs-eye">Client project · Healthtech · 3 week sprint</p><h1 class="cs-h1">Alta Flora</h1><p class="cs-intro">A three week design sprint for Alta Flora’s medical tracking app EVA. In this project I worked in a team of four UX Designers, myself, Scarlet Eadie, Jamie Curtis and Helena Saez.</p>{meta([('Role','UX Designer'),('Team','4 UX designers'),('Duration','3 weeks'),('Focus','Onboarding · Tracking · Data')])}<div class="cs-phones five">{phones}</div></section>
 <div class="cs-sheet">{rail([('Overview','overview'),('Discover','discover'),('Explore','explore'),('Develop','develop'),('Deliver','deliver'),('Learnings','learnings')])}
 <div class="cs-wrap">
 {two('The client','Who are Alta Flora?','<p class="cs-lead">Alta Flora built an app (EVA) for patients consuming legal prescription medical cannabis in the UK in 2019 and released it into the app store in Nov 2020. Now they have expanded to all types of medication, not just cannabis based. EVA is a free app, helping you track your medication and symptoms in order to aid communication with your doctor and improve quality of life.</p>','overview')}
@@ -58,7 +58,7 @@ alta=f'''<div class="pg cs" data-pg="alta">
 </div></div></div>'''
 
 balance=f'''<div class="pg cs" data-pg="balance">
-<section class="cs-hero">{BAL_FX}<p class="cs-eye">Case study · Wellbeing · 2 week sprint</p><h1 class="cs-h1">Balance</h1><p class="cs-intro">A 2 week design sprint for the meditation app Balance. In this project I worked in a team of four. Myself, Leo Wong, Alina Tamciuc, India Berrow.</p>{meta([('Role','UX Designer'),('Team','4 UX designers'),('Duration','2 weeks'),('Focus','Habit · EEG data · Group meditation')])}<div class="cs-phones one"><div class="cs-dv">{img('bhero','Three phones showcasing the Balance app designs')}</div></div></section>
+<section class="cs-hero">{BAL_FX}<p class="cs-eye">Concept project · Wellbeing · 2 week sprint</p><h1 class="cs-h1">Balance</h1><p class="cs-intro">A 2 week design sprint for the meditation app Balance. In this project I worked in a team of four. Myself, Leo Wong, Alina Tamciuc, India Berrow.</p>{meta([('Role','UX Designer'),('Team','4 UX designers'),('Duration','2 weeks'),('Focus','Habit · EEG data · Group meditation')])}<div class="cs-phones one"><div class="cs-dv">{img('bhero','Three phones showcasing the Balance app designs')}</div></div></section>
 <div class="cs-sheet">{rail([('Overview','overview'),('Discover','discover'),('Explore','explore'),('Develop','develop'),('Deliver','deliver'),('Summary','summary')])}
 <div class="cs-wrap">
 {two('The client','Who are Balance?','<p class="cs-lead">Balance is a meditation app that offers personalised meditation programs based on the meditator’s experience and needs.</p>','overview')}
