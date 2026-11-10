@@ -288,9 +288,9 @@ V2 .wp::after{content:"";position:absolute;left:0;top:-1px;height:2px;width:100%
 V2 .wp:hover::after{transform:scaleX(1)}
 V2 .wp .n{color:var(--pc0)}
 }
-#site .cs-icons{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,2vw,22px);margin-top:28px}
+#site .cs-icons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,22px);margin-top:28px}
 #site .cs-icons img{width:100%;height:auto;display:block;border-radius:18px;background:var(--cfig);box-shadow:0 0 0 1px var(--cln)}
-@media (max-width:760px){#site .cs-icons{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){#site .cs-icons{grid-template-columns:minmax(0,1fr)}}
 
 /* ===== Colour worlds: nav pills readable on the cream Alta Flora page ===== */
 #site[data-ver="3"][data-p=alta] .nav .logo,#site[data-ver="3"][data-p=alta] .nav .nv{background:rgba(247,242,230,.88)!important;border-color:rgba(18,53,43,.22)!important;color:#12352b!important}
