@@ -21,6 +21,7 @@ i = s.index('function build(){'); j = s.index('ready.then(lockW);', i) + len('re
 s = s[:j] + "if(window.__pfAfter)window.__pfAfter(site,NSR);" + s[j:]
 i = s.index('function mark(){'); j = s.index("site.setAttribute('data-p',S.p);", i) + len("site.setAttribute('data-p',S.p);")
 s = s[:j] + "if(window.__pfMark)window.__pfMark(S.p);" + s[j:]
+rep("innerHeight*.62-r.top)/r.height", "innerHeight*.8-r.top)/r.height")
 rep("#site[data-p=teach] [data-pg=teach]{display:block", "#site[data-p=teach] [data-pg=teach],#site[data-p=alta] [data-pg=alta],#site[data-p=balance] [data-pg=balance]{display:block")
 
 # ---- CSS: version prefixes + teaching colour layer (Colour worlds = warm sunrise) ----
@@ -54,6 +55,11 @@ def mk(c1,c2,c3,c4,gl=.2,extra='',hero=None):
 """%(c1,c2,c3,c4,c2,c3,c1,c2,c1,c2,c4,c4,c2,c1,c1))+extra
 T3 = mk('#ebefa0','#ffd29a','#7ff3e4','#ffb9a0',.24,"",hero=['#ebefa0','#ebefa0','#f5de9c','#ffd29a','#ffc49f','#ffb9a0'])
 css = T3.replace('#site ', '#site[data-ver="3"] ') + css
+# ---- About page: version 2 colour tiles ----
+ab = open('cw/about.css').read()
+for k, v in [('ALL', '#site[data-ver="3"]:not([data-ab="0"]) [data-pg=about]'), ('A1', '#site[data-ver="3"][data-ab="1"] [data-pg=about]'), ('A2', '#site[data-ver="3"][data-ab="2"] [data-pg=about]'), ('A3', '#site[data-ver="3"][data-ab="3"] [data-pg=about]')]:
+    ab = re.sub(r'(?m)(^|\}|\{|,)' + k + r'(?=[ >{])', lambda m: m.group(1) + v, ab)
+css = css + ab
 
 # ---- case study pages with the real image files ----
 os.environ['PF_IMG'] = os.path.abspath('cw/imgurls.json')
@@ -64,6 +70,9 @@ pages = [content.alta, content.balance]
 layer = ('window.__pfLive=1;window.__pfCSS=' + json.dumps(css) + ';window.__pfHTML=' + json.dumps(pages) +
          ';window.__pfMenuCSS=' + json.dumps(open('cw/menu.css').read()) + ';\n' +
          open('cw/pf.js').read() + '\n' + open('cw/pfmenu.js').read() + '\n' + open('cw/plankton.js').read() +
+         "\n(function(){var A=window.__pfAfter;window.__pfAfter=function(s,R){A&&A(s,R);s.setAttribute('data-ab','2');s.setAttribute('data-abh',window.__pfLiveAbh||'70');s.setAttribute('data-tl','6')}})();\n" +
+         'window.__pfStar2CSS=' + json.dumps(open('cw/abstar2.css').read()) + ';window.__pfStar3CSS=' + json.dumps(open('cw/abstar3.css').read()) + ';\n' +
+         open('cw/abtl.js').read() + '\n' + open('cw/abhero.js').read() +
          "\nwindow.__pfMail=function(){location.href='mailto:Freddie.Grzybowski@gmail.com'};\n")
 # only run the layer on the site's own routes
 layer = "(function(){var p=location.pathname.replace(/\\/$/,'')||'/';if(!{'/':1,'/about-me':1,'/teaching-experience':1,'/alta-flora':1,'/balance':1}[p])return;\n" + layer + "})();\n"

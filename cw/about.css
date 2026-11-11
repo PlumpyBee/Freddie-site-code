@@ -1,0 +1,95 @@
+/* ===== ABOUT in Colour worlds — shared by versions 1–3 ===== */
+ALL{--aq:#7ff3e4;--yl:#ebefa0;--pe:#ffb9a0;--li:#c8b9ff;--hn:#ffd29a;--mi:#8fe8c0}
+ALL .hl,ALL .hl *{background-image:none!important;background:none!important}
+ALL .ab-t h1 .hl .ch{color:var(--pe)!important}
+ALL .tl-sec .sh .hl .ch,ALL .tl-sec .sh .hl{color:var(--yl)!important}
+ALL .wi-sec .sh .hl .ch,ALL .wi-sec .sh .hl{color:var(--aq)!important}
+ALL .tk-sec .sh .hl .ch,ALL .tk-sec .sh .hl{color:var(--li)!important}
+ALL .ob-sec .hl .ch,ALL .ob-sec .hl{color:var(--hn)!important}
+ALL .tl-step:nth-child(1 of .tl-step){--c:var(--aq)}ALL .tl-step:nth-child(2 of .tl-step){--c:var(--hn)}ALL .tl-step:nth-child(3 of .tl-step){--c:var(--pe)}
+ALL .x-stp:nth-child(1){--c:var(--yl)}ALL .x-stp:nth-child(2){--c:var(--aq)}ALL .x-stp:nth-child(3){--c:var(--pe)}
+ALL .x-cat:nth-child(1){--c:var(--yl)}ALL .x-cat:nth-child(2){--c:var(--mi)}ALL .x-cat:nth-child(3){--c:var(--li)}ALL .x-cat:nth-child(4){--c:var(--pe)}
+ALL .x-tile:nth-of-type(2){--c:var(--pe)}ALL .x-tile:nth-of-type(3){--c:var(--li)}
+ALL .tl-hex polygon{fill:var(--c)!important;stroke:var(--c)!important}
+ALL .tl-hex b{color:#03141a!important}
+ALL .cta2 h2 .wd:nth-child(1) .ch{color:var(--pe)!important}ALL .cta2 h2 .wd:nth-child(2) .ch{color:#ffc49f!important}ALL .cta2 h2 .wd:nth-child(3) .ch{color:var(--hn)!important}ALL .cta2 h2 .wd:nth-child(4) .ch{color:var(--yl)!important}ALL .cta2 h2 .wd:nth-child(5) .ch{color:var(--aq)!important}
+
+/* ---------- 1 · Colour accents: stays dark, colour on type, lines and glows ---------- */
+A1>section:not(.ab-hero){position:relative;isolation:isolate}
+A1>section:not(.ab-hero)::before{content:"";position:absolute;z-index:-1;pointer-events:none;width:min(70vw,900px);aspect-ratio:1;top:50%;transform:translate(-50%,-50%);background:radial-gradient(closest-side,var(--gl),transparent)}
+A1 .tl-sec::before{--gl:rgba(235,239,160,.13);left:85%}
+A1 .wi-sec::before{--gl:rgba(127,243,228,.14);left:12%}
+A1 .tk-sec::before{--gl:rgba(200,185,255,.15);left:88%}
+A1 .ob-sec::before{--gl:rgba(255,210,154,.15);left:15%}
+A1 .cta2::before{--gl:rgba(255,185,160,.16);left:80%}
+A1 .tl-card{border-top:3px solid var(--c)!important}
+A1 .tl-card h3{color:var(--c)!important}
+A1 .tl-card .tl-big{color:var(--c)!important;opacity:.28}
+A1 .tl-tags span{color:var(--c)!important}
+A1 .x-stp{border-top:3px solid var(--c)!important}
+A1 .x-stp .num{color:var(--c)!important;opacity:1!important}
+A1 .x-stp svg{stroke:var(--c)!important;color:var(--c)!important}
+A1 .x-stp h3{color:var(--c)!important}
+A1 .x-cat{border-left:3px solid var(--c)!important}
+A1 .x-cat h4{color:var(--c)!important}
+A1 .x-tile svg{stroke:var(--c)!important;color:var(--c)!important}
+A1 .x-tile b{color:var(--c)!important}
+A1 .x-bento .big .x-g b{color:var(--hn)!important}
+A1 .x-loop{border-color:rgba(255,185,160,.5)!important;color:var(--pe)!important}
+
+/* ---------- 2 · Colour tiles: cards become solid colour tiles, like the home panels ---------- */
+A2 .tl-card,A2 .x-stp,A2 .x-cat,A2 .x-tile,A2 .x-bento .big .x-g{background:var(--c)!important;border:0!important;box-shadow:0 24px 50px -28px rgba(0,0,0,.7)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;color:#0a2a24!important;border-radius:24px!important}
+A2 .tl-card *,A2 .x-stp *,A2 .x-cat *,A2 .x-tile *,A2 .x-bento .big .x-g *{color:#0a2a24!important}
+A2 .tl-card .tl-big{opacity:.22!important}
+A2 .tl-tags span{opacity:.85}
+A2 .x-stp svg,A2 .x-tile svg{stroke:#0a2a24!important}
+A2 .x-stp .num{opacity:.7!important}
+A2 .x-bento .big .x-g{--c:var(--hn)}
+A2 .tl-card,A2 .x-stp,A2 .x-cat,A2 .x-tile{transition:transform .45s cubic-bezier(.3,1.4,.5,1)!important}
+A2 .tl-card:hover,A2 .x-stp:hover,A2 .x-cat:hover,A2 .x-tile:hover{transform:translateY(-6px) rotate(-1deg)!important}
+A2 .x-stp+i,A2 .x-wi>i{color:var(--pe)!important}
+A2 .x-loop{border-color:rgba(254,253,246,.3)!important;color:#fefdf6!important}
+A2 .cta2{position:relative;isolation:isolate}
+A2 .cta2::after{content:"";position:absolute;z-index:-1;inset:clamp(20px,4vw,48px) 0;border-radius:clamp(24px,3vw,40px);background:var(--pe)}
+A2 .cta2 h2 .wd:nth-child(n) .ch{color:#3a170c!important}
+A2 .cta2 h2 .wd:nth-child(5) .ch{color:#8a2a12!important}
+A2 .cta2 .lk{color:#3a170c!important;border-color:#3a170c!important}
+
+/* ---------- 3 · Peach world: dark hero, then a peach paper page (like the case studies) ---------- */
+A3{--pp:#fdeee5;--ink:#2b1610;--co:#b0412a}
+A3>section:not(.ab-hero){position:relative;isolation:isolate;color:var(--ink)}
+A3>section:not(.ab-hero)::after{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:calc(50% - 50vw);right:calc(50% - 50vw);background:var(--pp)}
+A3 .tl-sec::after{border-radius:clamp(24px,3vw,44px) clamp(24px,3vw,44px) 0 0}
+A3 .tl-sec::before{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:calc(50% - 50vw);right:calc(50% - 50vw);background:radial-gradient(60% 420px at 92% 0,rgba(255,185,160,.75),transparent 70%),radial-gradient(50% 380px at 0 60%,rgba(255,210,154,.5),transparent 70%)}
+A3 .tl-sec::after{z-index:-2}
+A3>section:not(.ab-hero) :is(h2,h3,h4,p,li,b,.tl-big,.tl-tags span,.x-foot,.num,.x-loop span):not(.ch){color:var(--ink)!important}
+A3>section:not(.ab-hero) .ch{color:var(--ink)}
+A3 .kk{color:var(--co)!important}
+A3 .tl-sec .sh .hl .ch,A3 .wi-sec .sh .hl .ch,A3 .tk-sec .sh .hl .ch,A3 .ob-sec .hl .ch{color:var(--co)!important}
+A3 .cta2 h2 .wd:nth-child(n) .ch{color:var(--ink)!important}
+A3 .cta2 h2 .wd:nth-child(5) .ch{color:var(--co)!important}
+A3 .tl-sec .sh .hl,A3 .wi-sec .sh .hl,A3 .tk-sec .sh .hl,A3 .ob-sec .hl{color:var(--co)!important}
+A3 .tl-card,A3 .x-stp,A3 .x-cat,A3 .x-tile,A3 .x-bento .big .x-g{background:#fffaf6!important;border:1px solid rgba(43,22,16,.1)!important;box-shadow:0 20px 44px -30px rgba(90,40,20,.45)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+A3 .tl-card{border-top:4px solid var(--c)!important}
+A3 .tl-card .tl-big{color:var(--c)!important;opacity:.55!important}
+A3 .x-stp{border-top:4px solid var(--c)!important}
+A3 .x-stp svg,A3 .x-tile svg{stroke:var(--co)!important}
+A3 .x-cat h4{color:var(--co)!important}
+A3 .x-loop{border-color:rgba(176,65,42,.45)!important}
+A3 .x-loop span,A3 .x-loop{color:var(--co)!important}
+A3 .x-loop i{background:rgba(176,65,42,.3)!important}
+A3 .tl-path path{stroke:rgba(43,22,16,.35)!important}
+A3 .tl-hex b{color:#2b1610!important}
+A3>section:not(.ab-hero) .lk{color:var(--ink)!important;border-color:var(--ink)!important}
+A3 .cta2 .lk{color:var(--co)!important;border-color:var(--co)!important}
+#site[data-ver="3"][data-ab="3"][data-p=about].sc .nav::before{background:rgba(253,238,229,.9)!important}
+#site[data-ver="3"][data-ab="3"][data-p=about].sc .nav .logo,#site[data-ver="3"][data-ab="3"][data-p=about].sc .nv a{color:#2b1610!important}
+#site[data-ver="3"][data-ab="3"][data-p=about].sc .nv li[data-pp=mail] a{background:#2b1610!important;color:#fdeee5!important;border-color:#2b1610!important}
+@media (max-width:1099px){#site[data-ver="3"][data-ab="3"][data-p=about].sc .nav .logo,#site[data-ver="3"][data-ab="3"][data-p=about].sc .mbtn{background:rgba(253,238,229,.9)!important;color:#2b1610!important}}
+
+/* ===== Round 13: readable cards ===== */
+A2 .tl-card h3{padding-right:clamp(70px,9vw,130px)}
+A2 .tl-tags,A2 .tl-tags span{opacity:1!important}
+A2 .tl-step .tl-card{opacity:1!important;filter:saturate(.35) brightness(.74);transition:transform .7s cubic-bezier(.2,.9,.2,1),filter .7s!important}
+A2 .tl-step.on .tl-card{filter:none}
+@media (prefers-reduced-motion:reduce){A2 .tl-step .tl-card{filter:none;transform:none!important}}
