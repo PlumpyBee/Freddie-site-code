@@ -389,3 +389,22 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 #site[data-ver="3"][data-hc="4"] .hero .hr::before{content:"";position:absolute;left:18%;right:18%;top:-1px;height:1px;background:linear-gradient(90deg,transparent,#e9dcff,transparent)}
 #site[data-ver="3"][data-hc="4"] .hero .hr .lk{color:#e2d9ff!important}
 @media (prefers-reduced-motion:reduce){#site .hero .hr::before,#site .hero .hr::after{animation:none!important}}
+
+/* readable hover for text links (was a light fill behind light text) */
+#site[data-ver="3"] .lk:hover,#site[data-ver="3"] .lk:focus-visible{background:none!important;text-shadow:none!important;color:inherit!important;border-bottom-width:3px!important}
+
+/* ===== Hero intro without a card (data-hc 5–7) ===== */
+#site[data-ver="3"]:is([data-hc="5"],[data-hc="6"],[data-hc="7"]) .hero .hr{background:none!important;border:0!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;padding:0!important;color:#fefdf6}
+#site[data-ver="3"]:is([data-hc="5"],[data-hc="6"],[data-hc="7"]) .hero .hr .lead{font-weight:500;color:#fefdf6!important;text-shadow:0 1px 2px rgba(3,20,26,.95),0 0 22px rgba(3,20,26,.9)!important}
+#site[data-ver="3"]:is([data-hc="5"],[data-hc="6"],[data-hc="7"]) .hero .hr .lk{color:#c8fff6!important;text-shadow:0 1px 2px rgba(3,20,26,.9)}
+/* 5 · clear sky: the aurora sits lower, so the words are on dark sky (same idea as About) */
+#site[data-ver="3"][data-hc="5"] .hero .hfx{transform:translateY(-17%) scaleY(.9);-webkit-mask-image:linear-gradient(#000 55%,transparent 80%);mask-image:linear-gradient(#000 55%,transparent 80%)}
+#site[data-ver="3"][data-hc="5"] .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:160px;pointer-events:none;background:linear-gradient(180deg,transparent,#03141a);z-index:0}
+/* 6 · soft shade: no edges, just a feathered patch of night behind the words */
+#site[data-ver="3"][data-hc="6"] .hero .hr::before{content:"";position:absolute;z-index:-1;inset:-70px -140px -60px;pointer-events:none;background:radial-gradient(closest-side,rgba(3,20,26,.88),rgba(3,20,26,.72) 55%,rgba(3,20,26,0))}
+/* 7 · editorial line: intro and link sit on a fine rule along the bottom of the hero */
+#site[data-ver="3"][data-hc="7"] .hero .hr{flex-direction:row!important;justify-content:space-between!important;align-items:flex-end!important;gap:24px 60px!important;width:min(1100px,100%)!important;max-width:none!important;text-align:left!important;border-top:1px solid rgba(254,253,246,.26)!important;padding-top:26px!important;margin-top:clamp(28px,4vh,48px)!important}
+#site[data-ver="3"][data-hc="7"] .hero .hr .lead{text-align:left!important;max-width:46ch;margin:0}
+#site[data-ver="3"][data-hc="7"] .hero .hr .lk{flex:none}
+#site[data-ver="3"][data-hc="7"] .hero .hr::before{content:"";position:absolute;z-index:-1;left:-60vw;right:-60vw;top:-60px;bottom:-150px;pointer-events:none;background:linear-gradient(180deg,rgba(3,20,26,0),rgba(3,20,26,.86) 30%,rgba(3,20,26,.9) 72%,rgba(3,20,26,0))}
+@media (max-width:760px){#site[data-ver="3"][data-hc="7"] .hero .hr{flex-direction:column!important;align-items:flex-start!important}}
