@@ -1,5 +1,6 @@
 (function(){
 var A=window.__pfAfter;
+try{CSS.registerProperty({name:'--hcang',syntax:'<angle>',inherits:false,initialValue:'0deg'})}catch(e){}
 if(!window.__pfHcBar){window.__pfHcBar=1;document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.pfb button[data-hc]');if(!b)return;var h=document.getElementById('na-host'),s=h&&h.shadowRoot.querySelector('#site');if(!s)return;s.setAttribute('data-hc',b.dataset.hc);try{localStorage.setItem('pfhc',b.dataset.hc)}catch(x){}[].forEach.call(document.querySelectorAll('.pfb [data-hc]'),function(x){x.setAttribute('aria-pressed',x===b)});if(s.getAttribute('data-p')!=='home'){var a=s.querySelector('.nv [data-go=home]');a&&a.click()}scrollTo({top:0,behavior:'smooth'})})}
 window.__pfAfter=function(s,R){A&&A(s,R);
  var st=document.createElement('style');st.textContent=window.__pfStar3CSS||'';R.appendChild(st);
