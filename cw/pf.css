@@ -362,3 +362,31 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 #site[data-ver="3"] .hero .hr{background:rgba(4,22,28,.82)!important;border:1px solid rgba(150,240,255,.24)!important;border-radius:22px!important;-webkit-backdrop-filter:blur(18px) saturate(1.2)!important;backdrop-filter:blur(18px) saturate(1.2)!important;box-shadow:0 30px 60px -30px rgba(0,0,0,.7)!important;padding:clamp(22px,2.4vw,32px) clamp(22px,3vw,40px)!important;max-width:min(640px,100%)!important;box-sizing:border-box;justify-self:center;margin-inline:auto;margin-top:clamp(22px,3.2vh,36px)!important}
 #site[data-ver="3"] .hero .hr .lead{text-shadow:none!important;color:#fefdf6!important}
 #site[data-ver="3"] .hero .hr .lead::before{display:none!important}
+
+/* ===== Home hero card options (data-hc) ===== */
+@property --hcang{syntax:'<angle>';inherits:false;initial-value:0deg}
+#site[data-ver="3"][data-hc] .hero .hr{position:relative;isolation:isolate;gap:22px!important;align-items:center!important}
+#site[data-ver="3"][data-hc] .hero .hr .lk{display:inline-flex!important;align-items:center;gap:10px;min-height:24px}
+/* 1 · aurora ring: dark glass with a slowly turning aurora edge and a soft glow */
+#site[data-ver="3"][data-hc="1"] .hero .hr{background:linear-gradient(180deg,rgba(10,40,48,.82),rgba(4,22,28,.88))!important;border:0!important;border-radius:26px!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 30px 70px -30px rgba(0,0,0,.75)!important}
+#site[data-ver="3"][data-hc="1"] .hero .hr::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:conic-gradient(from var(--hcang),#7ff3e4,#c8b9ff,#ffb9a0,#ebefa0,#7ff3e4);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);pointer-events:none;animation:hcspin 9s linear infinite}
+#site[data-ver="3"][data-hc="1"] .hero .hr::before{content:"";position:absolute;inset:6%;z-index:-1;border-radius:inherit;background:conic-gradient(from var(--hcang),#7ff3e4,#c8b9ff,#ffb9a0,#ebefa0,#7ff3e4);filter:blur(36px);opacity:.35;animation:hcspin 9s linear infinite;pointer-events:none}
+#site[data-ver="3"][data-hc="1"] .hero .hr .lk{color:#c8fff6}
+@keyframes hcspin{to{--hcang:360deg}}
+/* 2 · colour tile: a solid aqua tile like the About timeline cards */
+#site[data-ver="3"][data-hc="2"] .hero .hr{background:radial-gradient(120% 140% at 0% 0%,#b4fff4 0,#7ff3e4 45%,#5fdccb 100%)!important;border:0!important;border-radius:28px!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:0 0 0 1px rgba(255,255,255,.35) inset,0 26px 60px -24px rgba(127,243,228,.45),0 30px 70px -30px rgba(0,0,0,.7)!important}
+#site[data-ver="3"][data-hc="2"] .hero .hr .lead{color:#062a25!important;font-weight:500}
+#site[data-ver="3"][data-hc="2"] .hero .hr .lk{background:#062a25;color:#c8fff6!important;border:0!important;padding:13px 22px!important;border-radius:99px;text-decoration:none}
+#site[data-ver="3"][data-hc="2"] .hero .hr .lk::after{display:none!important}
+#site[data-ver="3"][data-hc="2"] .hero .hr .lk:hover{background:#03141a}
+/* 3 · colour stripe: dark card topped with the site's three colours, arrow button */
+#site[data-ver="3"][data-hc="3"] .hero .hr{background:rgba(4,22,28,.88)!important;border:1px solid rgba(150,240,255,.16)!important;border-radius:24px!important;overflow:hidden;padding-top:calc(clamp(22px,2.4vw,32px) + 8px)!important}
+#site[data-ver="3"][data-hc="3"] .hero .hr::before{content:"";position:absolute;left:0;right:0;top:0;height:7px;background:linear-gradient(90deg,#7ff3e4 0 33.3%,#ffd29a 33.3% 66.6%,#ffb9a0 66.6% 100%)}
+#site[data-ver="3"][data-hc="3"] .hero .hr .lk{background:#ffd29a;color:#2a1c04!important;border:0!important;padding:13px 22px!important;border-radius:99px;text-decoration:none}
+#site[data-ver="3"][data-hc="3"] .hero .hr .lk::after{display:none!important}
+#site[data-ver="3"][data-hc="3"] .hero .hr .lk:hover{background:#fefdf6}
+/* 4 · night window: its own little sky inside the card */
+#site[data-ver="3"][data-hc="4"] .hero .hr{background:radial-gradient(1.2px 1.2px at 12% 22%,rgba(230,255,251,.9),transparent),radial-gradient(1px 1px at 82% 18%,rgba(230,255,251,.8),transparent),radial-gradient(1.4px 1.4px at 64% 78%,rgba(255,251,230,.8),transparent),radial-gradient(1px 1px at 28% 84%,rgba(230,255,251,.7),transparent),radial-gradient(1px 1px at 92% 64%,rgba(230,255,251,.7),transparent),radial-gradient(1px 1px at 40% 12%,rgba(230,255,251,.8),transparent),radial-gradient(1.2px 1.2px at 6% 60%,rgba(230,255,251,.7),transparent),radial-gradient(1px 1px at 74% 40%,rgba(230,255,251,.6),transparent),radial-gradient(90% 110% at 50% -25%,rgba(150,110,255,.55),transparent 62%),radial-gradient(80% 90% at 50% 125%,rgba(40,200,190,.42),transparent 60%),#071824!important;border:1px solid rgba(200,185,255,.28)!important;border-radius:26px!important;box-shadow:inset 0 1px 0 rgba(200,185,255,.35),0 0 50px -10px rgba(150,110,255,.35),0 30px 70px -30px rgba(0,0,0,.75)!important}
+#site[data-ver="3"][data-hc="4"] .hero .hr::before{content:"";position:absolute;left:18%;right:18%;top:-1px;height:1px;background:linear-gradient(90deg,transparent,#e9dcff,transparent)}
+#site[data-ver="3"][data-hc="4"] .hero .hr .lk{color:#e2d9ff!important}
+@media (prefers-reduced-motion:reduce){#site .hero .hr::before,#site .hero .hr::after{animation:none!important}}
