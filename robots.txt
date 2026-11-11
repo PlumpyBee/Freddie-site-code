@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://freddieg.co.uk/sitemap.xml
