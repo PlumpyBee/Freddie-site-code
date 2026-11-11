@@ -58,6 +58,8 @@ window.__pfAfter=function(s,R){A&&A(s,R);
   if(!run){run=1;requestAnimationFrame(loop)}})();
  if(document.querySelector('.pfb')&&!s.getAttribute('data-hc')){var hc='1';try{hc=localStorage.getItem('pfhc4')||'12'}catch(e){}s.setAttribute('data-hc',hc)}
 
+ // ---- closing headline: 'people love.' painted letter by letter in aurora colours ----
+ (function(){var ch=[].slice.call(s.querySelectorAll('[data-pg=about] .cta2 h2 .wd:nth-child(n+4) .ch'));var C=[[127,243,228],[200,185,255],[255,185,160],[255,210,154]];ch.forEach(function(e,i){var t=ch.length>1?i/(ch.length-1):0,k=Math.min(C.length-2,Math.floor(t*(C.length-1))),f=t*(C.length-1)-k,a=C[k],b=C[k+1];e.style.setProperty('--cc','rgb('+a.map(function(v,j){return Math.round(v+(b[j]-v)*f)}).join(',')+')')})})();
  // ---- home hero galaxy options ----
  (function(){var hero=s.querySelector('[data-pg=home] .hero');if(!hero||hero.querySelector('.gx'))return;var g=document.createElement('div');g.className='gx';g.setAttribute('aria-hidden','true');g.innerHTML='<div class="g1"><canvas></canvas></div><div class="g2"><canvas></canvas></div><div class="g3"><i></i><i></i><i></i><i></i><canvas></canvas></div>';hero.insertBefore(g,hero.firstChild);
   function rnd(a){var x=Math.sin(a*12.9898)*43758.5453;return x-Math.floor(x)}
