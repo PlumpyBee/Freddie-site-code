@@ -462,8 +462,8 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 @media (max-width:760px){#site[data-ver="3"]:is([data-gx="4"],[data-gx="5"],[data-gx="6"]) .hero .gx .gxs2{width:min(78vw,380px);right:-14%;left:auto;top:2%}}
 @keyframes gxspin{to{transform:rotate(360deg)}}
 /* 2 Milky Way, refined */
-#site[data-ver="3"][data-gx="2"] .hero .gx .gxm{display:block;inset:0;opacity:.9}
-#site .hero .gx .gxm{-webkit-mask:linear-gradient(180deg,#000 0,#000 50%,transparent 85%);mask:linear-gradient(180deg,#000 0,#000 50%,transparent 85%)}
+#site[data-ver="3"][data-gx="2"] .hero .gx .gxm{display:block;inset:0;opacity:1}
+#site .hero .gx .gxm{-webkit-mask:linear-gradient(180deg,#000 0,#000 58%,transparent 92%);mask:linear-gradient(180deg,#000 0,#000 58%,transparent 92%)}
 /* 7 Milky Way arc over the heading */
 #site[data-ver="3"][data-gx="7"] .hero .gx .gxa{display:block;inset:0;opacity:.9;-webkit-mask:linear-gradient(180deg,#000 0,#000 55%,transparent 80%);mask:linear-gradient(180deg,#000 0,#000 55%,transparent 80%)}
 /* 3 nebula */
