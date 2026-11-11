@@ -70,7 +70,7 @@ pages = [content.alta, content.balance]
 layer = ('window.__pfLive=1;window.__pfCSS=' + json.dumps(css) + ';window.__pfHTML=' + json.dumps(pages) +
          ';window.__pfMenuCSS=' + json.dumps(open('cw/menu.css').read()) + ';\n' +
          open('cw/pf.js').read() + '\n' + open('cw/pfmenu.js').read() + '\n' + open('cw/plankton.js').read() +
-         "\n(function(){var A=window.__pfAfter;window.__pfAfter=function(s,R){A&&A(s,R);s.setAttribute('data-ab','2');s.setAttribute('data-abh',window.__pfLiveAbh||'71');s.setAttribute('data-tl','6')}})();\n" +
+         "\n(function(){var A=window.__pfAfter;window.__pfAfter=function(s,R){A&&A(s,R);s.setAttribute('data-ab','1');s.setAttribute('data-abh',window.__pfLiveAbh||'71');s.setAttribute('data-tl','6')}})();\n" +
          'window.__pfStar2CSS=' + json.dumps(open('cw/abstar2.css').read()) + ';window.__pfStar3CSS=' + json.dumps(open('cw/abstar3.css').read()) + ';\n' +
          open('cw/abtl.js').read() + '\n' + open('cw/abhero.js').read() +
          "\nwindow.__pfMail=function(){location.href='mailto:Freddie.Grzybowski@gmail.com'};\n")

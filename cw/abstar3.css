@@ -68,3 +68,5 @@
 #site :is(.ah70,.ah71) .rcol{margin-top:32px}
 #site :is(.ah70,.ah71) .st1{font-size:clamp(18px,1.55vw,22px);font-weight:400;line-height:1.55}
 #site :is(.ah70,.ah71) .rest{font-weight:400;color:#eef3f0}
+/* About hero lines up with the site's content edge on wide screens */
+#site .hb7 .stage{padding-inline:var(--G,clamp(20px,5vw,72px))}

@@ -45,7 +45,7 @@ window.__pfAfter=function(s,R){A&&A(s,R);
   o.globalAlpha=e*.75;o.fillStyle=AC[i];o.font='600 11px Montserrat, Arial, sans-serif';o.textAlign='center';o.fillText(('0'+(i+1))+' · '+MNAME[i].toUpperCase(),cx,cy+R+26);o.textAlign='left';o.globalAlpha=1}
  function frame(t){var tl=s.getAttribute('data-tl');if(['4','5','6'].indexOf(tl)<0||s.getAttribute('data-p')!=='about'||s.getAttribute('data-ver')!=='3'){run2=0;return}
   var r=box.getBoundingClientRect();if(r.bottom<-50||r.top>innerHeight+50){requestAnimationFrame(frame);return}
-  var g=geo(),q=sizeCv(cv,1.5),o=q[0];o.clearRect(0,0,g.W,g.H);var hy=headY();
+  var br=box.getBoundingClientRect(),pL=Math.max(0,Math.min(90,Math.floor(br.left))),pR=Math.max(0,Math.min(90,Math.floor(document.documentElement.clientWidth-br.right)));cv.style.left=(-pL)+'px';cv.style.width='calc(100% + '+(pL+pR)+'px)';var g=geo(),q=sizeCv(cv,1.5),o=q[0];o.clearRect(0,0,q[1],q[2]);o.translate(pL,0);var hy=headY();
   if(tl==='4'){ // refined star route: stardust trail + glowing line + comet
    g.dust.forEach(function(dd){var on=dd[1]<=hy,si=segAt(dd[1],g.C);o.globalAlpha=on?.55+.35*Math.sin(t*.002+dd[3]):.12+(RM?0:.08*Math.sin(t*.0015+dd[3]));o.fillStyle=on?AC[si]:'#e6fffb';o.beginPath();o.arc(dd[0],dd[1],dd[2],0,6.283);o.fill()});
    var hi=0;while(hi<g.S.length-1&&g.S[hi+1][1]<=hy)hi++;

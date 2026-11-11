@@ -95,3 +95,26 @@ A2 .tl-step .tl-card{opacity:1!important;filter:saturate(.35) brightness(.74);tr
 A2 .tl-step.on .tl-card{filter:none}
 @media (prefers-reduced-motion:reduce){A2 .tl-step .tl-card{filter:none;transform:none!important}}
 @media (max-width:600px){A2 .tl-card .tl-big{font-size:56px!important;bottom:-.1em;right:14px}A2 .tl-card .tl-tags{padding-right:56px;gap:6px 14px}A2 .tl-card .tl-tags span+span::before{display:none}}
+
+/* ===== Round 15: colour-accent cards (About 1) made readable everywhere ===== */
+A1 .tl-card .tl-big{top:auto!important;bottom:-.12em;right:18px;font-size:clamp(72px,7vw,112px)!important;opacity:.22!important}
+A1 .tl-card .tl-tags{padding-right:clamp(70px,7vw,110px)}
+A1 .tl-tags,A1 .tl-tags span{opacity:1!important}
+A1 .tl-card p{color:#e8efec!important}
+A1 .tl-step .tl-card{opacity:1!important;filter:saturate(.3) brightness(.8);transition:transform .7s cubic-bezier(.2,.9,.2,1),filter .7s!important}
+A1 .tl-step.on .tl-card{filter:none}
+@media (prefers-reduced-motion:reduce){A1 .tl-step .tl-card{filter:none;transform:none!important}}
+@media (max-width:600px){A1 .tl-card .tl-big{font-size:56px!important;bottom:-.1em;right:14px}A1 .tl-card .tl-tags{padding-right:56px;gap:6px 14px}A1 .tl-card .tl-tags span+span::before{display:none}}
+/* closing call to action: no card, a big glowing headline */
+ALL .cta2{text-align:center;display:flex;flex-direction:column;align-items:center;gap:clamp(26px,4vh,40px)}
+ALL .cta2::after,ALL .cta2::before{content:"";position:absolute;z-index:-1;left:50%;top:50%;width:min(1100px,92vw);height:80%;transform:translate(-50%,-50%);border-radius:50%;inset:auto;background:radial-gradient(closest-side,rgba(127,243,228,.14),rgba(200,185,255,.09) 55%,transparent)!important;pointer-events:none}
+ALL .cta2::before{display:none}
+ALL .cta2{position:relative;isolation:isolate}
+ALL .cta2 h2{font-weight:200!important;line-height:.95!important;max-width:14ch;text-wrap:balance}
+ALL .cta2 h2 .wd .ch{color:#fefdf6!important}
+ALL .cta2 h2 .wd:nth-child(n+4){background:linear-gradient(100deg,#7ff3e4 0%,#c8b9ff 35%,#ffb9a0 65%,#ffd29a 85%,#7ff3e4 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;filter:drop-shadow(0 0 28px rgba(127,243,228,.25));animation:ctash 10s ease-in-out infinite alternate}
+ALL .cta2 h2 .wd:nth-child(n+4) .ch{color:transparent!important}
+@keyframes ctash{to{background-position:100% 0}}
+ALL .cta2 .lk{background:#ffb9a0!important;color:#3a170c!important;border:0!important;padding:16px 28px!important;border-radius:99px;letter-spacing:.16em}
+ALL .cta2 .lk:hover,ALL .cta2 .lk:focus-visible{background:#fefdf6!important;color:#03141a!important}
+@media (prefers-reduced-motion:reduce){ALL .cta2 h2 .wd{animation:none!important}}
