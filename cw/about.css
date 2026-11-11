@@ -94,3 +94,4 @@ A2 .tl-tags,A2 .tl-tags span{opacity:1!important}
 A2 .tl-step .tl-card{opacity:1!important;filter:saturate(.35) brightness(.74);transition:transform .7s cubic-bezier(.2,.9,.2,1),filter .7s!important}
 A2 .tl-step.on .tl-card{filter:none}
 @media (prefers-reduced-motion:reduce){A2 .tl-step .tl-card{filter:none;transform:none!important}}
+@media (max-width:600px){A2 .tl-card .tl-big{font-size:56px!important;bottom:-.1em;right:14px}A2 .tl-card .tl-tags{padding-right:56px;gap:6px 14px}A2 .tl-card .tl-tags span+span::before{display:none}}
