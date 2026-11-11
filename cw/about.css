@@ -88,23 +88,23 @@ A3 .cta2 .lk{color:var(--co)!important;border-color:var(--co)!important}
 @media (max-width:1099px){#site[data-ver="3"][data-ab="3"][data-p=about].sc .nav .logo,#site[data-ver="3"][data-ab="3"][data-p=about].sc .mbtn{background:rgba(253,238,229,.9)!important;color:#2b1610!important}}
 
 /* ===== Round 13: readable cards ===== */
-A2 .tl-card .tl-big{top:auto!important;bottom:-.12em;right:18px;font-size:clamp(72px,7vw,112px)!important}
+A2 .tl-card .tl-big{top:auto!important;bottom:16px;right:22px;line-height:.8!important;font-size:clamp(56px,5vw,84px)!important}
 A2 .tl-card .tl-tags{padding-right:clamp(70px,7vw,110px)}
 A2 .tl-tags,A2 .tl-tags span{opacity:1!important}
 A2 .tl-step .tl-card{opacity:1!important;filter:saturate(.35) brightness(.74);transition:transform .7s cubic-bezier(.2,.9,.2,1),filter .7s!important}
 A2 .tl-step.on .tl-card{filter:none}
 @media (prefers-reduced-motion:reduce){A2 .tl-step .tl-card{filter:none;transform:none!important}}
-@media (max-width:600px){A2 .tl-card .tl-big{font-size:56px!important;bottom:-.1em;right:14px}A2 .tl-card .tl-tags{padding-right:56px;gap:6px 14px}A2 .tl-card .tl-tags span+span::before{display:none}}
+@media (max-width:600px){A2 .tl-card .tl-big{font-size:46px!important;bottom:14px;right:16px}A2 .tl-card .tl-tags{padding-right:56px;gap:6px 14px}A2 .tl-card .tl-tags span+span::before{display:none}}
 
 /* ===== Round 15: colour-accent cards (About 1) made readable everywhere ===== */
-A1 .tl-card .tl-big{top:auto!important;bottom:-.12em;right:18px;font-size:clamp(72px,7vw,112px)!important;opacity:.22!important}
+A1 .tl-card .tl-big{top:auto!important;bottom:18px;right:22px;line-height:.8!important;font-size:clamp(56px,5vw,84px)!important;opacity:.22!important}A1 .tl-card p{padding-right:clamp(40px,5vw,72px)}
 A1 .tl-card .tl-tags{padding-right:clamp(70px,7vw,110px)}
 A1 .tl-tags,A1 .tl-tags span{opacity:1!important}
 A1 .tl-card p{color:#e8efec!important}
 A1 .tl-step .tl-card{opacity:1!important;filter:saturate(.3) brightness(.8);transition:transform .7s cubic-bezier(.2,.9,.2,1),filter .7s!important}
 A1 .tl-step.on .tl-card{filter:none}
 @media (prefers-reduced-motion:reduce){A1 .tl-step .tl-card{filter:none;transform:none!important}}
-@media (max-width:600px){A1 .tl-card .tl-big{font-size:56px!important;bottom:-.1em;right:14px}A1 .tl-card .tl-tags{padding-right:56px;gap:6px 14px}A1 .tl-card .tl-tags span+span::before{display:none}}
+@media (max-width:600px){A1 .tl-card .tl-big{font-size:46px!important;bottom:14px;right:16px}A1 .tl-card p{padding-right:0}A1 .tl-card .tl-tags{padding-right:56px;gap:6px 14px}A1 .tl-card .tl-tags span+span::before{display:none}}
 /* closing call to action: no card, a big glowing headline */
 ALL .cta2{text-align:center;display:flex;flex-direction:column;align-items:center;gap:clamp(26px,4vh,40px)}
 ALL .cta2::after,ALL .cta2::before{content:"";position:absolute;z-index:-1;left:50%;top:50%;width:min(1100px,92vw);height:80%;transform:translate(-50%,-50%);border-radius:50%;inset:auto;background:radial-gradient(closest-side,rgba(127,243,228,.14),rgba(200,185,255,.09) 55%,transparent)!important;pointer-events:none}

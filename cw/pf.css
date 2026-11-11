@@ -359,7 +359,7 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 #site .bgfx .stx{position:absolute;inset:0;width:100%;height:100%;display:block}
 #site[data-ver="3"]:is([data-p=about],[data-p=alta]) .bgfx .stx{display:none}
 #site[data-ver="3"] .pf-hx{display:none!important}
-#site[data-ver="3"] .hero .hr{background:rgba(4,22,28,.82)!important;border:1px solid rgba(150,240,255,.24)!important;border-radius:22px!important;-webkit-backdrop-filter:blur(18px) saturate(1.2)!important;backdrop-filter:blur(18px) saturate(1.2)!important;box-shadow:0 30px 60px -30px rgba(0,0,0,.7)!important;padding:clamp(22px,2.4vw,32px) clamp(22px,3vw,40px)!important;max-width:min(640px,100%)!important;box-sizing:border-box;justify-self:center;margin-inline:auto;margin-top:clamp(22px,3.2vh,36px)!important}
+#site[data-ver="3"] .hero .hr{background:rgba(4,22,28,.82)!important;border:1px solid rgba(150,240,255,.24)!important;border-radius:22px!important;-webkit-backdrop-filter:blur(18px) saturate(1.2)!important;backdrop-filter:blur(18px) saturate(1.2)!important;box-shadow:0 30px 60px -30px rgba(0,0,0,.7)!important;padding:clamp(22px,2.4vw,32px) clamp(22px,3vw,40px)!important;max-width:min(640px,100%)!important;box-sizing:border-box;justify-self:center;margin-inline:auto;margin-top:clamp(40px,6vh,72px)!important}
 #site[data-ver="3"] .hero .hr .lead{text-shadow:none!important;color:#fefdf6!important}
 #site[data-ver="3"] .hero .hr .lead::before{display:none!important}
 
@@ -410,8 +410,8 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 @media (max-width:760px){#site[data-ver="3"][data-hc="7"] .hero .hr{flex-direction:column!important;align-items:flex-start!important}}
 
 /* ===== Hero intro: glass / crystal (data-hc 8–11) ===== */
-#site[data-ver="3"]:is([data-hc="8"],[data-hc="9"],[data-hc="10"],[data-hc="11"]) .hero .hr .lead{font-weight:500;color:#fff!important;text-shadow:0 1px 2px rgba(3,20,26,.85),0 0 18px rgba(3,20,26,.7)!important}
-#site[data-ver="3"]:is([data-hc="8"],[data-hc="9"],[data-hc="10"],[data-hc="11"]) .hero .hr .lk{color:#e9fffb!important;text-shadow:0 1px 2px rgba(3,20,26,.85)}
+#site[data-ver="3"]:is([data-hc="8"],[data-hc="9"],[data-hc="10"],[data-hc="11"],[data-hc="13"],[data-hc="14"],[data-hc="15"],[data-hc="16"],[data-hc="17"]) .hero .hr .lead{font-weight:500;color:#fff!important;text-shadow:0 1px 2px rgba(3,20,26,.85),0 0 18px rgba(3,20,26,.7)!important}
+#site[data-ver="3"]:is([data-hc="8"],[data-hc="9"],[data-hc="10"],[data-hc="11"],[data-hc="13"],[data-hc="14"],[data-hc="15"],[data-hc="16"],[data-hc="17"]) .hero .hr .lk{color:#e9fffb!important;text-shadow:0 1px 2px rgba(3,20,26,.85)}
 /* 8 · frosted crystal */
 #site[data-ver="3"][data-hc="8"] .hero .hr{background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.03) 42%,rgba(255,255,255,.07)),rgba(5,26,34,.64)!important;border:1px solid rgba(255,255,255,.2)!important;border-radius:30px!important;-webkit-backdrop-filter:blur(26px) saturate(1.6)!important;backdrop-filter:blur(26px) saturate(1.6)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 -1px 0 rgba(255,255,255,.06),0 24px 60px -26px rgba(0,0,0,.6)!important}
 /* 9 · prism edge: crystal with a faint rainbow refraction round the rim and a light streak */
@@ -426,32 +426,67 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 #site[data-ver="3"][data-hc="11"] .hero .hr{background:radial-gradient(120% 90% at 15% 0%,rgba(255,255,255,.14),transparent 55%),rgba(4,24,30,.55)!important;border:0!important;border-radius:36px!important;-webkit-backdrop-filter:blur(16px) saturate(2) brightness(.9)!important;backdrop-filter:blur(16px) saturate(2) brightness(.9)!important;box-shadow:inset 1.5px 1.5px 0 rgba(255,255,255,.5),inset -1px -1px 0 rgba(255,255,255,.14),inset 0 0 34px rgba(255,255,255,.07),0 26px 60px -24px rgba(0,0,0,.6)!important}
 @media (prefers-reduced-motion:reduce){#site .hero .hr::before{animation:none!important}}
 
-/* ===== Home hero galaxy (data-gx 1–3) ===== */
-#site .hero .gx{display:none;position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-#site[data-ver="3"]:is([data-gx="1"],[data-gx="2"],[data-gx="3"]) .hero .gx{display:block}
+
+/* ===== Glass round 2: built from 9 prism edge + 11 liquid glass ===== */
+/* 13 liquid prism: liquid glass body + prism rim */
+#site[data-ver="3"][data-hc="13"] .hero .hr{overflow:hidden;background:radial-gradient(120% 90% at 15% 0%,rgba(255,255,255,.13),transparent 55%),rgba(4,24,30,.58)!important;border:0!important;border-radius:36px!important;-webkit-backdrop-filter:blur(18px) saturate(1.9) brightness(.9)!important;backdrop-filter:blur(18px) saturate(1.9) brightness(.9)!important;box-shadow:inset 0 0 34px rgba(255,255,255,.06),0 26px 60px -24px rgba(0,0,0,.6)!important}
+#site[data-ver="3"][data-hc="13"] .hero .hr::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:linear-gradient(125deg,rgba(255,255,255,.85),rgba(127,243,228,.6) 22%,rgba(200,185,255,.45) 45%,rgba(255,185,160,.35) 65%,rgba(255,255,255,.1) 82%,rgba(255,255,255,.45));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);pointer-events:none}
+/* 14 prism top edge: glass that carries the same colour-on-top idea as the About cards */
+#site[data-ver="3"][data-hc="14"] .hero .hr{background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.02) 40%),rgba(5,26,34,.62)!important;border:1px solid rgba(255,255,255,.14)!important;border-top:0!important;border-radius:26px!important;-webkit-backdrop-filter:blur(22px) saturate(1.6)!important;backdrop-filter:blur(22px) saturate(1.6)!important;box-shadow:0 0 50px -16px rgba(127,243,228,.3),0 26px 60px -26px rgba(0,0,0,.6)!important;overflow:hidden}
+#site[data-ver="3"][data-hc="14"] .hero .hr::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,#7ff3e4,#c8b9ff 40%,#ffb9a0 70%,#ebefa0);box-shadow:0 0 18px rgba(200,185,255,.6)}
+/* 15 slow prism: the rainbow rim slowly travels round the glass */
+#site[data-ver="3"][data-hc="15"] .hero .hr{background:linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,.02) 50%),rgba(5,26,34,.6)!important;border:0!important;border-radius:30px!important;-webkit-backdrop-filter:blur(24px) saturate(1.7)!important;backdrop-filter:blur(24px) saturate(1.7)!important;box-shadow:0 0 40px -14px rgba(200,185,255,.35),0 24px 60px -26px rgba(0,0,0,.6)!important}
+#site[data-ver="3"][data-hc="15"] .hero .hr::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:conic-gradient(from var(--hcang,0deg),rgba(255,255,255,.9),rgba(127,243,228,.7),rgba(200,185,255,.5),rgba(255,185,160,.35),rgba(255,255,255,.08) 60%,rgba(255,255,255,.08) 80%,rgba(255,255,255,.9));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);pointer-events:none;animation:hcspin 14s linear infinite}
+/* 16 deep liquid: thicker, lens-like glass with a soft aqua caustic underneath */
+#site[data-ver="3"][data-hc="16"] .hero .hr{background:radial-gradient(90% 60% at 50% 115%,rgba(127,243,228,.22),transparent 70%),radial-gradient(100% 80% at 20% -10%,rgba(255,255,255,.16),transparent 55%),rgba(4,22,30,.6)!important;border:0!important;border-radius:40px!important;-webkit-backdrop-filter:blur(20px) saturate(2.1) brightness(.88)!important;backdrop-filter:blur(20px) saturate(2.1) brightness(.88)!important;box-shadow:inset 2px 2px 0 rgba(255,255,255,.45),inset -2px -2px 0 rgba(127,243,228,.25),inset 0 0 0 1px rgba(255,255,255,.08),inset 0 -18px 40px -20px rgba(127,243,228,.35),0 30px 70px -26px rgba(0,0,0,.65),0 0 60px -20px rgba(127,243,228,.4)!important}
+/* 17 dispersion: liquid glass whose edges split into colour like light through a lens */
+#site[data-ver="3"][data-hc="17"] .hero .hr{background:radial-gradient(120% 90% at 15% 0%,rgba(255,255,255,.12),transparent 55%),rgba(4,24,30,.58)!important;border:0!important;border-radius:34px!important;-webkit-backdrop-filter:blur(18px) saturate(1.9) brightness(.9)!important;backdrop-filter:blur(18px) saturate(1.9) brightness(.9)!important;box-shadow:inset 1.5px 1.5px 0 rgba(255,255,255,.55),inset 3px 3px 0 -1px rgba(127,243,228,.35),inset -1.5px -1.5px 0 rgba(255,185,160,.45),inset -3px -3px 0 -1px rgba(200,185,255,.35),0 0 0 1px rgba(255,255,255,.05),-6px -4px 30px -14px rgba(127,243,228,.45),6px 8px 30px -14px rgba(255,185,160,.4),0 26px 60px -24px rgba(0,0,0,.6)!important}
+
+/* ===== Home hero galaxy (data-gx 1–7) — every layer is screen-blended, so it can only add light ===== */
+#site .hero .gx{display:none;position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden;mix-blend-mode:screen}
+#site[data-ver="3"]:not([data-gx="0"])[data-gx] .hero .gx{display:block}
 #site .hero .gx>*{display:none;position:absolute}
-#site[data-ver="3"][data-gx="1"] .hero .gx .gxs{display:block;right:7%;top:9%;width:clamp(220px,26vw,420px);aspect-ratio:1;opacity:.6;transform:rotate(-24deg) scaleY(.46)}
-#site[data-ver="3"][data-gx="1"] .hero .gx .gxs canvas{width:100%;height:100%;display:block;animation:gxspin 360s linear infinite}
+#site .hero .gx canvas{width:100%;height:100%;display:block}
+#site .hero .gx :is(.gxs,.gxs2){aspect-ratio:1}
+/* 1 distant spiral */
+#site[data-ver="3"][data-gx="1"] .hero .gx .gxs{display:block;right:7%;top:9%;width:clamp(220px,26vw,420px);opacity:.6;transform:rotate(-24deg) scaleY(.46)}
+#site[data-ver="3"][data-gx="1"] .hero .gx .gxs canvas{animation:gxspin 360s linear infinite}
+/* 4 spiral, closer: bigger, more detail, partly off the top-right corner */
+#site[data-ver="3"][data-gx="4"] .hero .gx .gxs2{display:block;right:-4%;top:-6%;width:clamp(320px,40vw,720px);opacity:.75;transform:rotate(-28deg) scaleY(.5)}
+/* 5 spiral rising over the aurora, lower left, like a moon on the horizon */
+#site[data-ver="3"][data-gx="5"] .hero .gx .gxs2{display:block;left:4%;top:16%;width:clamp(260px,30vw,560px);opacity:.7;transform:rotate(18deg) scaleY(.62)}
+/* 6 spiral + Milky Way together */
+#site[data-ver="3"][data-gx="6"] .hero .gx .gxs2{display:block;right:6%;top:6%;width:clamp(220px,24vw,440px);opacity:.65;transform:rotate(-26deg) scaleY(.5)}
+#site[data-ver="3"][data-gx="6"] .hero .gx .gxm{display:block;inset:0;opacity:.6}
+#site .hero .gx .gxs2 canvas{animation:gxspin 420s linear infinite}
+@media (max-width:760px){#site[data-ver="3"]:is([data-gx="4"],[data-gx="5"],[data-gx="6"]) .hero .gx .gxs2{width:min(78vw,380px);right:-14%;left:auto;top:2%}}
 @keyframes gxspin{to{transform:rotate(360deg)}}
-#site[data-ver="3"][data-gx="2"] .hero .gx .gxm{display:block;inset:0;opacity:.85}
-#site[data-ver="3"][data-gx="2"] .hero .gx .gxm canvas{width:100%;height:100%;display:block}
+/* 2 Milky Way, refined */
+#site[data-ver="3"][data-gx="2"] .hero .gx .gxm{display:block;inset:0;opacity:.9}
+#site .hero .gx .gxm{-webkit-mask:linear-gradient(180deg,#000 0,#000 50%,transparent 85%);mask:linear-gradient(180deg,#000 0,#000 50%,transparent 85%)}
+/* 7 Milky Way arc over the heading */
+#site[data-ver="3"][data-gx="7"] .hero .gx .gxa{display:block;inset:0;opacity:.9;-webkit-mask:linear-gradient(180deg,#000 0,#000 55%,transparent 80%);mask:linear-gradient(180deg,#000 0,#000 55%,transparent 80%)}
+/* 3 nebula */
 #site[data-ver="3"][data-gx="3"] .hero .gx .gxn{display:block;inset:0}
 #site .hero .gx .gxn i{position:absolute;border-radius:50%;filter:blur(40px);opacity:.5;animation:gxbreathe 14s ease-in-out infinite alternate}
 #site .hero .gx .gxn i:nth-child(1){left:-6%;top:4%;width:42%;height:46%;background:radial-gradient(closest-side,rgba(150,110,255,.55),rgba(150,110,255,0))}
 #site .hero .gx .gxn i:nth-child(2){left:10%;top:16%;width:22%;height:24%;background:radial-gradient(closest-side,rgba(255,140,190,.35),transparent)}
 #site .hero .gx .gxn i:nth-child(3){right:-8%;top:0;width:40%;height:44%;background:radial-gradient(closest-side,rgba(40,200,220,.45),transparent);animation-delay:-7s}
 #site .hero .gx .gxn i:nth-child(4){right:12%;top:14%;width:16%;height:18%;background:radial-gradient(closest-side,rgba(127,243,228,.4),transparent);animation-delay:-3s}
-#site .hero .gx .gxn canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+#site .hero .gx .gxn canvas{position:absolute;inset:0}
 @keyframes gxbreathe{to{transform:scale(1.08) translate(1%,1%);opacity:.62}}
 @media (prefers-reduced-motion:reduce){#site .hero .gx *{animation:none!important}}
 
-/* Teaching hero image: bigger, floating in 3D */
+/* Teaching hero image: the source PNG is ~40% transparent on the left, so crop to the real picture */
+#site[data-ver="3"][data-ver] .te-hero .te-img img{aspect-ratio:950/610;height:auto;object-fit:cover;object-position:100% 0;border-radius:0!important;transition:none!important}
+@media (max-width:760px){#site[data-ver="3"][data-ver] .te-hero .te-img img{width:100%!important;max-width:100%!important;margin:0!important;transform:rotate(-1.5deg)!important}}
 @media (min-width:761px){
-#site[data-ver="3"] .te-hero{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr)!important}
-#site[data-ver="3"] .te-hero .te-img{position:relative}
+#site[data-ver="3"] .te-hero{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)!important;align-items:center!important}
+#site[data-ver="3"] .te-hero .te-img{position:relative;overflow:visible}
 #site[data-ver="3"] .te-hero .te-img::before{content:"";position:absolute;inset:-10% -6%;z-index:-1;background:radial-gradient(closest-side,rgba(235,239,160,.16),transparent);pointer-events:none}
-#site[data-ver="3"] .te-hero .te-img img{width:128%!important;margin-left:-20%!important;transform:perspective(1600px) rotateY(-14deg) rotateX(5deg) rotate(-1.5deg)!important;filter:drop-shadow(0 40px 50px rgba(0,0,0,.6))}
+#site[data-ver="3"][data-ver] .te-hero .te-img img{width:104%!important;max-width:none!important;margin-left:-2%!important;transform:perspective(1600px) rotateY(-12deg) rotateX(4deg) rotate(-1.5deg)!important;filter:drop-shadow(0 40px 50px rgba(0,0,0,.6))}
 }
+@media (min-width:1400px){#site[data-ver="3"][data-ver] .te-hero .te-img img{width:118%!important;margin-left:-4%!important}}
 /* 12 · accent card: the same dark card with a colour edge used on the About timeline */
 #site[data-ver="3"][data-hc="12"] .hero .hr{background:rgba(6,28,36,.88)!important;border:1px solid rgba(150,240,255,.16)!important;border-top:3px solid #7ff3e4!important;border-radius:22px!important;-webkit-backdrop-filter:blur(14px)!important;backdrop-filter:blur(14px)!important;box-shadow:0 0 50px -14px rgba(127,243,228,.35),0 30px 60px -30px rgba(0,0,0,.7)!important}
 #site[data-ver="3"][data-hc="12"] .hero .hr .lead{color:#e8efec!important;text-shadow:none!important}
