@@ -347,3 +347,9 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 /* touch targets at least 24px tall */
 #site .sc2 a{display:inline-flex;align-items:center;min-height:24px;padding-block:5px}
 #site .lk{padding-top:6px}
+/* logo never wraps on small phones */
+#site .nav .logo{white-space:nowrap}
+@media (max-width:370px){#site .nav .logo{font-size:16px;padding:9px 14px}#site .mbtn{padding-inline:14px}}
+/* case-study wave stays below the project facts on phones instead of running through the text */
+@media (max-width:760px){#site .cs-line{height:24%;bottom:2%}}
+#site .ft .fl a{display:inline-flex;align-items:center;min-height:24px;padding-block:5px}

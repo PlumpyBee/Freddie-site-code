@@ -6,6 +6,11 @@ window.__pfAfter=function(s,R){A&&A(s,R);
  var pg=s.querySelector('[data-pg=about]');if(!pg)return;
  var hero=pg.querySelector('.ab-hero'),lp=hero&&hero.querySelector('.lead'),lead=lp?lp.textContent.trim():'';
  var k=lead.indexOf('. '),st1=k>0?lead.slice(0,k+1):lead,rest=k>0?lead.slice(k+2):'';
+ // real profile links (they used to open email) + heading levels + footer link size
+ var LNK={LinkedIn:'https://www.linkedin.com/in/freddiegrzybowski/',Medium:'https://medium.com/@freddie.grzybowski'};
+ function fixLinks(){[].forEach.call(s.querySelectorAll('[data-go=mail]'),function(e){var t=e.textContent.trim();if(!LNK[t])return;var a=e;if(e.tagName!=='A'){a=document.createElement('a');a.className=e.className;a.textContent=t;e.parentNode.replaceChild(a,e)}a.removeAttribute('data-go');a.href=LNK[t];a.target='_blank';a.rel='noopener';a.setAttribute('aria-label',t+' (opens in a new tab)')})}
+ fixLinks();new MutationObserver(function(){if(s.querySelector('[data-go=mail]')&&[].some.call(s.querySelectorAll('[data-go=mail]'),function(e){return LNK[e.textContent.trim()]}))fixLinks()}).observe(s,{childList:true,subtree:true});
+ [].forEach.call(s.querySelectorAll('.x-tk h4'),function(h){h.setAttribute('role','heading');h.setAttribute('aria-level','3')});
  var hfx=s.querySelector('[data-pg=home] .hfx');
  [].forEach.call(s.querySelectorAll('.tl-big'),function(e){e.setAttribute('aria-hidden','true')});
  var TXT='<div class="rcol"><p class="st1">'+st1+'</p>'+(rest?'<p class="rest">'+rest+'</p>':'')+'<div class="cta"><a class="bt" data-pfw4 href="#work">See my work <span aria-hidden="true">→</span></a><a class="rt" data-pfroute4 href="#route">How I got here <i aria-hidden="true">↓</i></a></div></div>';
