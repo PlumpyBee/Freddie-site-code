@@ -76,7 +76,7 @@ window.__pfAfter=function(s,R){A&&A(s,R);
   /* Milky Way: light only. Drawn at the element's real size and pixel density so stars stay round on any screen;
      on tall (phone) screens it becomes a gentle band across the top instead of a diagonal through the heading */
   function band(cv){var dp=Math.min(2,window.devicePixelRatio||1),cw=cv.clientWidth||1200,ch=cv.clientHeight||800,W=cv.width=Math.round(cw*dp),H=cv.height=Math.round(ch*dp),o=cv.getContext('2d');o.clearRect(0,0,W,H);o.globalCompositeOperation='lighter';
-   var tall=cw/ch<1,D=Math.hypot(W,H),T=tall?W*.11:Math.min(W*.11,H*.22),cx=W*.5,cy=tall?H*.1:H*.36,ang=tall?-.3:-.3;
+   var tall=cw/ch<1,D=Math.hypot(W,H),asp=cw/ch,T=tall?W*.15:Math.min(W*.11,H*.22),cx=W*.5,cy=tall?H*.36:H*.36,ang=tall?-Math.min(1.05,.3/asp*.55+.3):-.3;
    o.save();o.translate(cx,cy);o.rotate(ang);var gr=o.createLinearGradient(0,-T,0,T);gr.addColorStop(0,'rgba(120,150,255,0)');gr.addColorStop(.36,'rgba(150,130,255,.15)');gr.addColorStop(.5,'rgba(225,220,255,.26)');gr.addColorStop(.64,'rgba(80,200,220,.13)');gr.addColorStop(1,'rgba(80,200,220,0)');o.fillStyle=gr;o.fillRect(-D,-T,D*2,T*2);
    for(var k=0;k<22;k++){var dx=(rnd(k+40)-.5)*D*1.4,dy=gs(k+50)*T*.25,R=T*(.25+rnd(k+60)*.6);var d=o.createRadialGradient(dx,dy,0,dx,dy,R);d.addColorStop(0,rnd(k+70)<.5?'rgba(230,225,255,.16)':'rgba(255,225,205,.14)');d.addColorStop(1,'rgba(230,225,255,0)');o.fillStyle=d;o.fillRect(dx-R,dy-R,R*2,R*2)}
    var n=Math.round(Math.min(16000,D*T/(2700*270)*16000));
