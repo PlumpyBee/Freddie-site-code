@@ -62,3 +62,9 @@
 #site .ah71 .aur4{top:40%;bottom:-40%}
 #site .ah71 .rcol::after{content:"";position:absolute;z-index:-1;inset:-90px -130px -90px -130px;pointer-events:none;background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(3,20,26,.75) 0,rgba(3,20,26,.6) 55%,rgba(3,20,26,0) 100%)}
 @media (max-width:600px){#site :is(.ah70,.ah71) .rcol{width:100%}#site .ah70 .rcol::after{inset:-60px -40px -60px -40px}#site .ah71 .aur4{top:45%;bottom:-45%}}
+/* 70–71 type matched to the Teaching hero: light Oswald heading, same eyebrow, lead size and spacing */
+#site :is(.ah70,.ah71) .ey{color:#fefdf6;font:600 12px/1.4 var(--fb);letter-spacing:.16em}
+#site :is(.ah70,.ah71) h1{font-weight:200;font-size:clamp(56px,8.3vw,150px);line-height:1;margin-top:18px}
+#site :is(.ah70,.ah71) .rcol{margin-top:32px}
+#site :is(.ah70,.ah71) .st1{font-size:clamp(18px,1.55vw,22px);font-weight:400;line-height:1.55}
+#site :is(.ah70,.ah71) .rest{font-weight:400;color:#eef3f0}
