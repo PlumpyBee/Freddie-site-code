@@ -844,3 +844,5 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 #site[data-ver="3"][data-abx="7"] .ah71 .aur4{top:12%;bottom:-12%;transform-origin:0 100%;transform:rotate(-6deg) scale(1.08);-webkit-mask:linear-gradient(90deg,rgba(0,0,0,.15) 10%,rgba(0,0,0,.6) 45%,#000 75%);mask:linear-gradient(90deg,rgba(0,0,0,.15) 10%,rgba(0,0,0,.6) 45%,#000 75%)}
 /* 8 raised glow, warmer colours (lilac / rose) */
 #site[data-ver="3"][data-abx="8"] .ah71 .aur4{top:14%;bottom:-14%;filter:hue-rotate(55deg) saturate(1.15);-webkit-mask:linear-gradient(90deg,rgba(0,0,0,.15) 10%,rgba(0,0,0,.6) 45%,#000 75%);mask:linear-gradient(90deg,rgba(0,0,0,.15) 10%,rgba(0,0,0,.6) 45%,#000 75%)}
+#site .ah71 h1 .abdot{color:#7ff3e4}
+#site[data-ver="3"][data-abt="b"] .ah71 h1{font-size:clamp(80px,12vw,210px)!important;line-height:.95}
