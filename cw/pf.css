@@ -583,3 +583,6 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 @keyframes hss{0%{transform:translate(0,0) rotate(-14deg);opacity:0}2%{opacity:1}11%{transform:translate(min(26vw,380px),max(-6.5vw,-95px)) rotate(-14deg);opacity:0}100%{opacity:0;transform:translate(min(26vw,380px),max(-6.5vw,-95px)) rotate(-14deg)}}
 @media (max-width:760px){#site[data-ver="3"][data-hc="25"] .hero .hss i{top:24%;left:40%;width:120px}}
 @media (prefers-reduced-motion:reduce){#site[data-ver="3"][data-hc="25"] .hero .hss{display:none}}
+#site[data-ver="3"][data-hc="24"] .hero .hr .lk{color:#fefdf6!important;border-bottom:2px solid #7ff3e4!important;padding:0 2px!important}
+#site[data-ver="3"][data-hc="24"] .hero .hr .lk:is(:hover,:focus-visible){color:#7ff3e4!important}
+#site[data-ver="3"][data-hc="24"] .hero .hr .hdv svg{width:15px;height:15px}
