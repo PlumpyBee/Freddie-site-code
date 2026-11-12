@@ -913,3 +913,13 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 #site .ah71 .abrc canvas{position:absolute;left:0;top:0}
 #site .ah71 .abrc .rd{filter:blur(7px)}
 #site .ah71 .abrc .ri{filter:blur(1.2px)}
+
+/* ===== playful interactive comets (data-abx i1–i4) ===== */
+#site .ah71 .abfun,#site .ah71 .abhint{display:none}
+#site[data-ver="3"]:is([data-abx="i1"],[data-abx="i2"],[data-abx="i3"],[data-abx="i4"]) .ah71 .abfun{display:block;position:absolute;left:0;top:0;z-index:-1;pointer-events:none}
+#site[data-ver="3"]:is([data-abx="i2"],[data-abx="i4"]) .ah71 .abhint{display:block;position:absolute;right:var(--G,72px);bottom:clamp(28px,6vh,60px);margin:0;font:600 11px/1.4 var(--fb);letter-spacing:.2em;text-transform:uppercase;color:#fefdf6;text-shadow:0 1px 3px rgba(3,20,26,.9);pointer-events:none}
+#site[data-ver="3"]:is([data-abx="i2"],[data-abx="i4"]) .ah71 .stage{cursor:crosshair}
+#site[data-ver="3"]:is([data-abx="i2"],[data-abx="i4"]) .ah71 .stage :is(a,button,p,h1){cursor:auto}
+#site[data-ver="3"]:is([data-abx="i2"],[data-abx="i4"]) .ah71 .stage a{cursor:pointer}
+@media (max-width:760px){#site[data-ver="3"]:is([data-abx="i2"],[data-abx="i4"]) .ah71 .abhint{right:auto;left:var(--G,20px);bottom:16px;letter-spacing:.14em}}
+@media (prefers-reduced-motion:reduce){#site[data-ver="3"]:is([data-abx="i2"],[data-abx="i4"]) .ah71 .abhint{display:none}}
