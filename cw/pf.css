@@ -943,3 +943,12 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 #site[data-ver="3"][data-abx="k2"] .ah71 .abhint3{display:block;position:absolute;top:calc(var(--barh,66px) + clamp(24px,5vh,48px));right:var(--G,72px);margin:0;max-width:44%;text-align:right;font:600 11px/1.5 var(--fb);letter-spacing:.2em;text-transform:uppercase;color:#fefdf6;text-shadow:0 1px 3px rgba(3,20,26,.9);pointer-events:none}
 @media (max-width:760px){#site[data-ver="3"]:is([data-abx="k1"],[data-abx="k2"],[data-abx="k3"],[data-abx="k4"]) .ah71 .abdeep{opacity:.6}#site[data-ver="3"][data-abx="k2"] .ah71 .abhint3{top:calc(var(--barh,60px) + 14px);right:16px;max-width:60%;font-size:10px;letter-spacing:.14em}}
 @media (prefers-reduced-motion:reduce){#site .ah71 .abhint3{display:none!important}}
+
+/* ===== wow About heroes (data-abx l1–l5) ===== */
+#site .ah71 .abwow,#site .ah71 .abhint4{display:none}
+#site[data-ver="3"]:is([data-abx="l1"],[data-abx="l2"],[data-abx="l3"],[data-abx="l4"],[data-abx="l5"]) .ah71 .abwow{display:block;position:absolute;left:0;top:0;z-index:-1;pointer-events:none}
+#site[data-ver="3"]:is([data-abx="l3"],[data-abx="l4"],[data-abx="l5"]) .ah71 .aur4{opacity:.45}
+#site[data-ver="3"][data-abx="l3"] .ah71 .stage,#site[data-ver="3"][data-abx="l4"] .ah71 .stage{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+#site[data-ver="3"]:is([data-abx="l1"],[data-abx="l2"],[data-abx="l3"],[data-abx="l4"],[data-abx="l5"]) .ah71 .abhint4{display:block;position:absolute;top:calc(var(--barh,66px) + clamp(24px,5vh,48px));right:var(--G,72px);margin:0;max-width:44%;text-align:right;font:600 11px/1.5 var(--fb);letter-spacing:.2em;text-transform:uppercase;color:#fefdf6;text-shadow:0 1px 3px rgba(3,20,26,.9);pointer-events:none}
+@media (max-width:760px){#site[data-ver="3"]:is([data-abx="l1"],[data-abx="l2"],[data-abx="l3"],[data-abx="l4"],[data-abx="l5"]) .ah71 .abwow{opacity:.6}#site[data-ver="3"]:is([data-abx="l1"],[data-abx="l2"],[data-abx="l3"],[data-abx="l4"],[data-abx="l5"]) .ah71 .abhint4{top:calc(var(--barh,60px) + 14px);right:16px;max-width:60%;font-size:10px;letter-spacing:.14em}}
+@media (prefers-reduced-motion:reduce){#site .ah71 .abhint4{display:none!important}}
