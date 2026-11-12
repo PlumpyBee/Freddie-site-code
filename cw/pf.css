@@ -544,3 +544,42 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 #site[data-ver="3"][data-hc="18"] .hero{overflow:hidden}
 @media (min-width:1000px){#site[data-ver="3"][data-hc="20"] .hero .hh{display:flex!important;flex-direction:column;align-items:flex-start!important;text-align:left}#site[data-ver="3"][data-hc="20"] .hero .hh .tg{margin-left:0!important;margin-right:auto!important;align-self:flex-start}}
 @media (max-width:760px){#site[data-ver="3"][data-hc="18"] .hero .hr{justify-items:center;text-align:center}#site[data-ver="3"][data-hc="18"] .hero .hr .lead{text-align:center}}
+
+/* ===== 19 variations (22–25): night sky, no card ===== */
+#site .hero .hr .hdv,#site .hero .hss,#site .hero .hr .lk2{display:none}
+#site .hero .hr .ctas{display:contents}
+#site[data-ver="3"]:is([data-hc="22"],[data-hc="23"],[data-hc="24"],[data-hc="25"]) .hero .hr{background:none!important;border:0!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;padding:0!important;max-width:none!important;border-radius:0!important;gap:26px!important}
+#site[data-ver="3"]:is([data-hc="22"],[data-hc="23"],[data-hc="24"],[data-hc="25"]) .hero .hr::after{display:none!important}
+#site[data-ver="3"]:is([data-hc="22"],[data-hc="23"],[data-hc="24"],[data-hc="25"]) .hero .hfx{transform:translateY(clamp(150px,30vh,320px))}
+#site[data-ver="3"]:is([data-hc="22"],[data-hc="23"],[data-hc="24"],[data-hc="25"]) .hero .hr .lead{color:#fefdf6!important;font-weight:500;font-size:clamp(16px,1.25vw,19px)!important;line-height:1.6!important;max-width:46ch;margin:0 auto!important;text-shadow:0 1px 2px rgba(3,20,26,.9),0 0 24px rgba(3,20,26,.85)!important}
+/* pills (22, 23, 25) */
+#site[data-ver="3"]:is([data-hc="22"],[data-hc="23"],[data-hc="25"]) .hero .hr .lk{display:inline-flex!important;align-items:center;gap:10px;min-height:46px;box-sizing:border-box;padding:0 24px!important;border:1px solid rgba(127,243,228,.55)!important;border-radius:99px;color:#c8fff6!important;text-decoration:none!important;background:rgba(3,20,26,.55)!important;text-shadow:none!important;transition:background .25s,color .25s}
+#site[data-ver="3"]:is([data-hc="22"],[data-hc="23"],[data-hc="25"]) .hero .hr .lk::after{display:none!important}
+#site[data-ver="3"]:is([data-hc="22"],[data-hc="23"],[data-hc="25"]) .hero .hr .lk:is(:hover,:focus-visible){background:#7ff3e4!important;color:#03141a!important;border-bottom-width:1px!important}
+
+/* 22 · two buttons */
+#site[data-ver="3"][data-hc="22"] .hero .hr .ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+#site[data-ver="3"][data-hc="22"] .hero .hr .lk2{display:inline-flex;align-items:center;gap:10px;min-height:46px;box-sizing:border-box;padding:0 26px;border-radius:99px;background:#7ff3e4;color:#03141a;font:600 13px/1 var(--fb);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;text-decoration:none;box-shadow:0 10px 30px -10px rgba(127,243,228,.6);transition:background .25s,transform .25s}
+#site[data-ver="3"][data-hc="22"] .hero .hr .lk2:is(:hover,:focus-visible){background:#fefdf6;transform:translateY(-2px)}
+#site[data-ver="3"][data-hc="22"] .hero .hr .lk2 i{font-style:normal}
+
+/* 23 · statement: bigger, lighter, two coloured words */
+#site[data-ver="3"][data-hc="23"] .hero .hr .lead{font-weight:300!important;font-size:clamp(19px,1.75vw,26px)!important;line-height:1.45!important;max-width:34ch}
+#site[data-ver="3"][data-hc="23"] .hero .hr .lead .c1{color:#7ff3e4;font-weight:500}
+#site[data-ver="3"][data-hc="23"] .hero .hr .lead .c2{color:#ffd29a;font-weight:500}
+
+/* 24 · star divider + quiet text link */
+#site[data-ver="3"][data-hc="24"] .hero .hr{gap:20px!important}
+#site[data-ver="3"][data-hc="24"] .hero .hr .hdv{display:flex;align-items:center;justify-content:center;gap:12px;color:#ffd29a}
+#site[data-ver="3"][data-hc="24"] .hero .hr .hdv i{display:block;width:clamp(40px,6vw,80px);height:1px;background:linear-gradient(90deg,rgba(127,243,228,0),rgba(127,243,228,.7))}
+#site[data-ver="3"][data-hc="24"] .hero .hr .hdv i:last-child{background:linear-gradient(90deg,rgba(255,185,160,.7),rgba(255,185,160,0))}
+#site[data-ver="3"][data-hc="24"] .hero .hr .hdv svg{filter:drop-shadow(0 0 6px rgba(255,210,154,.8))}
+#site[data-ver="3"][data-hc="24"] .hero .hr .lk{color:#7ff3e4!important;text-shadow:0 1px 2px rgba(3,20,26,.9)!important;background:none!important;min-height:44px;display:inline-flex!important;align-items:center}
+
+/* 25 · an occasional shooting star above the intro */
+#site[data-ver="3"][data-hc="25"] .hero .hss{display:block;position:absolute;left:0;right:0;top:0;bottom:0;pointer-events:none;z-index:1;overflow:hidden}
+#site[data-ver="3"][data-hc="25"] .hero .hss i{position:absolute;top:30%;left:58%;width:200px;height:2px;border-radius:2px;background:linear-gradient(90deg,rgba(127,243,228,0),rgba(200,185,255,.6) 70%,#fff);transform:rotate(-14deg);opacity:0;animation:hss 9s ease-in 2s infinite}
+#site[data-ver="3"][data-hc="25"] .hero .hss i::after{content:"";position:absolute;right:-4px;top:-4px;width:10px;height:10px;border-radius:50%;background:radial-gradient(circle,#fff 0,rgba(255,241,234,.7) 35%,rgba(255,185,160,0) 70%)}
+@keyframes hss{0%{transform:translate(0,0) rotate(-14deg);opacity:0}2%{opacity:1}11%{transform:translate(min(26vw,380px),max(-6.5vw,-95px)) rotate(-14deg);opacity:0}100%{opacity:0;transform:translate(min(26vw,380px),max(-6.5vw,-95px)) rotate(-14deg)}}
+@media (max-width:760px){#site[data-ver="3"][data-hc="25"] .hero .hss i{top:24%;left:40%;width:120px}}
+@media (prefers-reduced-motion:reduce){#site[data-ver="3"][data-hc="25"] .hero .hss{display:none}}
