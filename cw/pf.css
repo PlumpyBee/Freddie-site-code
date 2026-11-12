@@ -615,3 +615,7 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 /* quiet underlined link for 26, 29, 30 (same as 24) */
 #site[data-ver="3"]:is([data-hc="26"],[data-hc="29"],[data-hc="30"]) .hero .hr .lk{color:#fefdf6!important;border-bottom:2px solid #7ff3e4!important;padding:0 2px!important;text-shadow:0 1px 2px rgba(3,20,26,.9)!important;background:none!important;min-height:44px;display:inline-flex!important;align-items:center}
 #site[data-ver="3"]:is([data-hc="26"],[data-hc="29"],[data-hc="30"]) .hero .hr .lk:is(:hover,:focus-visible){color:#7ff3e4!important}
+#site[data-ver="3"]:is([data-hc="26"],[data-hc="27"]) .hero .hr .lead :is(.c3,.c4){font-weight:inherit}
+#site[data-ver="3"][data-hc="27"] .hero .hr .lead .c1{background:linear-gradient(180deg,transparent 52%,rgba(127,243,228,.6) 52%,rgba(127,243,228,.6) 92%,transparent 92%)}
+#site[data-ver="3"][data-hc="27"] .hero .hr .lead .c2{background:linear-gradient(180deg,transparent 52%,rgba(255,210,154,.6) 52%,rgba(255,210,154,.6) 92%,transparent 92%)}
+#site[data-ver="3"][data-hc="29"] .hero .hh .tg{display:none!important}
