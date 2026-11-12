@@ -634,3 +634,4 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 @media (prefers-reduced-motion:reduce){#site[data-ver="3"][data-hc="32"] .pf-hx .pf-scroll i{animation:none!important}}
 #site[data-ver="3"][data-hc="32"] .pf-hx{position:fixed!important;bottom:max(20px,env(safe-area-inset-bottom,0px))!important;transition:opacity .35s,visibility .35s}
 #site[data-ver="3"][data-hc="32"][data-scrolled] .pf-hx{opacity:0;visibility:hidden}
+#site[data-ver="3"][data-hc="32"] .pf-hx{position:absolute!important;top:var(--cueY,auto)!important;bottom:auto!important}
