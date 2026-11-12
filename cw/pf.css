@@ -739,3 +739,8 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 #site[data-ver="3"][data-hc="38"] .pf-hx .pf-scroll{border:1.5px solid transparent!important;background:linear-gradient(rgba(3,20,26,.75),rgba(3,20,26,.75)) padding-box,conic-gradient(from var(--hcang,0deg),#7ff3e4 0 25%,rgba(127,243,228,.2) 25% 100%) border-box!important;animation:hcspin 2.4s linear infinite}
 @media (prefers-reduced-motion:reduce){#site[data-ver="3"]:is([data-hc="38"],[data-hc="41"]) .pf-hx .pf-scroll{animation:none}}
 #site[data-ver="3"]:is([data-hc="38"],[data-hc="41"]) .pf-hx .pf-scroll{border-width:2px!important}
+/* 40 · no dark backdrop; dots in the shimmer colours */
+#site[data-ver="3"][data-hc="40"] .pf-hx .pf-scroll::before{display:none!important}
+#site[data-ver="3"][data-hc="40"] .pf-hx .pf-scroll i{background:#7ff3e4!important;box-shadow:0 0 6px 1px rgba(127,243,228,.95),0 0 14px 3px rgba(127,243,228,.45)!important}
+#site[data-ver="3"][data-hc="40"] .pf-hx .pf-scroll i::before{background:#c8b9ff!important;box-shadow:0 0 6px 1px rgba(200,185,255,.95),0 0 14px 3px rgba(200,185,255,.45)!important}
+#site[data-ver="3"][data-hc="40"] .pf-hx .pf-scroll i::after{background:#ffb9a0!important;box-shadow:0 0 6px 1px rgba(255,185,160,.95),0 0 14px 3px rgba(255,185,160,.45)!important}
