@@ -970,3 +970,6 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 @media (prefers-reduced-motion:reduce){#site .ah71 .abhint5{display:none!important}}
 
 #site[data-ver="3"][data-abx="m11"] .ah71 .abhint5{display:none!important}
+
+/* ===== phones: no interactive About backgrounds (accessibility + battery) ===== */
+@media (max-width:760px){#site .ah71 :is(.abins,.abgl,.abwow,.abdeep,.abcz,.abfun,.abhint,.abhint2,.abhint3,.abhint4,.abhint5){display:none!important}#site[data-ver="3"] .ah71 .aur4{opacity:1!important}#site[data-ver="3"] .ah71 .stage{cursor:auto!important;-webkit-user-select:auto!important;user-select:auto!important}}
