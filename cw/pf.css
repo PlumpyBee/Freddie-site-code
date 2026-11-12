@@ -722,3 +722,14 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 #site[data-ver="3"][data-hc="41"] .pf-hx .pf-scroll::after{display:block!important;content:"Scroll"!important;position:static;font:600 12px/1 var(--fb);letter-spacing:.22em;text-transform:uppercase;color:#fefdf6;order:-1}
 #site[data-ver="3"][data-hc="41"] .pf-hx .pf-scroll i{width:8px!important;height:8px!important;border-right:2px solid #7ff3e4!important;border-bottom:2px solid #7ff3e4!important;transform:translateY(-2px) rotate(45deg)!important;animation:pfbob 2.2s ease-in-out infinite!important}
 @media (prefers-reduced-motion:reduce){#site[data-ver="3"]:is([data-hc="37"],[data-hc="38"],[data-hc="39"],[data-hc="40"],[data-hc="41"]) .pf-hx .pf-scroll :is(i,i::before,i::after),#site[data-ver="3"]:is([data-hc="38"],[data-hc="41"]) .pf-hx .pf-scroll::before{animation:none!important;opacity:1}}
+#site[data-ver="3"]:is([data-hc="38"],[data-hc="41"]) .pf-hx .pf-scroll::before{z-index:1!important}
+#site[data-ver="3"]:is([data-hc="38"],[data-hc="41"]) .pf-hx .pf-scroll{isolation:isolate}
+#site[data-ver="3"][data-hc="37"] .pf-hx .pf-scroll i,#site[data-ver="3"][data-hc="37"] .pf-hx .pf-scroll i::before,#site[data-ver="3"][data-hc="37"] .pf-hx .pf-scroll i::after{width:13px!important;height:13px!important}
+#site[data-ver="3"][data-hc="37"] .pf-hx .pf-scroll i{margin-top:-22px!important}
+#site[data-ver="3"][data-hc="37"] .pf-hx .pf-scroll i::before{left:9px!important;top:9px!important}
+#site[data-ver="3"][data-hc="37"] .pf-hx .pf-scroll i::after{left:18px!important;top:18px!important}
+#site[data-ver="3"][data-hc="40"] .pf-hx .pf-scroll i,#site[data-ver="3"][data-hc="40"] .pf-hx .pf-scroll i::before,#site[data-ver="3"][data-hc="40"] .pf-hx .pf-scroll i::after{width:7px!important;height:7px!important}
+#site[data-ver="3"][data-hc="40"] .pf-hx .pf-scroll i::before{top:15px!important}
+#site[data-ver="3"][data-hc="40"] .pf-hx .pf-scroll i::after{top:30px!important}
+@keyframes pftw{0%,100%{opacity:.25;transform:scale(.8)}35%{opacity:1;transform:scale(1.3)}}
+#site[data-ver="3"][data-uc="b"] .hero .hr .lead .c1{background:linear-gradient(180deg,#ffffff 0%,#7ff3e4 65%)}
