@@ -632,3 +632,5 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 #site[data-ver="3"][data-hc="32"] .pf-hx .pf-scroll:is(:hover,:focus-visible) i{border-color:#03141a!important}
 @keyframes pfbob{0%,100%{transform:translateY(-3px) rotate(45deg)}50%{transform:translateY(2px) rotate(45deg)}}
 @media (prefers-reduced-motion:reduce){#site[data-ver="3"][data-hc="32"] .pf-hx .pf-scroll i{animation:none!important}}
+#site[data-ver="3"][data-hc="32"] .pf-hx{position:fixed!important;bottom:max(20px,env(safe-area-inset-bottom,0px))!important;transition:opacity .35s,visibility .35s}
+#site[data-ver="3"][data-hc="32"][data-scrolled] .pf-hx{opacity:0;visibility:hidden}
