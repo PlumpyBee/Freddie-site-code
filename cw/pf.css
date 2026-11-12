@@ -496,3 +496,46 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 /* Phone aurora: curtains are sized in % of the screen, so on a tall narrow screen they become thin blobs
    that drift apart. Widen and flatten them, keep them still sideways, and soften so they merge into one glow. */
 @media (max-width:760px){#site [data-pg=home] .hero .hfx .pf{scale:1.9 .85;--tx:0px!important;--ty:0px!important;filter:blur(12px)}}
+
+/* ===== Hero intro, round 3: no card (data-hc 18–21) ===== */
+#site[data-ver="3"]:is([data-hc="18"],[data-hc="19"],[data-hc="20"],[data-hc="21"]) .hero .hr{background:none!important;border:0!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;padding:0!important;max-width:none!important;border-radius:0!important}
+#site[data-ver="3"]:is([data-hc="18"],[data-hc="19"],[data-hc="20"],[data-hc="21"]) .hero .hr::after{display:none!important}
+#site[data-ver="3"]:is([data-hc="18"],[data-hc="19"],[data-hc="20"],[data-hc="21"]) .hero .hr .lead{color:#fefdf6!important;font-weight:500;font-size:clamp(16px,1.25vw,19px)!important;line-height:1.6!important;max-width:46ch;margin:0 auto!important;text-shadow:0 1px 2px rgba(3,20,26,.9),0 0 24px rgba(3,20,26,.85)!important}
+/* shared pill link */
+#site[data-ver="3"]:is([data-hc="18"],[data-hc="19"],[data-hc="20"],[data-hc="21"]) .hero .hr .lk{display:inline-flex!important;align-items:center;gap:10px;min-height:44px;box-sizing:border-box;padding:0 24px!important;border:1px solid rgba(127,243,228,.55)!important;border-radius:99px;color:#c8fff6!important;text-decoration:none!important;background:rgba(3,20,26,.55)!important;text-shadow:none!important;transition:background .25s,color .25s}
+#site[data-ver="3"]:is([data-hc="18"],[data-hc="19"],[data-hc="20"],[data-hc="21"]) .hero .hr .lk::after{display:none!important}
+#site[data-ver="3"]:is([data-hc="18"],[data-hc="19"],[data-hc="20"],[data-hc="21"]) .hero .hr .lk:is(:hover,:focus-visible){background:#7ff3e4!important;color:#03141a!important;border-bottom-width:1px!important}
+/* aurora lowered so the intro sits on clear sky (19, 20, 21) — the About page approach */
+#site[data-ver="3"]:is([data-hc="19"],[data-hc="20"],[data-hc="21"]) .hero .hfx{transform:translateY(clamp(110px,22vh,240px))}
+
+/* 18 · Horizon: the intro sits on the dark ground under a glowing horizon line */
+#site[data-ver="3"][data-hc="18"] .hero{justify-content:flex-start!important}
+#site[data-ver="3"][data-hc="18"] .hero .hh{margin-top:auto}
+#site[data-ver="3"][data-hc="18"] .hero .hr{margin-top:auto!important;align-self:stretch;width:100vw!important;margin-inline:calc(50% - 50vw)!important;margin-bottom:calc(-1*clamp(20px,4vh,48px))!important;display:grid!important;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:20px 56px!important;text-align:left;box-sizing:border-box;padding:clamp(26px,3.6vh,40px) max(var(--G,clamp(20px,5vw,72px)),calc((100vw - 1200px)/2))!important;background:linear-gradient(180deg,rgba(3,20,26,.9),#03141a 55%)!important}
+#site[data-ver="3"][data-hc="18"] .hero .hr::before{content:"";position:absolute;left:0;right:0;top:-1px;height:2px;background:linear-gradient(90deg,rgba(127,243,228,0),#7ff3e4 15%,#c8b9ff 45%,#ffb9a0 70%,#ffd29a 88%,rgba(255,210,154,0));box-shadow:0 0 22px 3px rgba(127,243,228,.35);pointer-events:none}
+#site[data-ver="3"][data-hc="18"] .hero .hr .lead{margin:0!important;max-width:60ch;text-shadow:none!important}
+@media (max-width:760px){#site[data-ver="3"][data-hc="18"] .hero .hr{grid-template-columns:minmax(0,1fr);justify-items:start}}
+
+/* 19 · Night sky: no box, text on clear sky, aurora below */
+#site[data-ver="3"][data-hc="19"] .hero .hr{gap:26px!important}
+
+/* 20 · Side by side: heading left, intro right with a colour line */
+@media (min-width:1000px){
+#site[data-ver="3"][data-hc="20"] .hero{display:grid!important;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);align-items:end;justify-items:start;column-gap:clamp(40px,5vw,90px);text-align:left;padding-inline:max(var(--G,72px),calc((100vw - 1240px)/2))!important}
+#site[data-ver="3"][data-hc="20"] .hero .hh{grid-column:1;justify-self:start}
+#site[data-ver="3"][data-hc="20"] .hero .hr{grid-column:2;margin:0 0 clamp(8px,2vh,24px)!important;align-items:flex-start!important;text-align:left;gap:24px!important;padding-left:26px!important;position:relative}
+#site[data-ver="3"][data-hc="20"] .hero .hr::before{content:"";position:absolute;left:0;top:4px;bottom:4px;width:2px;border-radius:2px;background:linear-gradient(180deg,#7ff3e4,#c8b9ff 50%,#ffb9a0)}
+#site[data-ver="3"][data-hc="20"] .hero .hr .lead{margin:0!important}
+}
+
+/* 21 · Project dock: short intro, then the three projects as colour-edge tiles */
+#site[data-ver="3"][data-hc="21"] .pf-hx{display:flex!important;position:relative!important;left:auto!important;right:auto!important;bottom:auto!important;margin-top:clamp(18px,3vh,30px)!important;width:100%;justify-content:center}
+#site[data-ver="3"][data-hc="21"] .pf-hx>*{display:none!important}
+#site[data-ver="3"][data-hc="21"] .pf-hx .pf-dock{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;width:min(860px,100%);border:0!important}
+#site[data-ver="3"][data-hc="21"] .pf-dock a{display:grid!important;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:12px;padding:16px 18px!important;border:1px solid rgba(150,240,255,.16)!important;border-top:3px solid var(--c)!important;border-radius:16px;background:rgba(6,28,36,.9)!important;box-shadow:0 20px 40px -24px rgba(0,0,0,.8);min-height:44px;transition:transform .25s,background .25s}
+#site[data-ver="3"][data-hc="21"] .pf-dock a::before{display:none!important}
+#site[data-ver="3"][data-hc="21"] .pf-dock a:is(:hover,:focus-visible){transform:translateY(-3px);background:rgba(10,40,48,.95)!important}
+#site[data-ver="3"][data-hc="21"] .pf-dock b{font:600 11px/1 var(--fb);letter-spacing:.16em;color:var(--c)}
+#site[data-ver="3"][data-hc="21"] .pf-dock span{font:400 clamp(15px,1.3vw,19px)/1.15 var(--fd);text-transform:uppercase;color:#fefdf6}
+@media (max-width:760px){#site[data-ver="3"][data-hc="21"] .pf-hx .pf-dock{grid-template-columns:minmax(0,1fr);gap:10px}}
+@media (prefers-reduced-motion:reduce){#site[data-ver="3"][data-hc="21"] .pf-dock a{transition:none}}
