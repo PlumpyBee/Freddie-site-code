@@ -1037,3 +1037,9 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 #site .cs-phase+.cs-phase{padding-top:clamp(150px,14vw,210px)}
 #site .cs-prob{margin-top:clamp(128px,11vw,160px)}
 @media (max-width:760px){#site .cs-phase+.cs-phase{padding-top:104px}#site .cs-prob{margin-top:88px}}
+
+/* ===== spacing audit pass 2 ===== */
+#site .cs-step{margin-top:clamp(64px,7vw,104px)}
+#site .cs-prob+.cs-step{margin-top:clamp(112px,10vw,144px)}
+#site .nt .kk{margin-bottom:18px}
+@media (max-width:760px){#site .cs-step{margin-top:72px}#site .cs-prob+.cs-step{margin-top:96px}}
