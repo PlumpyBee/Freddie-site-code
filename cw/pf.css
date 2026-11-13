@@ -1032,3 +1032,8 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 #site[data-ver][data-hc][data-pb="u"] .hero .hr .lk2{border-radius:12px!important}
 #site[data-ver][data-hc]:is([data-pb="q"],[data-pb="r"]) :is(.hero .ctas .lk,.ah71 .cta .bt):is(:hover,:focus-visible){background:#fefdf6!important;color:#03141a!important;border-color:#fefdf6!important}
 #site[data-ver][data-hc]:is([data-pb="s"],[data-pb="t"],[data-pb="u"]) :is(.hero .ctas .lk,.ah71 .cta .bt):is(:hover,:focus-visible){background:#7ff3e4!important;color:#03141a!important}
+
+/* ===== case studies: clearer chapter breaks + room around key statements ===== */
+#site .cs-phase+.cs-phase{padding-top:clamp(150px,14vw,210px)}
+#site .cs-prob{margin-top:clamp(128px,11vw,160px)}
+@media (max-width:760px){#site .cs-phase+.cs-phase{padding-top:104px}#site .cs-prob{margin-top:88px}}
