@@ -70,7 +70,6 @@ balance=f'''<div class="pg cs" data-pg="balance">
 {step('User Interviews','We interviewed 6 users to understand the problem users are facing.',quotes(['I find meditation difficult','I like the guided sessions','I like to measure consistency with streaks','I feel tracking makes me anxious',"I'm skeptical about using bioinformatics","I can see the benefits (bioinformatics), but I'm not tempted",'I would be curious to learn more about myself (using bioinformatics)'],'Interview insights'))}
 {step('Persona','Created a persona “Penny” based off insights from research and interviews.',fig('penny','Persona Penny','Meet Penny'))}
 {prob('Penny wants to make meditation a habit to experience the benefits of a consistent practice, but finds it hard to commit.')}
-{step('How might we…','Brainstormed some HMW’s to give ideas on how to help Penny.')}
 </section>
 <section class="cs-phase" style="--k:2">{phase('03','Develop','develop')}
 {step('Design Studio',"We got together and did a design studio bringing our ideas to light on how we each would solve Penny's problem. Voting on our favourite ideas which we would bring forward to the next stage of the process creating the low-fidelity prototype.")}
