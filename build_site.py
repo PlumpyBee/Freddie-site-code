@@ -45,7 +45,7 @@ def page(path, title, desc, body, extra_script=''):
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..700;1,400&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 <style>html,body{{margin:0;background:#03141a;color:#fefdf6;font-family:Montserrat,system-ui,sans-serif}}
-html.na-on body>*:not(#na-host):not(script){{display:none!important}}
+html.na-on body>*:not(#na-host):not(script):not(canvas){{display:none!important}}
 .fb{{max-width:760px;margin:0 auto;padding:32px max(20px,env(safe-area-inset-left,0px));line-height:1.6}}
 .fb nav ul{{display:flex;flex-wrap:wrap;gap:8px 20px;list-style:none;padding:0}}.fb a{{color:#7ff3e4}}
 .fb h1,.fb h2,.fb h3{{font-family:Oswald,sans-serif;font-weight:400;text-transform:uppercase;line-height:1.1}}.fb img{{max-width:100%;height:auto;border-radius:12px}}</style>
