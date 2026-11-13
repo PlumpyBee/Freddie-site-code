@@ -1052,3 +1052,22 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 
 #site[data-ver="3"]:is([data-abx="m41"],[data-abx="m42"],[data-abx="m45"],[data-abx="m46"]) .ah71 .stage{cursor:crosshair}
 #site[data-ver="3"]:is([data-abx="m45"],[data-abx="m46"]) .ah71 .abins{z-index:-1}#site[data-ver="3"]:is([data-abx="m45"],[data-abx="m46"]) .ah71 .abgl{z-index:-2}
+
+/* ===== recommended system (data-sys="1") — prototype only ===== */
+#site .syslayer,#site .sysintro,#site .syssky,#site .navaur{display:none}
+@media (min-width:761px){
+#site[data-sys="1"] [data-pg=about]{isolation:isolate}
+#site[data-sys="1"] [data-pg=about] .syslayer{display:block;position:absolute;inset:0;z-index:-1;pointer-events:none}
+#site[data-sys="1"] [data-pg=about] .sysstick{position:sticky;top:0;height:100vh}
+#site[data-sys="1"] .ah71 .sysintro{display:block;position:absolute;left:0;top:0;z-index:4;pointer-events:none}
+#site[data-sys="1"] .ah71 .syssky{display:block;position:absolute;left:0;top:0;z-index:-1;pointer-events:none}}
+/* 2. aurora wayfinding in the nav */
+#site[data-sys="1"] header.nav .navaur{display:block;position:absolute;left:0;right:0;bottom:-1px;height:2.5px;box-shadow:0 0 14px color-mix(in srgb,var(--wa2) 70%,transparent);pointer-events:none;background:linear-gradient(90deg,transparent,var(--wa1),var(--wa2),var(--wa3),transparent);background-size:200% 100%;animation:navaur 9s linear infinite;transition:filter .8s}
+#site[data-sys="1"] header.nav .navaur::after{content:"";position:absolute;left:0;right:0;top:-40px;height:42px;background:linear-gradient(180deg,transparent,color-mix(in srgb,var(--wa2) 22%,transparent));filter:blur(10px);opacity:.8}
+@keyframes navaur{to{background-position:200% 0}}
+#site[data-sys="1"]{--wa1:#7ff3e4;--wa2:#c8b9ff;--wa3:#7ff3e4}
+#site[data-sys="1"][data-p="about"]{--wa1:#7ff3e4;--wa2:#ffb9a0;--wa3:#c8b9ff}
+#site[data-sys="1"][data-p="teach"]{--wa1:#ebefa0;--wa2:#ffd29a;--wa3:#9fe6a0}
+#site[data-sys="1"][data-p="alta"]{--wa1:#cfe8c4;--wa2:#f4ead2;--wa3:#9fd8b8}
+#site[data-sys="1"][data-p="balance"]{--wa1:#b9a6ff;--wa2:#8b74ff;--wa3:#e0d6ff}
+@media (prefers-reduced-motion:reduce){#site[data-sys="1"] header.nav .navaur{animation:none}}
