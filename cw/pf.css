@@ -1020,3 +1020,15 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 
 /* ===== spacing: more breathing room between sections on phones ===== */
 @media (max-width:760px){#site .cs-step{margin-top:64px}#site .bdn .nt{padding-top:52px}#site .wk .wp+.wp{margin-top:16px}}
+@media (min-width:761px){#site:is([data-bal="k"],[data-bal="l"],[data-bal="m"],[data-bal="n"]) [data-pg=balance] .balcv{display:block}}
+/* ===== button options q–u ===== */
+#site[data-ver][data-hc][data-pb="q"] :is(.hero .ctas .lk,.ah71 .cta .bt){background:rgba(3,20,26,.74)!important;border:1px solid rgba(200,185,255,.55)!important;box-shadow:none!important;color:#7ff3e4!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+@supports (-webkit-background-clip:text){#site[data-ver][data-hc][data-pb="q"] :is(.hero .ctas .lk,.ah71 .cta .bt) :is(.lkt,span){color:inherit}}
+#site[data-ver][data-hc][data-pb="r"] :is(.hero .ctas .lk,.ah71 .cta .bt){background:rgba(3,20,26,.72)!important;color:#ffcbb8!important;border:1.5px solid #ffb9a0!important;box-shadow:none!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+#site[data-ver][data-hc][data-pb="s"] :is(.hero .ctas .lk,.ah71 .cta .bt){background:linear-gradient(100deg,#a8f5ec 0%,#d6ccff 55%,#ffd2c2 100%)!important;color:#03141a!important;border:0!important;box-shadow:0 6px 24px rgba(127,243,228,.18)!important}
+#site[data-ver][data-hc][data-pb="t"] :is(.hero .ctas .lk,.ah71 .cta .bt){background:#fefdf6!important;color:#03141a!important;border:0!important;box-shadow:none!important}
+#site[data-ver][data-hc][data-pb="t"] :is(.hero .ctas .lk,.ah71 .cta .bt)::before{content:"✦";color:#e9907a;margin-right:2px;font-size:1.05em}
+#site[data-ver][data-hc][data-pb="u"] :is(.hero .ctas .lk,.ah71 .cta .bt){border-radius:12px!important;background:#fefdf6!important;color:#03141a!important;border:0!important;box-shadow:none!important}
+#site[data-ver][data-hc][data-pb="u"] .hero .hr .lk2{border-radius:12px!important}
+#site[data-ver][data-hc]:is([data-pb="q"],[data-pb="r"]) :is(.hero .ctas .lk,.ah71 .cta .bt):is(:hover,:focus-visible){background:#fefdf6!important;color:#03141a!important;border-color:#fefdf6!important}
+#site[data-ver][data-hc]:is([data-pb="s"],[data-pb="t"],[data-pb="u"]) :is(.hero .ctas .lk,.ah71 .cta .bt):is(:hover,:focus-visible){background:#7ff3e4!important;color:#03141a!important}
