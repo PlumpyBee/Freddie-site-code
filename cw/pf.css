@@ -973,3 +973,12 @@ VX .pf-hx{position:relative!important;left:auto!important;right:auto!important;b
 
 /* ===== phones: no interactive About backgrounds (accessibility + battery) ===== */
 @media (max-width:760px){#site .ah71 :is(.abins,.abgl,.abwow,.abdeep,.abcz,.abfun,.abhint,.abhint2,.abhint3,.abhint4,.abhint5){display:none!important}#site[data-ver="3"] .ah71 .aur4{opacity:1!important}#site[data-ver="3"] .ah71 .stage{cursor:auto!important;-webkit-user-select:auto!important;user-select:auto!important}}
+
+/* ===== main button colour options (data-pb) — homepage "About me" + About "See my work" ===== */
+#site[data-ver][data-hc][data-pb="b"] :is(.hero .ctas .lk,.ah71 .cta .bt),#site[data-ver][data-hc][data-pb="f"] :is(.hero .ctas .lk,.ah71 .cta .bt){background:linear-gradient(rgba(255,185,160,.18),rgba(255,185,160,.18)),rgba(3,20,26,.66)!important;color:#fefdf6!important;border:1px solid rgba(255,196,174,.85)!important;box-shadow:none!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+#site[data-ver][data-hc][data-pb="c"] :is(.hero .ctas .lk,.ah71 .cta .bt){background:linear-gradient(rgba(127,243,228,.14),rgba(127,243,228,.14)),rgba(3,20,26,.66)!important;color:#e9fffb!important;border:1px solid rgba(127,243,228,.85)!important;box-shadow:none!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+#site[data-ver][data-hc][data-pb="d"] :is(.hero .ctas .lk,.ah71 .cta .bt){background:#fefdf6!important;color:#03141a!important;border:1px solid #fefdf6!important;box-shadow:none!important}
+#site[data-ver][data-hc][data-pb="e"] :is(.hero .ctas .lk,.ah71 .cta .bt){color:#fefdf6!important;border:1.5px solid transparent!important;background:linear-gradient(rgba(3,20,26,.82),rgba(3,20,26,.82)) padding-box,linear-gradient(100deg,#7ff3e4,#c8b9ff 55%,#ffb9a0) border-box!important;box-shadow:0 0 18px rgba(127,243,228,.12)!important}
+@media (min-width:761px){#site[data-ver][data-hc][data-pb="f"] :is(.hero .ctas .lk,.ah71 .cta .bt){background:#ffb9a0!important;color:#03141a!important;border-color:#ffb9a0!important;backdrop-filter:none}}
+#site[data-ver][data-hc]:is([data-pb="b"],[data-pb="c"],[data-pb="d"],[data-pb="e"],[data-pb="f"]) :is(.hero .ctas .lk,.ah71 .cta .bt):is(:hover,:focus-visible){background:#fefdf6!important;color:#03141a!important;border-color:#fefdf6!important}
+#site[data-ver][data-hc][data-pb="d"] :is(.hero .ctas .lk,.ah71 .cta .bt):is(:hover,:focus-visible){background:#7ff3e4!important;border-color:#7ff3e4!important}
